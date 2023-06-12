@@ -48,7 +48,7 @@
 					<li><a class="nav-link scrollto" href="#">의자/테이블/퍼니처류</a></li>
 					<li><a class="nav-link scrollto" href="#">소품/액세서리</a></li>
 					<li><a class="nav-link scrollto" href="#">코펠/쿨러/식기류</a></li>
-					<li><a class="nav-link scrollto" href="#">캠핑장 추천</a></li>
+					<li><a class="nav-link scrollto" href="campingRecommend.do">캠핑장 추천</a></li>
 				</ul>
 			</nav>
 		</div>

@@ -18,6 +18,7 @@ import co.group.camping.member.command.MemberInsert;
 import co.group.camping.member.command.MemberList;
 import co.group.camping.member.command.MemberLogin;
 import co.group.camping.member.command.MemberLoginForm;
+import co.group.camping.recommend.command.CampingRecommend;
 
 
 
@@ -38,6 +39,7 @@ public class FrontController extends HttpServlet {
     	map.put("/memberLogin.do", new MemberLogin());
     	map.put("/memberLoginForm.do", new MemberLoginForm());
     	map.put("/ajaxCheckId.do", new AjaxCheckId());
+    	map.put("/campingRecommend.do", new CampingRecommend());
     }
 	
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
