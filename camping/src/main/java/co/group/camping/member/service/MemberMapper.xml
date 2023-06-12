@@ -10,12 +10,14 @@
 	</select>
 	<insert id="memberInsert">
 		INSERT INTO MEMBER
-		VALUES(#{memberId},#{memberPassword},#{memberName},#{memberAge},#{memberTel},#{memberGender})
+		VALUES(#{memberId},#{memberPw},#{memberName},'N',#{memberAddr},#{memberTel})
 	</insert>
 	<update id="memberUpdate"></update>
+	
 	<delete id="memberDelete"></delete>
+	
 	<select id="memberLogin" resultType="co.group.camping.member.service.MemberVO">
 		SELECT * FROM MEMBER
-		WHERE MEMBER_ID = #{memberId} AND MEMBER_PASSWORD = #{memberPassword}
+		WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw}
 	</select>
 </mapper>

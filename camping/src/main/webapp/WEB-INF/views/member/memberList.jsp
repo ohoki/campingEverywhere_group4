@@ -16,9 +16,9 @@
 				<tr>
 					<th width="150">아이디</th>
 					<th width="150">이름</th>
-					<th width="150">나이</th>
+					<th width="150">등급</th>
+					<th width="150">주소</th>
 					<th width="150">전화번호</th>
-					<th width="150">성별</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,9 +26,9 @@
 					<tr>
 						<td align="center">${m.memberId }</td>
 						<td align="center">${m.memberName }</td>
-						<td align="center">${m.memberAge }</td>
+						<td align="center">${m.memberAuth }</td>
+						<td align="center">${m.memberAddr }</td>
 						<td align="center">${m.memberTel }</td>
-						<td align="center">${m.memberGender }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

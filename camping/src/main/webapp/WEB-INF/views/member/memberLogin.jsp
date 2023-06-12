@@ -22,7 +22,8 @@
 					<tr>
 						<th>패스워드</th>
 						<td>
-							<input type="password" id="memberPassword" name="memberPassword" required="required">						</td>
+							<input type="password" id="memberPw" name="memberPw" required="required">
+						</td>
 					</tr>
 				</table>
 			</div><br>
