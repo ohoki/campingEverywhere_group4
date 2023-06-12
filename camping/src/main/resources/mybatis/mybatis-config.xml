@@ -22,6 +22,6 @@
 	</environments>
 	<!-- sql mapper를 등록하는 곳 -->
 	<mappers>
-		<package name="co.group.camping.controller"/>
+		<package name="co.group.camping.member"/>
 	</mappers>
 </configuration>

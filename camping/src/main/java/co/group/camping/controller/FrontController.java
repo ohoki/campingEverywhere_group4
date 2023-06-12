@@ -15,6 +15,7 @@ import co.group.camping.common.Command;
 import co.group.camping.main.command.MainCommand;
 import co.group.camping.member.command.AjaxCheckId;
 import co.group.camping.member.command.MemberInsert;
+import co.group.camping.member.command.MemberJoin;
 import co.group.camping.member.command.MemberList;
 import co.group.camping.member.command.MemberLogin;
 import co.group.camping.member.command.MemberLoginForm;
@@ -29,13 +30,13 @@ public class FrontController extends HttpServlet {
    
     public FrontController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     public void init(ServletConfig config) throws ServletException{
     	map.put("/main.do", new MainCommand());
     	map.put("/memberList.do", new MemberList());
     	map.put("/memberInsert.do", new MemberInsert());
+    	map.put("/memberJoin.do", new MemberJoin()); // 회원가입 화면
     	map.put("/memberLogin.do", new MemberLogin());
     	map.put("/memberLoginForm.do", new MemberLoginForm());
     	map.put("/ajaxCheckId.do", new AjaxCheckId());

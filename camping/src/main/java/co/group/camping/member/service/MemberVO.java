@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class MemberVO {
 	private String memberId;
-	private String memberPassword;
+	private String memberPw;
 	private String memberName;
-	private int memberAge;
+	private String memberAuth;
+	private String memberAddr;
 	private String memberTel;
-	private String memberGender;
 }

@@ -19,7 +19,7 @@ public class MemberLogin implements Command {
 		HttpSession session = request.getSession();
 		
 		vo.setMemberId(request.getParameter("memberId"));
-		vo.setMemberPassword(request.getParameter("memberPassword"));
+		vo.setMemberPw(request.getParameter("memberPw"));
 		
 		vo = ms.memberLogin(vo);
 		if(vo != null) {

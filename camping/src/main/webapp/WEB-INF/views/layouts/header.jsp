@@ -21,8 +21,8 @@
 	
 		<nav id="navbar" class="navbar">
 			<ul>
-			  <li><a class="small nav-link scrollto" href="#">로그인</a></li>
-			  <li><a class="small nav-link scrollto" href="#">회원가입</a></li>
+			  <li><a class="small nav-link scrollto" href="memberLoginForm.do">로그인</a></li>
+			  <li><a class="small nav-link scrollto" href="memberJoin.do">회원가입</a></li>
 			  <li><a class="small nav-link scrollto" href="#">장바구니</a></li>
 			  <li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
 			  <li><a class="small nav-link scrollto" href="#">주문/배송조회</a></li>
