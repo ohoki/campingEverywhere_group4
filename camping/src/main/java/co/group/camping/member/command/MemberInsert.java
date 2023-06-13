@@ -25,7 +25,7 @@ public class MemberInsert implements Command {
 		int n = ms.memberInsert(vo);
 		
 		if(n != 0)
-			request.setAttribute("message", "회원가입이 정상적으로 처리되었습니다.");
+			return "member/insertSeccess";
 		else
 			request.setAttribute("message", "회원가입이 실패했습니다. 다시가입하라");
 		return "member/memberMessage";
