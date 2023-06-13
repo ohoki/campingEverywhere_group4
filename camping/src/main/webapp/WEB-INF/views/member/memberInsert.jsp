@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 <div align="center">
 	<div> 
 	</div>
 	<div><h1>회 원 가 입</h1></div>
+	<br>
 	<div>
 		<form id="frm" action="memberInsert.do" onsubmit="return formCheck()" method="get">
 			<div>
@@ -25,13 +27,13 @@
 					<tr>
 						<th>*패스워드</th>
 						<td>
-							<input type="password" id="memberPassword" name="memberPassword">
+							<input type="password" id="memberPw" name="memberPw" required="required">
 						</td>
 					</tr>	
 					<tr>
 						<th>*패스워드확인</th>
 						<td>
-							<input type="password" id="passwordcheck" name="passwordcheck">
+							<input type="password" id="pwCheck" name="pwCheck" required="required">
 						</td>
 					</tr>	
 					<tr>
@@ -41,23 +43,21 @@
 						</td>
 					</tr>	
 					<tr>
-						<th>나 이</th>
+					<tr>
+						<th>*주소</th>
 						<td>
-							<input type="text" id="memberAge" name="memberAge">
+							<input type="tel" id="memberAddr" name="memberAddr" required="required">
 						</td>
 					</tr>
 					<tr>
 						<th>*전화번호</th>
 						<td>
-							<input type="tel" id="memberTel" name="memberTel" required="required">
+							<input type="text" id="memberTender" name="memberTender" required="required">
 						</td>
 					</tr>
 					<tr>
-						<th>*성 별</th>
-						<td>
-							<input type="text" id="memberGender" name="memberGender" required="required">
-						</td>
-					</tr>				
+						<th>
+					</tr>
 				</table>
 			</div><br>
 			<div>
@@ -69,32 +69,31 @@
 	<div>
 	</div>
 </div>
-<script type="text/javascript">
-	function formCheck(){
+ 	<script type="text/javascript">
+ 	function formCheck(){
 		let frm = document.getElementById("frm");
-		if(frm.memberPassword.value != frm.passwordcheck.value){
+		if(frm.memberPw.value != frm.pwCheck.value){
 			alert("패스워드가 일치 하지 않습니다.");
-			frm.memberPassword.value = "";
-			frm.passwordcheck.value = "";
-			frm.memberPassword.focus();
+			frm.memberPw.value = "";
+			frm.pwCheck.value = "";
+			frm.memberPw.focus();
 			return false;
-		}else if(frm.checkId.value != "Yes") {
+		} else if(frm.checkId.value != "Yes") {
 			alert("아이디 중복체크를 수행하세요.");
 			return false;
 		}
-		
 		return true;
-	}
+	} 
 	
-	function idCheck() {
+ 	function idCheck() {
 		let id = document.getElementById("memberId").value;
 		let url = "ajaxCheckId.do?id="+id;
 		fetch(url)  //ajax 호출
 			.then(response => response.text())
 			.then(text => htmlProcess(text));
-	}
+	} 
 	
-	function htmlProcess(data){
+  	function htmlProcess(data){
 		if(data == 'Yes'){
 			alert(document.getElementById("memberId").value + "\n 사용가능한 아이디 입니다.");
 			document.getElementById("checkId").value = 'Yes';

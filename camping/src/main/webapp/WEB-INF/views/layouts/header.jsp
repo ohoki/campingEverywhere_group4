@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +21,15 @@
 			</div>
 	
 		<nav id="navbar" class="navbar">
+			<!-- 로그인 상황이 아닐때 메뉴 -->
 			<ul>
-			  <li><a class="small nav-link scrollto" href="#">로그인</a></li>
-			  <li><a class="small nav-link scrollto" href="#">회원가입</a></li>
+			  <c:if test="${empty id }">
+			  	<li><a class="small nav-link scrollto" href="memberLoginForm.do">로그인</a></li>
+			  	<li><a class="small nav-link scrollto" href="memberJoin.do">회원가입</a></li>
+			  </c:if>
+			  <c:if test="${not empty id }">
+			  	<li><a class="small nav-link scrollto" href="memberLogout.do">로그아웃</a></li>
+			  </c:if>
 			  <li><a class="small nav-link scrollto" href="#">장바구니</a></li>
 			  <li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
 			  <li><a class="small nav-link scrollto" href="#">주문/배송조회</a></li>
@@ -48,8 +55,7 @@
 					<li><a class="nav-link scrollto" href="#">의자/테이블/퍼니처류</a></li>
 					<li><a class="nav-link scrollto" href="#">소품/액세서리</a></li>
 					<li><a class="nav-link scrollto" href="#">코펠/쿨러/식기류</a></li>
-					<li><a class="nav-link scrollto" href="#">캠핑장 추천</a></li>
-					<li><a class="nav-link scrollto" href="boardList.do">구매 후기</a></li>
+					<li><a class="nav-link scrollto" href="campingRecommend.do">캠핑장 추천</a></li>
 				</ul>
 			</nav>
 		</div>

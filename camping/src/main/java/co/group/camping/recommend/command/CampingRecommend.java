@@ -1,16 +1,15 @@
-package co.group.camping.member.command;
+package co.group.camping.recommend.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.group.camping.common.Command;
 
-
-public class MemberLoginForm implements Command {
+public class CampingRecommend implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		return "member/memberLogin";
+		return "campingPlace/campingRecommend";
 	}
 
 }
