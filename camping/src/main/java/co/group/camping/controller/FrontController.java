@@ -19,6 +19,7 @@ import co.group.camping.member.command.MemberJoin;
 import co.group.camping.member.command.MemberList;
 import co.group.camping.member.command.MemberLogin;
 import co.group.camping.member.command.MemberLoginForm;
+import co.group.camping.member.command.MemberLogout;
 import co.group.camping.recommend.command.CampingRecommend;
 
 
@@ -37,8 +38,9 @@ public class FrontController extends HttpServlet {
     	map.put("/memberList.do", new MemberList());
     	map.put("/memberInsert.do", new MemberInsert());
     	map.put("/memberJoin.do", new MemberJoin()); // 회원가입 화면
-    	map.put("/memberLogin.do", new MemberLogin());
-    	map.put("/memberLoginForm.do", new MemberLoginForm());
+    	map.put("/memberLogin.do", new MemberLogin()); 
+    	map.put("/memberLoginForm.do", new MemberLoginForm()); 
+    	map.put("/memberLogout.do", new MemberLogout()); // 로그아웃
     	map.put("/ajaxCheckId.do", new AjaxCheckId());
     	map.put("/campingRecommend.do", new CampingRecommend());
     }
