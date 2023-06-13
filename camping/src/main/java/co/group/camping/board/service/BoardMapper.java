@@ -13,4 +13,3 @@ public interface BoardMapper {
 
 	int boardDelete(BoardVO vo); // 삭제
 }
-

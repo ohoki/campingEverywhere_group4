@@ -21,7 +21,6 @@ public class BoardInsert implements Command {
 		vo.setBoardTitle(request.getParameter("boardTitle"));
 		vo.setBoardSubject(request.getParameter("boardSubject"));
 		vo.setBoardWdate(Date.valueOf(request.getParameter("boardWdate")));
-//		vo.setBoardKate(request.getParameter("boardKate"));
 
 		int result = bs.boardInsert(vo);
 		System.out.println(result);

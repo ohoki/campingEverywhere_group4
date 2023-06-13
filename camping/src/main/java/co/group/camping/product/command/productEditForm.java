@@ -15,10 +15,9 @@ public class productEditForm implements Command {
 		ProductService ps = new ProductServiceImpl();
 		ProductVO product = new ProductVO();
 		product.setProductId(request.getParameter("productId"));
-		product = ps.productselect(product);
-		
+		product = ps.productSelect(product);
+
 		request.setAttribute("product", product);
 		return "product/productEditForm";
 	}
-
 }
