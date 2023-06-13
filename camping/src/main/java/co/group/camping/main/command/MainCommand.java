@@ -10,5 +10,4 @@ public class MainCommand implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		return "main/main";
 	}
-
 }
