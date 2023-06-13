@@ -13,8 +13,10 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver"	value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@192.168.0.35:1521:xe" />
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@192.168.0.35:1521:xe" />
 				<property name="username" value="camping" />
 				<property name="password" value="1234" />
 			</dataSource>
@@ -22,6 +24,6 @@
 	</environments>
 	<!-- sql mapper를 등록하는 곳 -->
 	<mappers>
-		<package name="co.group.camping"/>
+		<package name="co.group.camping" />
 	</mappers>
 </configuration>

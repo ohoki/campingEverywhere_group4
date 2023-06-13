@@ -22,5 +22,4 @@ public class BoardList implements Command {
 		request.setAttribute("boards", boards);
 		return "board/boardList";
 	}
-}	
-				
+}

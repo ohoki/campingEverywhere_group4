@@ -9,7 +9,7 @@ import co.group.camping.common.DataSource;
 public class ProductServiceImpl implements ProductService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private ProductMapper map = sqlSession.getMapper(ProductMapper.class);
-	
+
 	@Override
 	public List<ProductVO> productSelectList() {
 		// TODO Auto-generated method stub
@@ -17,9 +17,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductVO productselect(ProductVO vo) {
+	public ProductVO productSelect(ProductVO vo) {
 		// TODO Auto-generated method stub
-		return map.productselect(vo);
+		return map.productSelect(vo);
 	}
 
 	@Override
@@ -39,5 +39,4 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.productInsert(vo);
 	}
-
 }

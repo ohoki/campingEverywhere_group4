@@ -16,22 +16,19 @@ public class productEdit implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ProductService ps = new ProductServiceImpl();
 		ProductVO product = new ProductVO();
-		System.out.println(request.getParameter("productName"));
-		System.out.println(request.getParameter("productId"));
+
 		product.setProductId(request.getParameter("productId"));
 		product.setProductName(request.getParameter("productName"));
 		product.setProductPrice(Integer.valueOf(request.getParameter("productPrice")));
 		product.setProductKategorie(request.getParameter("productKategorie"));
 		product.setProductDate(Date.valueOf(request.getParameter("productDate")));
-		
-		
+
 		int n = ps.productUpdate(product);
-		if(n != 0) {
+		if (n != 0) {
 			request.setAttribute("message", "수정 완료");
-		}else {
+		} else {
 			request.setAttribute("message", "수정 실패");
-		}	
+		}
 		return "product/productMessage";
 	}
-
 }

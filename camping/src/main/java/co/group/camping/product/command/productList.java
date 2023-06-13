@@ -19,8 +19,7 @@ public class productList implements Command {
 		List<ProductVO> products = new ArrayList<>();
 		products = ps.productSelectList();
 		request.setAttribute("products", products);
-		
+
 		return "product/productList";
 	}
-
 }

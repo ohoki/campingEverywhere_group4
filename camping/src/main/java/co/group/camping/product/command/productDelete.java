@@ -16,12 +16,11 @@ public class productDelete implements Command {
 		ProductVO product = new ProductVO();
 		product.setProductId(request.getParameter("productId"));
 		int n = ps.productDelete(product);
-		if(n != 0) {
+		if (n != 0) {
 			request.setAttribute("message", "정상적으로 삭제되었습니다.");
-		}else {
+		} else {
 			request.setAttribute("message", "삭제가 실패하였습니다.");
 		}
 		return "product/productMessage";
 	}
-
 }
