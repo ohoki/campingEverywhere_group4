@@ -12,8 +12,7 @@ public class MemberLogout implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		request.setAttribute("massage"," 로그아웃 완료 ! ! 메인 화면으로 돌아갑니다.");
+		request.setAttribute("massage", " 로그아웃 완료 ! ! 메인 화면으로 돌아갑니다.");
 		return "main.do";
 	}
-
 }

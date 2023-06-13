@@ -194,6 +194,7 @@
 </style>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3861f788e29343386d218451b11fd8a4&libraries=services">
+	
 </script>
 </head>
 <body>
@@ -205,7 +206,8 @@
 			<div class="option">
 				<div>
 					<form>
-						키워드 : <input type="text" value="" id="keyword" size="15" placeholder="지역 입력 ex) 대구">
+						키워드 : <input type="text" value="" id="keyword" size="15"
+							placeholder="지역 입력 ex) 대구">
 						<button type="submit">검색하기</button>
 					</form>
 				</div>
@@ -249,7 +251,7 @@
 			}
 
 			// 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-			ps.keywordSearch(keyword+'캠핑', placesSearchCB);
+			ps.keywordSearch(keyword + '캠핑', placesSearchCB);
 		}
 
 		// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다

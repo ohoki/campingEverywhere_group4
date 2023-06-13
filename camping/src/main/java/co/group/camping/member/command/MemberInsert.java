@@ -21,10 +21,10 @@ public class MemberInsert implements Command {
 		vo.setMemberAuth(request.getParameter("memberAuth"));
 		vo.setMemberAddr(request.getParameter("memberAddr"));
 		vo.setMemberTel(request.getParameter("memberTel"));
-		
+
 		int n = ms.memberInsert(vo);
-		
-		if(n != 0)
+
+		if (n != 0)
 			return "member/insertSeccess";
 		else
 			request.setAttribute("message", "회원가입이 실패했습니다. 다시가입하라");
