@@ -18,9 +18,9 @@ public class AjaxCheckId implements Command {
 		vo.setMemberId(request.getParameter("id"));
 		vo = ms.memberSelect(vo);
 		String str = "ajax:";
-		
-		if(vo != null)
-			str += "No"; 
+
+		if (vo != null)
+			str += "No";
 		else
 			str += "Yes";
 		return str;

@@ -11,5 +11,4 @@ public class CampingRecommend implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		return "campingPlace/campingRecommend";
 	}
-
 }

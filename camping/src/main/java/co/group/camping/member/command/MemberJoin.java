@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.group.camping.common.Command;
 
-
 public class MemberJoin implements Command {
 
 	@Override
@@ -13,5 +12,4 @@ public class MemberJoin implements Command {
 		// 회원가입 폼을 돌려준다
 		return "member/memberInsert";
 	}
-
 }

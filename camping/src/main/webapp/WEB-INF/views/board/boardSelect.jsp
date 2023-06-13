@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +9,10 @@
 </head>
 <body>
 	<div align="center">
+		<div></div>
 		<div>
+			<h1>게시글 상세보기</h1>
 		</div>
-		<div><h1>게시글 상세보기</h1></div>
 		<div>
 			<table border="1">
 				<tr align="center">
@@ -30,12 +31,12 @@
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td colspan="7">
-						<textarea rows="10" cols="108">${board.boardTitle}</textarea>
+					<td colspan="7"><textarea rows="10" cols="108">${board.boardTitle}</textarea>
 					</td>
 				</tr>
 			</table>
-		</div><br>
+		</div>
+		<br>
 		<div>
 			<c:if test="${name eq board.memberId}">
 				<button type="button" onclick="callFunction('E')">수정하기</button>&nbsp;&nbsp;
@@ -45,16 +46,17 @@
 		</div>
 		<div>
 			<form id="frm" method="post" action="">
-				<input type="hidden" id="boardId" name="boardId" value="${board.boardId}"> 
+				<input type="hidden" id="boardId" name="boardId"
+					value="${board.boardId}">
 			</form>
 		</div>
 	</div>
 	<script type="text/javascript">
 		function callFunction(str) {
 			let frm = document.getElementById("frm");
-			if(str == "E") {
+			if (str == "E") {
 				frm.action = "boardEdit.do"
-			}else if(str == "D") {
+			} else if (str == "D") {
 				frm.action = "boardDelete.do"
 			}
 			frm.submit();

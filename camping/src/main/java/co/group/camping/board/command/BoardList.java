@@ -15,14 +15,12 @@ public class BoardList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		//게시글 목록 보기
-		BoardService bs = new BoardServiceImpl(); 
+		BoardService bs = new BoardServiceImpl();
 		List<BoardVO> boards = new ArrayList<>();
 		boards = bs.boardSelectList();
-		
+
 		request.setAttribute("boards", boards);
 		return "board/boardList";
 	}
-
-}		
+}	
 				

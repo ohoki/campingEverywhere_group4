@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.group.camping.member.service.MemberMapper">
-	<select id="memberSelectList" resultType="co.group.camping.member.service.MemberVO">
+	<select id="memberSelectList"
+		resultType="co.group.camping.member.service.MemberVO">
 		SELECT * FROM MEMBER
 	</select>
-	<select id="memberSelect" resultType="co.group.camping.member.service.MemberVO">
+	<select id="memberSelect"
+		resultType="co.group.camping.member.service.MemberVO">
 		SELECT * FROM MEMBER
 		WHERE MEMBER_ID = #{memberId}
 	</select>
@@ -13,11 +15,13 @@
 		VALUES(#{memberId},#{memberPw},#{memberName},'N',#{memberAddr},#{memberTel})
 	</insert>
 	<update id="memberUpdate"></update>
-	
+
 	<delete id="memberDelete"></delete>
-	
-	<select id="memberLogin" resultType="co.group.camping.member.service.MemberVO">
+
+	<select id="memberLogin"
+		resultType="co.group.camping.member.service.MemberVO">
 		SELECT * FROM MEMBER
-		WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw}
+		WHERE MEMBER_ID = #{memberId} AND
+		MEMBER_PW = #{memberPw}
 	</select>
 </mapper>

@@ -12,14 +12,12 @@ public class BoardSelect implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		//게시글 상세보기
 		BoardService bs = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		vo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
 		vo = bs.boardSelect(vo);
 		request.setAttribute("board", vo);
-		
+
 		return "board/boardSelect";
 	}
-
 }

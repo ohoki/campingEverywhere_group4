@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- ======= Footer ======= -->
+	<!-- ======= Footer ======= -->
 	<section id="contact" class="contact section-bg">
 		<div align="center">
 			<img src="assets/img/favicon.png" alt="로고" width="40px">
@@ -30,7 +30,8 @@
 	</section>
 	<footer id="footer">
 		<div class="container">
-			<div class="copyright">Copyright &copy; GropBy.4 all right resesrved</div>
+			<div class="copyright">Copyright &copy; GropBy.4 all right
+				resesrved</div>
 		</div>
 	</footer>
 </body>

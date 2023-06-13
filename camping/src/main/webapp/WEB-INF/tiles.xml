@@ -3,16 +3,19 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  <definition name="myapp.homepage" template="/WEB-INF/views/layouts/classic.jsp">
-    <put-attribute name="title" value="어디든 내가 가는 곳이 캠핑장이 된다. camping everywhere!!" />
-    <put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp" />
-   <!--  <put-attribute name="menu" value="/tiles/common_menu.jsp" /> -->
-    <put-attribute name="body" value="" />
-    <put-attribute name="footer" value="/WEB-INF/views/layouts/footer.jsp" />
-  </definition>
-  
-  <definition name="WILDCARD:*/*" extends="myapp.homepage">
-  	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
-  	
-  </definition>
+	<definition name="myapp.homepage"
+		template="/WEB-INF/views/layouts/classic.jsp">
+		<put-attribute name="title"
+			value="어디든 내가 가는 곳이 캠핑장이 된다. camping everywhere!!" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/layouts/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/layouts/footer.jsp" />
+	</definition>
+
+	<definition name="WILDCARD:*/*" extends="myapp.homepage">
+		<put-attribute name="body"
+			value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
 </tiles-definitions>

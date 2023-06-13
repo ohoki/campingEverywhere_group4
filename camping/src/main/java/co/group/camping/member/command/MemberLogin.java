@@ -17,20 +17,19 @@ public class MemberLogin implements Command {
 		MemberService ms = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 		HttpSession session = request.getSession();
-		
+
 		vo.setMemberId(request.getParameter("memberId"));
 		vo.setMemberPw(request.getParameter("memberPw"));
-		
+
 		vo = ms.memberLogin(vo);
-		if(vo != null) {
+		if (vo != null) {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
-			
+
 			return "main.do";
-		}else {
+		} else {
 			request.setAttribute("message", "아이디 또는 패스워드가 틀렸습니다.");
 		}
 		return "member/memberMessage";
 	}
-
 }

@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.group.camping.board.service.BoardMapper">
-<select id="boardSelectList" 
+	<select id="boardSelectList"
 		resultType="co.group.camping.board.service.BoardVO">
-		SELECT * FROM board order by board_id 
-		
+		SELECT * FROM board order by board_id
+
 	</select>
-	<select id="boardSelect" 
-		parameterType= "co.group.camping.board.service.BoardVO"
+	<select id="boardSelect"
+		parameterType="co.group.camping.board.service.BoardVO"
 		resultType="co.group.camping.board.service.BoardVO">
-	 	SELECT * FROM board
-	 	WHERE board_id = #{boardId}
+		SELECT * FROM board
+		WHERE board_id = #{boardId}
 	</select>
 	<insert id="boardInsert"
-		parameterType= "co.group.camping.board.service.BoardVO">
+		parameterType="co.group.camping.board.service.BoardVO">
 		INSERT INTO board
-		(board_id, member_id, board_title, board_subject, board_wdate,board_hit)
-		VALUES((select max(board_id) + 1 from board),#{memberId},#{boardTitle},#{boardSubject},#{boardWdate},0)
+		(board_id, member_id, board_title,
+		board_subject, board_wdate,board_hit)
+		VALUES((select max(board_id) + 1
+		from board),#{memberId},#{boardTitle},#{boardSubject},#{boardWdate},0)
 	</insert>
 	<update id="boardUpdate"
-		parameterType= "co.group.camping.board.service.BoardVO">
+		parameterType="co.group.camping.board.service.BoardVO">
 		UPDATE board
 		<set>
 			<!-- myBatis 동적 쿼리 -->
@@ -28,10 +30,10 @@
 			<if test="boardeWdate != null">BOARD_WDATE = #{boardWdate},</if>
 			<if test="boardSubject != null">BOARD_SUBJECT = #{boardSubject}</if>
 		</set>
-		where board_id = #{boardId}
+		WHERE board_id = #{boardId}
 	</update>
 	<delete id="boardDelete"
-		parameterType= "co.group.camping.board.service.BoardVO">
+		parameterType="co.group.camping.board.service.BoardVO">
 		DELETE FROM board
 		WHERE board_id = #{boardId}
 	</delete>

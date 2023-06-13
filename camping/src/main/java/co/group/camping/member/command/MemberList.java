@@ -19,9 +19,8 @@ public class MemberList implements Command {
 		MemberService ms = new MemberServiceImpl();
 		List<MemberVO> members = new ArrayList<>();
 		members = ms.memberSelectList();
-		
+
 		request.setAttribute("members", members);
 		return "member/memberList";
 	}
-
 }
