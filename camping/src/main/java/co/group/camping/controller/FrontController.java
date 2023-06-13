@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.group.camping.board.command.BoardDelete;
+import co.group.camping.board.command.BoardEdit;
+import co.group.camping.board.command.BoardInsert;
+import co.group.camping.board.command.BoardInsertForm;
+import co.group.camping.board.command.BoardList;
+import co.group.camping.board.command.BoardSelect;
+import co.group.camping.board.command.Boardupdate;
 import co.group.camping.common.Command;
 import co.group.camping.main.command.MainCommand;
 import co.group.camping.member.command.AjaxCheckId;
@@ -21,8 +28,6 @@ import co.group.camping.member.command.MemberLogin;
 import co.group.camping.member.command.MemberLoginForm;
 import co.group.camping.member.command.MemberLogout;
 import co.group.camping.recommend.command.CampingRecommend;
-
-
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -42,6 +47,13 @@ public class FrontController extends HttpServlet {
     	map.put("/memberLoginForm.do", new MemberLoginForm()); 
     	map.put("/memberLogout.do", new MemberLogout()); // 로그아웃
     	map.put("/ajaxCheckId.do", new AjaxCheckId());
+    	map.put("/boardDelete.do", new BoardDelete());
+    	map.put("/boardInsert.do", new BoardInsert());
+    	map.put("/boardInsertForm.do", new BoardInsertForm());
+    	map.put("/boardList.do", new BoardList());
+    	map.put("/boardSelect.do", new BoardSelect());
+    	map.put("/boardUpdate.do", new Boardupdate());
+    	map.put("/boardEdit.do", new BoardEdit());
     	map.put("/campingRecommend.do", new CampingRecommend());
     }
 	

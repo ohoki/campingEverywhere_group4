@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,8 @@
 </head>
 <body>
 <div>
+
+
 	<main id="main">
 		<section id="main_img"></section>
 		<section class="main_list">
