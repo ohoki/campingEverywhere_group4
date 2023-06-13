@@ -23,6 +23,13 @@ import co.group.camping.member.command.MemberJoin;
 import co.group.camping.member.command.MemberList;
 import co.group.camping.member.command.MemberLogin;
 import co.group.camping.member.command.MemberLoginForm;
+import co.group.camping.product.command.productInsertForm;
+import co.group.camping.product.command.productList;
+import co.group.camping.product.command.productSelect;
+import co.group.camping.product.command.productDelete;
+import co.group.camping.product.command.productEdit;
+import co.group.camping.product.command.productEditForm;
+import co.group.camping.product.command.productInsert;
 import co.group.camping.member.command.MemberLogout;
 import co.group.camping.recommend.command.CampingRecommend;
 
@@ -30,8 +37,8 @@ import co.group.camping.recommend.command.CampingRecommend;
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
-
-	public FrontController() {
+  
+  public FrontController() {
 		super();
 	}
 
@@ -49,8 +56,15 @@ public class FrontController extends HttpServlet {
 		map.put("/boardList.do", new BoardList());
 		map.put("/boardSelect.do", new BoardSelect());
 		map.put("/campingRecommend.do", new CampingRecommend());
+    map.put("/productList.do", new productList()); // 제품목록
+    map.put("/productInsertForm.do", new productInsertForm()); // 등록폼 열기 
+    map.put("/productInsert.do", new productInsert()); // 제품등록 
+    map.put("/productSelect.do", new productSelect()); // 제품 상세보기
+    map.put("/productEditForm.do", new productEditForm()); // 제품 수정 폼 호출
+    map.put("/productEdit.do", new productEdit()); // 제품 수정
+    map.put("/productDelete.do", new productDelete()); // 제품 삭제
 	}
-
+  
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 요청을 분석하고, 수행할 Command를 찾아서 수행하고, 결과를 돌려준다.

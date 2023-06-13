@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.group.camping.product.service.ProductMapper">
+	<select id="productSelectList"
+	resultType="co.group.camping.product.service.ProductVO">
+		SELECT *
+		FROM product
+	</select>
+	<select id="productselect"
+	resultType="co.group.camping.product.service.ProductVO"
+	parameterType="co.group.camping.product.service.ProductVO">
+		SELECT *
+		FROM product
+		WHERE product_id = #{productId}
+	</select>
+	<insert id="productInsert">
+		INSERT INTO product VALUES(#{productId},#{productName}, #{productPrice}, 
+		#{productBrand}, #{productKategorie}, #{productImage}, #{productDate},#{productSales})
+	</insert>
+	<update id="productUpdate"
+	parameterType="co.group.camping.product.service.ProductVO">
+		UPDATE product
+		<set>
+			<if test="productName != null">product_name = #{productName},</if>
+			<if test="productPrice != null">product_price = #{productPrice},</if>
+			<if test="productBrand != null">product_brand = #{productBrand},</if>
+			<if test="productDate != null">product_date = #{productDate},</if>
+			<if test="productKategorie != null">product_Kategorie = #{productKategorie}</if>
+		</set>
+		WHERE product_id = #{productId}
+	</update>
+	<delete id="productDelete" 
+	parameterType="co.group.camping.product.service.ProductVO">
+		DELETE FROM PRODUCT 
+		WHERE product_id = #{productId}
+	</delete>
+</mapper>

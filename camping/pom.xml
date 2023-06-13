@@ -14,6 +14,65 @@
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
 
+	  <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.28</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+	<dependency>
+	    <groupId>org.apache.tiles</groupId>
+	    <artifactId>tiles-extras</artifactId>
+	    <version>3.0.8</version>
+	</dependency>
+	
+  
+  	<dependency>
+	    <groupId>servlets.com</groupId>
+	    <artifactId>cos</artifactId>
+	    <version>05Nov2002</version>
+	</dependency>
+  </dependencies>
+  <!-- compile or build option definition(베포)  -->
+  <build>
+  
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+  
+  </build>
+=======
 
 	<!-- 라이브러리를 의존하는 곳 -->
 	<dependencies>
@@ -91,6 +150,5 @@
 				<version>2.8.2</version>
 			</plugin>
 		</plugins>
-
 	</build>
 </project>

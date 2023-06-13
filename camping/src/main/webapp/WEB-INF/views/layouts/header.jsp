@@ -22,9 +22,22 @@
 					</button>
 				</form>
 			</div>
+	
+		<nav id="navbar" class="navbar">
+			<ul>
+			  <li><a class="small nav-link scrollto" href="#">로그인</a></li>
+			  <li><a class="small nav-link scrollto" href="#">회원가입</a></li>
+			  <li><a class="small nav-link scrollto" href="#">장바구니</a></li>
+			  <li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
+			  <li><a class="small nav-link scrollto" href="productList.do">상품보기</a></li>
+			  <li><a class="small nav-link scrollto" href="#">고객센터</a></li>
+			</ul>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+		</nav>
+	
+	    </div>
 
 			<nav id="navbar" class="navbar">
-				<!-- 로그인 상황이 아닐때 메뉴 -->
 				<ul>
 					<c:if test="${empty id }">
 						<li><a class="small nav-link scrollto"
@@ -61,8 +74,7 @@
 					<li><a class="nav-link scrollto" href="#">의자/테이블/퍼니처류</a></li>
 					<li><a class="nav-link scrollto" href="#">소품/액세서리</a></li>
 					<li><a class="nav-link scrollto" href="#">코펠/쿨러/식기류</a></li>
-					<li><a class="nav-link scrollto" href="campingRecommend.do">캠핑장
-							추천</a></li>
+					<li><a class="nav-link scrollto" href="campingRecommend.do">캠핑장추천</a></li>
 				</ul>
 			</nav>
 		</div>
