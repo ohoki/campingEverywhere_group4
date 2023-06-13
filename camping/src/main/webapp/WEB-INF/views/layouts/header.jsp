@@ -26,7 +26,7 @@
 			  <li><a class="small nav-link scrollto" href="#">장바구니</a></li>
 			  <li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
 			  <li><a class="small nav-link scrollto" href="#">주문/배송조회</a></li>
-			  <li><a class="small nav-link scrollto" href="#">고객센터</a></li>
+			  <li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
 			</ul>
 			<i class="bi bi-list mobile-nav-toggle"></i>
 		</nav>
@@ -49,6 +49,7 @@
 					<li><a class="nav-link scrollto" href="#">소품/액세서리</a></li>
 					<li><a class="nav-link scrollto" href="#">코펠/쿨러/식기류</a></li>
 					<li><a class="nav-link scrollto" href="#">캠핑장 추천</a></li>
+					<li><a class="nav-link scrollto" href="boardList.do">구매 후기</a></li>
 				</ul>
 			</nav>
 		</div>
