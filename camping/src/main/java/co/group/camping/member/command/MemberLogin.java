@@ -26,9 +26,9 @@ public class MemberLogin implements Command {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
 			
-			request.setAttribute("message", vo.getMemberName() + "님 환영합니다.");
+			return "main.do";
 		}else {
-			request.setAttribute("message", "아이디 또는 패스워드가 틀렸다.");
+			request.setAttribute("message", "아이디 또는 패스워드가 틀렸습니다.");
 		}
 		return "member/memberMessage";
 	}
