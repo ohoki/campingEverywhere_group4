@@ -6,6 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
+
+<style type="text/css">
+input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:active
+	{
+	-webkit-text-fill-color: #000;
+	-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+	box-shadow: 0 0 0px 1000px transparent inset;
+	transition: background-color 5000s ease-in-out 0s;
+}
+</style>
 </head>
 <body>
 	<!-- ======= Header Top======= -->
