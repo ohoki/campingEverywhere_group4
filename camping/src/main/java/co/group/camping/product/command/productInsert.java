@@ -5,6 +5,8 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.multipart.MultipartRequest;
+
 import co.group.camping.common.Command;
 import co.group.camping.product.service.ProductService;
 import co.group.camping.product.service.ProductServiceImpl;
@@ -14,7 +16,7 @@ public class productInsert implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 제품등록 처리 및 파일 업로드
+
 		ProductVO vo = new ProductVO();
 		ProductService ps = new ProductServiceImpl();
 		vo.setProductId(request.getParameter("productId"));
