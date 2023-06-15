@@ -42,8 +42,10 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 					<c:if test="${not empty id }">
 						<li><a class="small nav-link scrollto" href="memberLogout.do">로그아웃</a></li>
 					</c:if>
-					<li><a class="small nav-link scrollto"
-						href="productInsertForm.do">상품등록</a></li>
+					<c:if test="${auth == 'A' }">
+						<li><a class="small nav-link scrollto"
+							href="productInsertForm.do">상품등록</a></li>
+					</c:if>
 					<li><a class="small nav-link scrollto" href="#">장바구니</a></li>
 					<li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
 					<li><a class="small nav-link scrollto" href="#">주문/배송조회</a></li>
@@ -51,7 +53,6 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				</ul>
 				<i class="bi bi-list mobile-nav-toggle"></i>
 			</nav>
-
 		</div>
 	</header>
 
