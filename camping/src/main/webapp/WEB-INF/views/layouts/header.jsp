@@ -36,8 +36,9 @@
 						href="productInsertForm.do">상품등록</a></li>
 					<li><a class="small nav-link scrollto" href="#">장바구니</a></li>
 					<li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
-					<li><a class="small nav-link scrollto" href="#">주문/배송조회</a></li>
+					<li><a class="small nav-link scrollto" href="deliveryList.do">주문/배송조회</a></li>
 					<li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
+					<li>
 				</ul>
 				<i class="bi bi-list mobile-nav-toggle"></i>
 			</nav>
@@ -65,6 +66,7 @@
 				</ul>
 			</nav>
 		</div>
+		
 	</header>
 </body>
 </html>

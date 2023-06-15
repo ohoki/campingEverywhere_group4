@@ -59,8 +59,8 @@
 				</div>
 				<br>
 				<div>
-					<input type="submit" value="등 록">&nbsp;&nbsp; <input
-						type="reset" value="취 소">&nbsp;&nbsp;
+					<input type="submit" value="등 록">&nbsp;&nbsp; 
+					<input type="reset" value="취 소">&nbsp;&nbsp;
 				</div>
 			</form>
 		</div>
