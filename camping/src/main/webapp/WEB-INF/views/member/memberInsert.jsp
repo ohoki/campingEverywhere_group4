@@ -153,7 +153,6 @@ p {
 							name="memberAddr" required="required" maxlength="65" class="addr" />
 					</tr>
 				</table>
-
 			</div>
 
 			<div class="create">

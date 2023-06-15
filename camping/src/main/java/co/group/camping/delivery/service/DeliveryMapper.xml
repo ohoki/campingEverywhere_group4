@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.group.camping.delivery.service.DeliveryMapper">
+	<select id="deliverySelectList"
+	resultType="map">
+		SELECT DELIVERY_NUM, DELIVERY_DATE, DELIVERY_CHECK, d.PRODUCT_ID, MEMBER_ID, p.PRODUCT_NAME, p.PRODUCT_PRICE
+		FROM delivery d join product p
+		ON(d.product_id = p.product_id)
+	</select>
+	<select id="deliveryResearch"
+	resultType="map"
+	parameterType="co.group.camping.delivery.service.DeliveryVO">
+		SELECT DELIVERY_NUM, DELIVERY_DATE, DELIVERY_CHECK, d.PRODUCT_ID, MEMBER_ID, p.product_name, p.PRODUCT_PRICE
+		FROM delivery d join product p
+		ON(d.product_id = p.product_id)
+		WHERE DELIVERY_DATE BETWEEN #{startDate} AND #{endDate}
+		<!-- #{startDay}  #{endDay}-->
+		</select>
+	<select id="deliverySelect">
+	</select>
+	<insert id="deliveryInsert">
+	</insert>
+	<update id="deliveryUpdate">
+	</update>
+	<delete id="deliveryDelete">
+	</delete>
+</mapper>
