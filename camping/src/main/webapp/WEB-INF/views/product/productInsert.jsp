@@ -42,7 +42,7 @@
 <body>
 	<div style="margin: 50px auto">
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
-			<form action="productInsert.do" method="post">
+			<form action="productInsert.do" method="post" enctype="multipart/form-data">
 				<div class="w3-center w3-text-white w3-round">
 					<h3 style="color: black; text-align: center;">상품 등록</h3>
 				</div>
