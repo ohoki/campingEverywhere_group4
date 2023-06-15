@@ -20,8 +20,10 @@
 
 .map_wrap {
 	position: relative;
-	width: 100%;
+	width: 80%;
 	height: 700px;
+	margin: 50px auto;
+	
 }
 
 #menu_wrap {
