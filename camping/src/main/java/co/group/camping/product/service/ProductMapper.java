@@ -5,6 +5,8 @@ import java.util.List;
 public interface ProductMapper {
 	List<ProductVO> productSelectList();
 
+	List<ProductVO> productIndividualList(ProductVO vo);
+
 	ProductVO productSelect(ProductVO vo);
 
 	int productInsert(ProductVO vo);

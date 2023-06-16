@@ -7,6 +7,13 @@
 		SELECT *
 		FROM product
 	</select>
+	<select id="productIndividualList"
+		resultType="co.group.camping.product.service.ProductVO"
+		parameterType="co.group.camping.product.service.ProductVO">
+		SELECT *
+		FROM product WHERE product_kategorie =
+		#{productKategorie}
+	</select>
 	<select id="productSelect"
 		resultType="co.group.camping.product.service.ProductVO"
 		parameterType="co.group.camping.product.service.ProductVO">
@@ -18,7 +25,8 @@
 		INSERT INTO product
 		VALUES(#{productId},#{productName}, #{productPrice},
 		#{productBrand},
-		#{productKategorie}, #{productImage}, #{productDate},#{productSales})
+		#{productKategorie}, #{productImage}, #{productDate},#{productSales},
+		#{imageFileName})
 	</insert>
 	<update id="productUpdate"
 		parameterType="co.group.camping.product.service.ProductVO">

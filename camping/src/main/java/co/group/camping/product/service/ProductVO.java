@@ -16,5 +16,5 @@ public class ProductVO {
 	private String productImage;
 	private Date productDate;
 	private int productSales;
-
+	private String imageFileName;
 }
