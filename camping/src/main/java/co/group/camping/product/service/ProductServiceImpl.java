@@ -17,6 +17,18 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public List<ProductVO> productIndividualList(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productIndividualList(vo);
+	}
+	
+	@Override
+	public List<ProductVO> productSelectMd() {
+		// TODO Auto-generated method stub
+		return map.productSelectMd();
+	}
+	
+	@Override
 	public ProductVO productSelect(ProductVO vo) {
 		// TODO Auto-generated method stub
 		return map.productSelect(vo);
