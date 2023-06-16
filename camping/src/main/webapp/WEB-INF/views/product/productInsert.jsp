@@ -57,12 +57,10 @@
 						type="text" name="productBrand"
 						class="w3-input w3-border w3-white" placeholder="상품브랜드"> <select
 						id="productKategorie" name="productKategorie">
-						<option value="텐트">텐트</option>
-						<option value="타프">타프</option>
-						<option value="의자">의자</option>
-						<option value="테이블">테이블</option>
-						<option value="퍼니처류">퍼니처류</option>
-						<option value="액세서리">액세서리</option>
+						<option value="텐트/타프">텐트/타프</option>
+						<option value="의자/테이블/퍼니처류">의자/테이블/퍼니처류</option>
+						<option value="소품/액세서리">소품/액세서리</option>
+						<option value="코펠/쿨러/식기류">코펠/쿨러/식기류</option>
 					</select> <input type="date" name="productDate"
 						class="w3-input w3-border w3-white" placeholder="입고일"> <input
 						type="number" name="productSales"
