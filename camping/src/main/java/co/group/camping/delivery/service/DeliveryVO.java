@@ -13,7 +13,7 @@ public class DeliveryVO {
 //	DELIVERY_CHECK          VARCHAR2(20)  
 //	PRODUCT_ID              VARCHAR2(200) 
 //	MEMBER_ID               VARCHAR2(200)
-	private int deliveryNum;
+	private int deliveryId;
 	private Date deliveryDate;
 	private String deliveryCheck;
 	private String productId;

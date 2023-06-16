@@ -5,7 +5,7 @@
 	<select id="deliverySelectList"
 		parameterType="co.group.camping.delivery.service.DeliveryVO"
 		resultType="map">
-		SELECT DELIVERY_NUM, DELIVERY_DATE, DELIVERY_CHECK,
+		SELECT DELIVERY_ID, DELIVERY_DATE, DELIVERY_CHECK,
 		d.PRODUCT_ID, MEMBER_ID, p.PRODUCT_NAME, p.PRODUCT_PRICE
 		FROM delivery
 		d join product p
@@ -15,7 +15,7 @@
 	</select>
 	<select id="deliveryResearch" resultType="map"
 		parameterType="co.group.camping.delivery.service.DeliveryVO">
-		SELECT DELIVERY_NUM, DELIVERY_DATE, DELIVERY_CHECK,
+		SELECT DELIVERY_ID, DELIVERY_DATE, DELIVERY_CHECK,
 		d.PRODUCT_ID,
 		d.MEMBER_ID, p.product_name, p.PRODUCT_PRICE,
 		m.member_name
@@ -27,7 +27,16 @@
 		#{startDate} AND #{endDate} AND d.member_id =
 		#{memberId}
 	</select>
-	<select id="deliverySelect">
+	<select id="deliverySelect" resultType="map"
+		parameterType="co.group.camping.delivery.service.DeliveryVO">
+		SELECT DELIVERY_ID, DELIVERY_DATE, DELIVERY_CHECK,
+		d.PRODUCT_ID,
+		d.MEMBER_ID, p.product_name, p.PRODUCT_PRICE,
+		m.member_name
+		FROM FROM delivery d join product p ON(d.product_id =
+		p.product_id)
+		join member m ON(d.member_id = m.member_id)
+		WHERE delivery_id = #{deliveryId}
 	</select>
 	<insert id="deliveryInsert">
 	</insert>
