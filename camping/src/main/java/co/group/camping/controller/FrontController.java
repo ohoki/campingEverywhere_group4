@@ -67,11 +67,10 @@ public class FrontController extends HttpServlet {
 		map.put("/productSelect.do", new productSelect()); // 제품 상세보기
 		map.put("/productEditForm.do", new productEditForm()); // 제품 수정 폼 호출
 		map.put("/productEdit.do", new productEdit()); // 제품 수정
-		map.put("/productDelete.do", new productDelete()); // 제품 삭제 
+		map.put("/productDelete.do", new productDelete()); // 제품 삭제
 		map.put("/deliveryList.do", new DeliveryList()); // 초기 리스트랑
 		map.put("/deliveryResearch.do", new DeliveryResearch());
-		map.put("/deliveryInsertFrom.do", new DeliveryInsertFrom()); // 주문배송 입력 폼(임시)
-		
+		map.put("/deliveryInsertFrom.do", new DeliveryInsertFrom()); 
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

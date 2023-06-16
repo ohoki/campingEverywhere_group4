@@ -1,27 +1,27 @@
 package co.group.camping.delivery.service;
 
-
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import co.group.camping.common.DataSource;
 
-
 public class DeliveryServiceImpl implements DeliveryService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private DeliveryMapper map = sqlSession.getMapper(DeliveryMapper.class);
-	
+
 	@Override
-	public List<Object> deliverySelectList() {
+	public List<Object> deliverySelectList(DeliveryVO vo) {
 		// TODO Auto-generated method stub
-		return map.deliverySelectList();
+		return map.deliverySelectList(vo);
 	}
+
 	@Override
 	public List<Object> deliveryResearch(DeliveryVO vo) {
 		// TODO Auto-generated method stub
 		return map.deliveryResearch(vo);
 	}
+
 	@Override
 	public DeliveryVO deliverySelect(DeliveryVO vo) {
 		// TODO Auto-generated method stub
@@ -45,8 +45,5 @@ public class DeliveryServiceImpl implements DeliveryService {
 		// TODO Auto-generated method stub
 		return map.deliveryDelete(vo);
 	}
-	
-
-	
 
 }
