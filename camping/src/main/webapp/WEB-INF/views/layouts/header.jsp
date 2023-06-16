@@ -48,7 +48,8 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 					</c:if>
 					<li><a class="small nav-link scrollto" href="#">장바구니</a></li>
 					<li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
-					<li><a class="small nav-link scrollto" href="deliveryList.do">주문/배송조회</a></li>
+					<li><a class="small nav-link scrollto"
+						href="javascript:delivery()">주문/배송조회</a></li>
 					<li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
 					<li>
 				</ul>
@@ -77,7 +78,17 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				</ul>
 			</nav>
 		</div>
-		
 	</header>
+	<script type="text/javascript">
+		function delivery() {
+			let singIn = "${id}";
+			if (singIn == "") {
+				alert("주문배송 페이지는 로그인 후 사용하실 수 있습니다.")
+				location.href = 'memberLoginForm.do';
+			} else {
+				location.href = 'deliveryList.do';
+			}
+		}
+	</script>
 </body>
 </html>
