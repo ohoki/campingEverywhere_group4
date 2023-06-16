@@ -14,4 +14,6 @@ public interface MemberMapper {
 	int memberDelete(MemberVO vo);
 
 	MemberVO memberLogin(MemberVO vo); // 멤버로그인
+	
+	int memberFullUpdate(MemberVO vo); // 비밀번호를 제외한 다른 정보 수정
 }

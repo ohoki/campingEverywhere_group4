@@ -24,7 +24,11 @@ public class MemberLogin implements Command {
 		vo = ms.memberLogin(vo);
 		if (vo != null) {
 			session.setAttribute("id", vo.getMemberId());
+			session.setAttribute("pw", vo.getMemberPw());
 			session.setAttribute("name", vo.getMemberName());
+			session.setAttribute("addr", vo.getMemberAddr());
+			session.setAttribute("tel", vo.getMemberTel());
+		
 
 			return "main.do";
 		} else {
