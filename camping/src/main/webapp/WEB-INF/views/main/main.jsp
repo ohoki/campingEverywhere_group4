@@ -6,202 +6,117 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+a {
+	text-decoration: none;
+	color: #5a656e;;
+	transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+	color: #FF873D;
+}
+</style>
 </head>
 <body>
 	<div>
 		<main id="main">
 			<section id="main_img"></section>
-			<section class="main_list">
-				<div>
-					<a href="#"><img src="assets/img/장작.PNG" alt="장작"></a>
-				</div>
-				<div>
-					<a href="#"><img src="assets/img/마칸.PNG" alt="마렉스 마칸"></a>
-				</div>
-				<div>
-					<a href="#"><img src="assets/img/tent.JPG" alt="텐트"></a>
-				</div>
-			</section>
-			<!-- ======= Portfolio Section ======= -->
 			<section id="portfolio" class="portfolio section-bg">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 d-flex justify-content-center">
 							<ul id="portfolio-flters">
-								<li data-filter="*" class="filter-active">NEW 신상품</li>
-								<li data-filter=".filter-app">BEST 제품</li>
-								<li data-filter=".filter-card">MD 추천</li>
-								<li data-filter=".filter-web">구매 후기</li>
+								<li><a href="#new">NEW 신상품</a></li>
+								<li><a href="#best">BEST 제품</a></li>
+								<li><a href="#md">MD 추천</a></li>
+								<li><a href="#review">구매 후기</a></li>
 							</ul>
 						</div>
 					</div>
-
 					<div class="row portfolio-container">
+						<h2 id="new">NEW</h2>
+						<c:forEach items="${products1}" begin="0" end="2" step="1" var="p">
+							<div class="col-lg-4 col-md-6 portfolio-item">
+								<div class="portfolio-wrap">
+									<img src="assets/img/products/${p.imageFileName}"
+										class="img-fluid" alt="">
+									<div class="portfolio-info">
+										<h4>${p.productName}</h4>
+										<p>${p.productPrice}</p>
+									</div>
+									<div class="portfolio-links">
+										<a href="assets/img/products/${p.imageFileName}"
+											data-gallery="portfolioGallery" class="portfolio-lightbox"
+											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
+											href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+											class="bx bx-link"></i></a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
 
-						<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+						<h2 id="best">BEST</h2>
+						<c:forEach items="${products2}" begin="0" end="2" step="1" var="p">
+							<div class="col-lg-4 col-md-6 portfolio-item">
+								<div class="portfolio-wrap">
+									<img src="assets/img/products/${p.imageFileName}"
+										class="img-fluid" alt="">
+									<div class="portfolio-info">
+										<h4>${p.productName}</h4>
+										<p>${p.productPrice}</p>
+									</div>
+									<div class="portfolio-links">
+										<a href="assets/img/products/${p.imageFileName}"
+											data-gallery="portfolioGallery" class="portfolio-lightbox"
+											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
+											href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+											class="bx bx-link"></i></a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+
+						<h2 id="md">MD 추천</h2>
+						<c:forEach items="${products3}" begin="0" end="2" step="1" var="p">
+							<div class="col-lg-4 col-md-6 portfolio-item">
+								<div class="portfolio-wrap">
+									<img src="assets/img/products/${p.imageFileName}"
+										class="img-fluid" alt="">
+									<div class="portfolio-info">
+										<h4>${p.productName}</h4>
+										<p>${p.productPrice}</p>
+									</div>
+									<div class="portfolio-links">
+										<a href="assets/img/products/${p.imageFileName}"
+											data-gallery="portfolioGallery" class="portfolio-lightbox"
+											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
+											href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+											class="bx bx-link"></i></a>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+
+						<h2 id="review">구매 후기</h2>
+						<div class="col-lg-4 col-md-6 portfolio-item filter-new">
 							<div class="portfolio-wrap">
 								<img src="assets/img/portfolio/portfolio-1.jpg"
 									class="img-fluid" alt="">
 								<div class="portfolio-info">
-									<h4>App 1</h4>
-									<p>App</p>
+									<h4>짱구</h4>
+									<p>가격</p>
 								</div>
 								<div class="portfolio-links">
 									<a href="assets/img/portfolio/portfolio-1.jpg"
 										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="App 1"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
+										title="짱구"><i class="bx bx-plus"></i></a> <a
+										href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
 										class="bx bx-link"></i></a>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-2.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>Web 3</h4>
-									<p>Web</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-2.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="Web 3"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-3.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>App 2</h4>
-									<p>App</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-3.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="App 2"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-4.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>Card 2</h4>
-									<p>Card</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-4.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="Card 2"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-5.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>Web 2</h4>
-									<p>Web</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-5.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="Web 2"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-6.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>App 3</h4>
-									<p>App</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-6.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="App 3"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-7.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>Card 1</h4>
-									<p>Card</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-7.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="Card 1"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-8.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>Card 3</h4>
-									<p>Card</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-8.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="Card 3"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-9.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>Web 3</h4>
-									<p>Web</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-9.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="Web 3"><i class="bx bx-plus"></i></a> <a
-										href="portfolio-details.html" title="More Details"><i
-										class="bx bx-link"></i></a>
-								</div>
-							</div>
-						</div>
-
 					</div>
-
 				</div>
 			</section>
 		</main>

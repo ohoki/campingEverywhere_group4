@@ -33,7 +33,8 @@
 }
 
 .menu_btn input {
-	border: 1px solid #8aa1a1; background-color : #8aa1a1 !important;
+	border: 1px solid #8aa1a1;
+	background-color: #8aa1a1 !important;
 	color: white !important;
 	background-color: #8aa1a1 !important;
 }
@@ -42,7 +43,8 @@
 <body>
 	<div style="margin: 50px auto">
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
-			<form action="productInsert.do" method="post" enctype="multipart/form-data">
+			<form action="productInsert.do" method="post"
+				enctype="multipart/form-data">
 				<div class="w3-center w3-text-white w3-round">
 					<h3 style="color: black; text-align: center;">상품 등록</h3>
 				</div>
@@ -63,7 +65,7 @@
 						<option value="코펠/쿨러/식기류">코펠/쿨러/식기류</option>
 					</select> <input type="date" name="productDate"
 						class="w3-input w3-border w3-white" placeholder="입고일"> <input
-						type="number" name="productSales"
+						type="number" name="productQunatity"
 						class="w3-input w3-border w3-white" placeholder="수량" min="0">
 				</div>
 				<div align="center" class="menu_btn">
