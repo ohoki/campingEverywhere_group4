@@ -21,6 +21,9 @@ import co.group.camping.delivery.command.DeliveryList;
 import co.group.camping.delivery.command.DeliveryResearch;
 import co.group.camping.main.command.MainCommand;
 import co.group.camping.member.command.AjaxCheckId;
+import co.group.camping.member.command.MemberDelete;
+import co.group.camping.member.command.MemberEdit;
+import co.group.camping.member.command.MemberEditForm;
 import co.group.camping.member.command.MemberInsert;
 import co.group.camping.member.command.MemberJoin;
 import co.group.camping.member.command.MemberList;
@@ -35,6 +38,9 @@ import co.group.camping.product.command.productEdit;
 import co.group.camping.product.command.productEditForm;
 import co.group.camping.product.command.productInsert;
 import co.group.camping.member.command.MemberLogout;
+import co.group.camping.member.command.MemberInfo;
+import co.group.camping.member.command.MemberPwEdit;
+import co.group.camping.member.command.MemberPwEditForm;
 import co.group.camping.recommend.command.CampingRecommend;
 
 @WebServlet("*.do")
@@ -52,9 +58,15 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsert.do", new MemberInsert());
 		map.put("/memberJoin.do", new MemberJoin());
 		map.put("/memberLogin.do", new MemberLogin());
-		map.put("/memberLoginForm.do", new MemberLoginForm());
-		map.put("/memberLogout.do", new MemberLogout());
-		map.put("/ajaxCheckId.do", new AjaxCheckId());
+		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼
+		map.put("/memberLogout.do", new MemberLogout()); //로그아웃
+		map.put("/memberInfo.do", new MemberInfo()); // 내정보 페이지 호출
+		map.put("/ajaxCheckId.do", new AjaxCheckId()); // 로그인 id 체크
+		map.put("/memberPwEdit.do", new MemberPwEdit()); // 비밀번호 수정
+		map.put("/memberPwEditForm.do", new MemberPwEditForm()); //비밀번호 수정 폼 호출
+		map.put("/memberEdit.do", new MemberEdit()); // 내 정보 수정
+		map.put("/memberEditForm.do", new MemberEditForm()); //내 정보 수정(이름, 주소, 전화번호) 폼 호출
+		map.put("/memberDelete.do", new MemberDelete()); // 회원 탈퇴
 		map.put("/boardInsert.do", new BoardInsert());
 		map.put("/boardInsertForm.do", new BoardInsertForm());
 		map.put("/boardList.do", new BoardList());

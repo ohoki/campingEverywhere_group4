@@ -47,7 +47,7 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 							href="productInsertForm.do">상품등록</a></li>
 					</c:if>
 					<li><a class="small nav-link scrollto" href="javascript:cart()">장바구니</a></li>
-					<li><a class="small nav-link scrollto" href="#">마이페이지</a></li>
+					<li><a class="small nav-link scrollto" href="memberInfo.do">마이페이지</a></li>
 					<li><a class="small nav-link scrollto"
 						href="javascript:delivery()">주문/배송조회</a></li>
 					<li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
