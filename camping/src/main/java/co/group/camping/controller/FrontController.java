@@ -29,6 +29,7 @@ import co.group.camping.member.command.MemberLoginForm;
 import co.group.camping.product.command.productInsertForm;
 import co.group.camping.product.command.productList;
 import co.group.camping.product.command.productSelect;
+import co.group.camping.product.command.ProductIndividualList;
 import co.group.camping.product.command.productDelete;
 import co.group.camping.product.command.productEdit;
 import co.group.camping.product.command.productEditForm;
@@ -60,6 +61,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardSelect.do", new BoardSelect());
 		map.put("/campingRecommend.do", new CampingRecommend());
 		map.put("/productList.do", new productList()); // 제품목록
+		map.put("/productIndividualList.do", new ProductIndividualList()); // 제품목록
 		map.put("/productInsertForm.do", new productInsertForm()); // 등록폼 열기
 		map.put("/productInsert.do", new productInsert()); // 제품등록
 		map.put("/productSelect.do", new productSelect()); // 제품 상세보기

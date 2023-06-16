@@ -3,7 +3,6 @@ package co.group.camping.product.command;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +30,6 @@ public class productInsert implements Command {
 			MultipartRequest multi = new MultipartRequest(request, saveDir, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
 			String pfile = multi.getFilesystemName("pfile");
-			pfile = saveDir + pfile;
 			String ofile = multi.getOriginalFileName("pfile");
 
 			vo.setProductId(multi.getParameter("productId"));
@@ -43,7 +41,8 @@ public class productInsert implements Command {
 			vo.setProductSales(Integer.valueOf(multi.getParameter("productSales")));
 
 			if (ofile != null) {
-				vo.setProductImage(ofile);
+				vo.setProductImage(ofile);				
+				vo.setImageFileName(pfile);
 			}
 			int n = ps.productInsert(vo);
 			if (n != 0) {

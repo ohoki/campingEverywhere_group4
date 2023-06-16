@@ -150,6 +150,7 @@ tr:hover {
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 					</tr>
+
 				</c:if>
 				<c:if test="${not empty del}">
 					<c:forEach items="${del}" var="d">
@@ -158,6 +159,7 @@ tr:hover {
 									pattern="yy-MM-dd"></fmt:formatDate></td>
 							<td>${d.PRODUCT_NAME}</td>
 							<td>${d.PRODUCT_PRICE}<span>원</span></td>
+
 							<td><c:choose>
 						          <c:when test="${d.DELIVERY_CHECK eq 'N'}">결제완료</c:when>
 						          <c:when test="${d.DELIVERY_CHECK eq 'ING'}">배송중</c:when>
@@ -204,7 +206,7 @@ tr:hover {
 			var date = this;
 			return new Date(date.setDate(date.getDate() + days));
 		}
-		
+    
 		function deliveryChoice(id){
 			let frm = document.getElementById("frm1");
 			frm.deliveryId.value = id;
