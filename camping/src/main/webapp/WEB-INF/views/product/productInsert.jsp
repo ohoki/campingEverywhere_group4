@@ -69,7 +69,7 @@
 						class="w3-input w3-border w3-white" placeholder="수량" min="0">
 				</div>
 				<div align="center" class="menu_btn">
-					<input type="button" value="취소"
+					<input type="reset" value="취소"
 						class="w3-button w3-white w3-round-small"> &nbsp;<input
 						type="button" value="목록보기"
 						class="w3-button w3-white w3-round-small"

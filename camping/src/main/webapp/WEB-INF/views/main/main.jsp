@@ -49,7 +49,7 @@ a:hover {
 										<a href="assets/img/products/${p.imageFileName}"
 											data-gallery="portfolioGallery" class="portfolio-lightbox"
 											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
-											href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+											href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
 											class="bx bx-link"></i></a>
 									</div>
 								</div>
