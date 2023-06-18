@@ -120,10 +120,16 @@ input[type=submit] {
 	</div>
 	<script type="text/javascript">
 		function searchPw() {
-			var name = prompt("이름을 입력해주세요.", "이름");
-			var memberId = prompt("아이디를 입력해주세요.", "아이디");
+			let name = prompt("이름을 입력해주세요.", "이름");
+			let memberId = prompt("아이디를 입력해주세요.", "아이디");
 			
 			location.href = "searchPw.do?name=" + name + "&memberId=" + memberId;
+		}
+		
+		window.onload = function() {
+			if("${login}" == "fail") {
+				alert("아이디 또는 패스워드가 틀렸습니다. 다시 입력해주세요.");
+			} 
 		}
 	</script>
 </body>

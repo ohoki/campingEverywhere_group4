@@ -9,7 +9,7 @@
 <style type="text/css">
 a {
 	text-decoration: none;
-	color: #5a656e;;
+	color: #5a656e;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -43,7 +43,7 @@ a:hover {
 										class="img-fluid" alt="">
 									<div class="portfolio-info">
 										<h4>${p.productName}</h4>
-										<p>${p.productPrice}</p>
+										<p>${p.productPrice}원</p>
 									</div>
 									<div class="portfolio-links">
 										<a href="assets/img/products/${p.imageFileName}"
@@ -64,13 +64,13 @@ a:hover {
 										class="img-fluid" alt="">
 									<div class="portfolio-info">
 										<h4>${p.productName}</h4>
-										<p>${p.productPrice}</p>
+										<p>${p.productPrice}원</p>
 									</div>
 									<div class="portfolio-links">
 										<a href="assets/img/products/${p.imageFileName}"
 											data-gallery="portfolioGallery" class="portfolio-lightbox"
 											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
-											href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+											href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
 											class="bx bx-link"></i></a>
 									</div>
 								</div>
@@ -85,13 +85,13 @@ a:hover {
 										class="img-fluid" alt="">
 									<div class="portfolio-info">
 										<h4>${p.productName}</h4>
-										<p>${p.productPrice}</p>
+										<p>${p.productPrice}원</p>
 									</div>
 									<div class="portfolio-links">
 										<a href="assets/img/products/${p.imageFileName}"
 											data-gallery="portfolioGallery" class="portfolio-lightbox"
 											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
-											href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+											href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
 											class="bx bx-link"></i></a>
 									</div>
 								</div>
@@ -111,7 +111,7 @@ a:hover {
 									<a href="assets/img/portfolio/portfolio-1.jpg"
 										data-gallery="portfolioGallery" class="portfolio-lightbox"
 										title="짱구"><i class="bx bx-plus"></i></a> <a
-										href="productSelect.do?value=${p.productId}" title="상품 페이지로"><i
+										href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
 										class="bx bx-link"></i></a>
 								</div>
 							</div>

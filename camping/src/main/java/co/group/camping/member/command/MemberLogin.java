@@ -29,11 +29,11 @@ public class MemberLogin implements Command {
 			session.setAttribute("addr", vo.getMemberAddr());
 			session.setAttribute("tel", vo.getMemberTel());
 			session.setAttribute("auth", vo.getMemberAuth());
-
+			
 			return "main.do";
 		} else {
-			request.setAttribute("message", "아이디 또는 패스워드가 틀렸습니다.");
+			request.setAttribute("login", "fail");
 		}
-		return "member/memberMessage";
+		return "member/memberLogin";
 	}
 }

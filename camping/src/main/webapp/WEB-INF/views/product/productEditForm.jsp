@@ -14,6 +14,12 @@
 	margin: 40px 0;
 }
 
+.prodcut_inf img{
+	width: 70%;
+	max-width: 100%;
+	max-height: 100%;
+}
+
 .prodcut_inf div:nth-child(1) {
 	float: left;
 	width: 39%;
@@ -44,8 +50,7 @@
 <body>
 	<div style="margin: 50px auto">
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
-			<form action="productEdit.do" method="post"
-				enctype="multipart/form-data">
+			<form action="productEdit.do" method="post">
 				<div class="w3-center w3-text-white w3-round">
 					<h3 style="color: black; text-align: center;">상품 수정</h3>
 				</div>
@@ -75,9 +80,6 @@
 				</div>
 				<div align="center" class="menu_btn">
 					<input type="button" value="취소"
-						class="w3-button w3-white w3-round-small"
-						onclick="location.href='productSelect.do'"> &nbsp; <input
-						type="button" value="목록보기"
 						class="w3-button w3-white w3-round-small"
 						onclick="location.href='productList.do'"> &nbsp;<input
 						type="submit" value="수정" class="w3-button w3-white w3-round-small">

@@ -7,12 +7,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.product_select_haader {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+
+.product_select_haader button {
+	background-color: #8aa1a1 !important;
+	color: white !important;
+	border: 1px solid #8aa1a1 !important;
+	margin: 3px 5px;
+	width: 80px;
+	height: 40px;
+}
+
 .prodcut_inf {
 	border: 1px solid #bbb;
 	padding: 5px;
 	height: 386px;
 	width: 100%;
-	margin: 40px 0;
+	margin: 10px 0 50px;
 	display: flex;
 }
 
@@ -29,8 +44,9 @@
 }
 
 .prodcut_inf_img img {
-	width: 100%;
+	width: 70%;
 	max-width: 100%;
+	max-height: 100%;
 }
 
 .prodcut_inf_menu {
@@ -54,7 +70,7 @@
 	border: 1px solid #8aa1a1;
 	background-color: #8aa1a1 !important;
 	color: white !important;
-	background-color: #8aa1a1 !important;
+	border-color: #8aa1a1 !important;
 	margin: 3px 10px;
 }
 </style>
@@ -63,8 +79,16 @@
 	<div style="margin: 50px auto">
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
 			<form action="" method="post">
-				<div class="w3-center w3-text-white w3-round">
+				<div class="product_select_haader">
 					<h3 style="color: black; text-align: left;">${product.productName}</h3>
+					<div>
+						<c:if test="${auth == 'A' && product.recommend == null }">
+							<button type="button"
+								onclick="productEditForm('${product.productId}')">수정</button>
+							<button type="button"
+								onclick="productDelete('${product.productId}')">삭제</button>
+						</c:if>
+					</div>
 				</div>
 				<div class="w3-margin-bottom w3-border prodcut_inf">
 					<div class="prodcut_inf_img">
@@ -97,6 +121,14 @@
 						</c:if>
 					</div>
 				</div>
+			</form>
+			<form id="frm1" action="productEditForm.do" method="post">
+				<input type="hidden" id="productId" name="productId"
+					value="'${proudct.productId}'">
+			</form>
+			<form id="frm2" action="productDelete.do" method="post">
+				<input type="hidden" id="productId" name="productId"
+					value="'${proudct.productId}'">
 			</form>
 		</div>
 	</div>
@@ -135,6 +167,20 @@
 					location.reload()
 				}
 			}	
+		}
+		
+		function productEditForm(id) {
+			let frm = document.getElementById("frm1");
+			frm.productId.value = id;
+			frm.submit();
+		}
+		
+		function productDelete(id) {
+			if (confirm("삭제하시겠습니까?")) {
+				let frm = document.getElementById("frm2");
+				frm.productId.value = id;
+				frm.submit();
+			}
 		}
 	</script>
 </body>
