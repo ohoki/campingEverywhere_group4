@@ -119,19 +119,19 @@ p {
 					<tr>
 						<td class="col1">이름<span class="num"> *</span></td>
 						<td class="col2"><input type="text" id="memberName"
-							name="memberName" maxlength="5" required="required"></td>
+							name="memberName" maxlength="10" required="required" placeholder="이름"></td>
 					</tr>
 					<tr>
 						<td class="col1">아이디<span class="num"> *</span></td>
-						<td class="col2"><input type="text" id="memberId"
-							name="memberId" maxlength="10" required="required">
+						<td class="col2"><input type="email" id="memberId"
+							name="memberId" maxlength="30" required="required" placeholder="e-mail 형식">
 							<button class='but1' type="button" id="checkId" value="No"
 								onclick="idCheck()">중복확인</button></td>
 					</tr>
 					<tr>
 						<td class="col1">비밀번호<span class="num"> *</span></td>
 						<td class="col2"><input type="password" id="memberPw"
-							name="memberPw" required="required" maxlength="16">
+							name="memberPw" required="required" maxlength="16" placeholder="비밀번호">
 							<p>
 								※비밀번호는 <span class="num">문자, 숫자, 특수문자의 조합 10 ~ 16자리</span>로 입력이
 								가능합니다.
@@ -140,17 +140,17 @@ p {
 					<tr>
 						<td class="col1">비밀번호 확인<span class="num"> *</span></td>
 						<td class="col2"><input type="password"  id="pwCheck" name="pwCheck"
-							required="required" maxlength="16"></td>
+							required="required" maxlength="16" placeholder="비밀번호 확인"></td>
 					</tr>
 					<tr>
 						<td class="col1">전화번호<span class="num"> *</span></td>
-						<td class="col2"><input type="tel" id="memberTender"
-							name="memberTender" required="required" maxlength="13" />
+						<td class="col2"><input type="tel" id="memberTel"
+							name="memberTel" required="required" maxlength="13" placeholder="전화번호"/>
 					</tr>
 					<tr>
 						<td class="col1">주소<span class="num"> *</span></td>
 						<td class="col2"><input type="text" id="memberAddr"
-							name="memberAddr" required="required" maxlength="65" class="addr" />
+							name="memberAddr" required="required" maxlength="65" class="addr" placeholder="주소"/>
 					</tr>
 				</table>
 			</div>
@@ -166,7 +166,8 @@ p {
  	function formCheck(){
 		let frm = document.getElementById("frm");
 		let sizePw = frm.memberPw.value.toString().length;
-		if(10<= sizePw || sizePw <= 16 ) {
+		console.log(sizePw);
+		if(10<= sizePw && sizePw <= 16 ) {
 			if(frm.memberPw.value != frm.pwCheck.value){
 				alert("패스워드가 일치 하지 않습니다.");
 				frm.memberPw.value = "";

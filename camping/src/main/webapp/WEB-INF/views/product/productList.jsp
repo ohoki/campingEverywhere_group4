@@ -15,12 +15,14 @@
 	text-align: center;
 	margin: 30px 0;
 }
+
 h1 {
-	color: black; 
-    font-weight: 500;
-    line-height: 1.2;
-    font-size: calc(1.3rem + .6vw);
+	color: black;
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: calc(1.3rem + .6vw);
 }
+
 .header_box {
 	display: flex;
 	justify-content: space-between;
@@ -28,23 +30,34 @@ h1 {
 	margin: 20px auto;
 }
 
- ul, li{
- 	margin: 0px;
- 	padding: 0px;
- 	list-style: none;'
- }
- .main_box {
- 	width: 60%;
- 	margin: 50px auto;
- }
- .main_list {
- 	display: flex;
- 	justify-content: space-between;
- }
- li {
-  	width: 20%
- }
- 
+ul, li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	cursor: pointer;
+}
+
+.main_box {
+	width: 60%;
+	margin: 50px auto;
+}
+
+.main_list {
+	display: flex;
+	justify-content: left;
+	flex-wrap: wrap;
+}
+
+.main_list li {
+	width: 25%;
+	margin: 20px 100px;
+}
+
+.main_list li img {
+	width: 100%;
+	max-width: 100%;
+	height: 80%;
+}
 </style>
 </head>
 <body>

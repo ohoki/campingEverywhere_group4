@@ -90,6 +90,7 @@ input[type=submit] {
 	font-size: 12pt;
 	color: rgb(164, 164, 164);
 	margin: 10px 0px;
+	cursor: pointer;
 }
 </style>
 <title>로그인 페이지</title>
@@ -112,10 +113,18 @@ input[type=submit] {
 					required="required" placeholder="비밀번호"> <label
 					for="memberPw">비밀번호</label>
 			</div>
-			<div id="forgot">비밀번호 찾기</div>
+			<div id="forgot" onclick="searchPw()">비밀번호 찾기</div>
 			<input type="submit" value="로그인">
 
 		</form>
 	</div>
+	<script type="text/javascript">
+		function searchPw() {
+			var name = prompt("이름을 입력해주세요.", "이름");
+			var memberId = prompt("아이디를 입력해주세요.", "아이디");
+			
+			location.href = "searchPw.do?name=" + name + "&memberId=" + memberId;
+		}
+	</script>
 </body>
 </html>
