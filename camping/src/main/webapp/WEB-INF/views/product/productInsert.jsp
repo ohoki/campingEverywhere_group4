@@ -36,7 +36,7 @@
 	border: 1px solid #8aa1a1;
 	background-color: #8aa1a1 !important;
 	color: white !important;
-	background-color: #8aa1a1 !important;
+	border: #8aa1a1 !important;
 }
 </style>
 </head>
@@ -65,7 +65,7 @@
 						<option value="코펠/쿨러/식기류">코펠/쿨러/식기류</option>
 					</select> <input type="date" name="productDate"
 						class="w3-input w3-border w3-white" placeholder="입고일"> <input
-						type="number" name="productQunatity"
+						type="number" name="productQuantity"
 						class="w3-input w3-border w3-white" placeholder="수량" min="0">
 				</div>
 				<div align="center" class="menu_btn">

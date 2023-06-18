@@ -18,12 +18,14 @@ public class ProductIndividualList implements Command {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
 		ProductVO vo = new ProductVO();
+		String value = request.getParameter("value");
 		
-		vo.setProductKategorie(request.getParameter("value"));
+		vo.setProductKategorie(value);
 		
 		products = ps.productIndividualList(vo);
 		
 		request.setAttribute("products", products);
+		request.setAttribute("kate", value);
 		
 		return "product/productList";
 	}

@@ -18,7 +18,10 @@ public class productList implements Command {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
 		products = ps.productSelectList();
+		String value = request.getParameter("value");
+		
 		request.setAttribute("products", products);
+		request.setAttribute("kate", value);
 
 		return "product/productList";
 	}
