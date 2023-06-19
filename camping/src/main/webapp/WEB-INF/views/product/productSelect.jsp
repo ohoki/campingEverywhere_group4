@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+a {
+	text-decoration: none;
+	color: white;
+}
+
 .product_select_haader {
 	display: flex;
 	justify-content: space-between;
@@ -24,7 +29,7 @@
 
 .prodcut_inf {
 	border: 1px solid #bbb;
-	padding: 5px;
+	padding: 20px 5px;
 	height: 386px;
 	width: 100%;
 	margin: 10px 0 50px;
@@ -72,6 +77,37 @@
 	color: white !important;
 	border-color: #8aa1a1 !important;
 	margin: 3px 10px;
+}
+
+.main_header {
+	border: none;
+	background-color: #8aa1a1;
+	color: white;
+	padding: 3px;
+}
+
+.main_header ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 5px;
+	color: white;
+}
+
+.main_header ul li {
+	border: 3px solid #8aa1a1;
+	padding: 11px 10px;
+	margin: 0 15px;
+}
+
+.main_header ul li:hover {
+	border-bottom: 3px solid white;
+}
+
+.product_detail {
+	width: 100%;
+	height: 1000px;
+	overflow: scroll;
 }
 </style>
 </head>
@@ -124,12 +160,20 @@
 			</form>
 			<form id="frm1" action="productEditForm.do" method="post">
 				<input type="hidden" id="productId" name="productId"
-					value="'${proudct.productId}'">
+					value="'${product.productId}'">
 			</form>
 			<form id="frm2" action="productDelete.do" method="post">
 				<input type="hidden" id="productId" name="productId"
-					value="'${proudct.productId}'">
+					value="'${product.productId}'">
 			</form>
+			<div class="main_header">
+				<ul>
+					<li><a href="#">상품 상세정보</a></li>
+					<li><a href="#">상품 후기</a></li>
+					<li><a href="#">문의하기</a></li>
+				</ul>
+			</div>
+			<div class="product_detail">${product.productDetail}</div>
 		</div>
 	</div>
 	<script type="text/javascript">
