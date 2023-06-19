@@ -8,20 +8,22 @@ import co.group.camping.board.service.BoardServiceImpl;
 import co.group.camping.board.service.BoardVO;
 import co.group.camping.common.Command;
 
-public class BoardSelect implements Command {
+public class BaordDelete implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		BoardService bs = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
 		
-		vo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
+		vo.setBoardId(Integer.parseInt(request.getParameter("boardId")));
 		
-		vo = bs.boardSelect(vo);
-		request.setAttribute("board", vo);
-		
-		return "board/boardSelect";
+		int b = bs.boardDelete(vo);
+		if(b != 0) {
+			request.setAttribute("message", "정상적으로 삭제되었습니다.");
+		}else{
+			request.setAttribute("message", "게시글 삭제에 실패했습니다.");
+		}
+		return "board/boardMessage";
 	}
-	
-	
+
 }

@@ -1,5 +1,8 @@
 package co.group.camping.board.command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,20 +11,17 @@ import co.group.camping.board.service.BoardServiceImpl;
 import co.group.camping.board.service.BoardVO;
 import co.group.camping.common.Command;
 
-public class BoardSelect implements Command {
+public class BoardReviewList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		BoardService bs = new BoardServiceImpl();
-		BoardVO vo = new BoardVO();
+		List<BoardVO> boards = new ArrayList<>();
+		boards = bs.boardSelectReview();
 		
-		vo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
+		request.setAttribute("boards", boards);
 		
-		vo = bs.boardSelect(vo);
-		request.setAttribute("board", vo);
-		
-		return "board/boardSelect";
+		return "board/boardReviewList";
 	}
-	
-	
+
 }

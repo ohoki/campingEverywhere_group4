@@ -8,20 +8,18 @@ import co.group.camping.board.service.BoardServiceImpl;
 import co.group.camping.board.service.BoardVO;
 import co.group.camping.common.Command;
 
-public class BoardSelect implements Command {
+public class BoardEdit implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		
 		BoardService bs = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
-		
-		vo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
-		
+		vo.setBoardId(Integer.parseInt(request.getParameter("boardId")));
 		vo = bs.boardSelect(vo);
 		request.setAttribute("board", vo);
 		
-		return "board/boardSelect";
+		return "board/boardEdit";
 	}
-	
-	
+
 }

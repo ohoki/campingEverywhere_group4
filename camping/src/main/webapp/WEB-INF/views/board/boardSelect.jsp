@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style >
+		
+</style>
 </head>
 <body>
 	<div align="center">
@@ -16,10 +19,12 @@
 		<div>
 			<table border="1">
 				<tr align="center">
-					<th width="70">순번</th>
+					<th width="60">글 번호</th>
 					<td width="50">${board.boardId}</td>
 					<th width="100">작성자</th>
-					<td width="150">${board.memberId}</td>
+					<td width="100">${board.memberId}</td>
+					<th width="100">카테고리</th>
+					<td width="100">${board.boardKate}</td>
 					<th width="100">작성일자</th>
 					<td width="150">${board.boardWdate}</td>
 					<th width="100">조회수</th>
@@ -35,13 +40,14 @@
 					</td>
 				</tr>
 			</table>
+			
 		</div>
 		<br>
 		<div>
-			<c:if test="${name eq board.memberId}">
+			<%-- <c:if test="${name eq board.memberId}"> --%>
 				<button type="button" onclick="callFunction('E')">수정하기</button>&nbsp;&nbsp;
 				<button type="button" onclick="callFunction('D')">삭제하기</button>&nbsp;&nbsp;
-			</c:if>
+			<%-- </c:if> --%>
 			<button type="button" onclick="location.href='boardList.do'">목록</button>
 		</div>
 		<div>

@@ -17,4 +17,8 @@ public class BoardVO {
 	private String memberId; // 작성자 ID
 	private Date boardWdate; // 게시글 작성일
 	private int boardHit; // 게시글 조회수
+	
+	private String kate; //카테고리
+	private String search; //검색내용
+	
 }

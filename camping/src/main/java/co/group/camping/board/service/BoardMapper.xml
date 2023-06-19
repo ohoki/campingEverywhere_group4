@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.group.camping.board.service.BoardMapper">
+	
+	
 	<select id="boardSelectList"
 		resultType="co.group.camping.board.service.BoardVO">
-		SELECT * FROM board order by board_id
-
+		SELECT * FROM board 
+		WHERE board_kate = '공지사항' 
+		ORDER BY board_id
+	</select>
+	<select id="boardSelectQna"
+		resultType="co.group.camping.board.service.BoardVO">
+		SELECT * FROM board 
+		WHERE board_kate = '문의사항' 
+		ORDER BY board_id	
+	</select>
+	<select id="boardSelectReview"
+		resultType="co.group.camping.board.service.BoardVO">
+		SELECT * FROM board 
+		WHERE board_kate = '구매후기' 
+		ORDER BY board_id	
 	</select>
 	<select id="boardSelect"
 		parameterType="co.group.camping.board.service.BoardVO"
@@ -12,13 +27,24 @@
 		SELECT * FROM board
 		WHERE board_id = #{boardId}
 	</select>
+	<update id="boardHit"
+	parameterType="co.group.camping.board.service.BoardVO">
+		UPDATE board SET board_hit = board_hit + 1 
+		WHERE board_id = #{boardId}
+	<!--조회수 증가기능 구현 예정  -->
+	</update>
 	<insert id="boardInsert"
 		parameterType="co.group.camping.board.service.BoardVO">
 		INSERT INTO board
-		(board_id, member_id, board_title,
-		board_subject, board_wdate,board_hit)
+		(board_id, 
+		board_kate, 
+		member_id, 
+		board_title,
+		board_subject, 
+		board_wdate,
+		board_hit)
 		VALUES((select max(board_id) + 1
-		from board),#{memberId},#{boardTitle},#{boardSubject},#{boardWdate},0)
+		from board),#{boardKate},#{memberId},#{boardTitle},#{boardSubject},#{boardWdate},0)
 	</insert>
 	<update id="boardUpdate"
 		parameterType="co.group.camping.board.service.BoardVO">
@@ -26,8 +52,9 @@
 		<set>
 			<!-- myBatis 동적 쿼리 -->
 			<if test="memberId != null">MEMBER_ID = #{memberId},</if>
+			<if test="boardKate != null">BOARD_KATE = #{boardKate},</if>
 			<if test="boardTitle != null">BOARD_TITLE = #{boardTitle},</if>
-			<if test="boardeWdate != null">BOARD_WDATE = #{boardWdate},</if>
+			<if test="boardWdate != null">BOARD_WDATE = #{boardWdate},</if>
 			<if test="boardSubject != null">BOARD_SUBJECT = #{boardSubject}</if>
 		</set>
 		WHERE board_id = #{boardId}
@@ -37,4 +64,21 @@
 		DELETE FROM board
 		WHERE board_id = #{boardId}
 	</delete>
+	
+	<select id="boardSearch" 
+		resultType="co.group.camping.board.service.BoardVO"
+		parameterType="co.group.camping.board.service.BoardVO">
+		 SELECT * FROM board 
+			<if test='kate eq "title"'>
+			WHERE board_title  like '%'||#{search}||'%' 	<!--||나 CONCAT은 하나만 사용할 것!!  -->
+			</if>
+			<if test="kate.equals('subject')">
+			WHERE board_subject like CONCAT('%',#{search},'%')
+			</if>
+			<if test='kate eq "writer"'>
+			WHERE member_id like '%${search}%'
+			</if>
+	</select> 
+	
+	
 </mapper>

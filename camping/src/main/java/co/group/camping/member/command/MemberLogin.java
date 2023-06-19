@@ -25,7 +25,7 @@ public class MemberLogin implements Command {
 		if (vo != null) {
 			session.setAttribute("id", vo.getMemberId());
 			session.setAttribute("name", vo.getMemberName());
-
+			session.setAttribute("auth", vo.getMemberAuth());
 			return "main.do";
 		} else {
 			request.setAttribute("message", "아이디 또는 패스워드가 틀렸습니다.");

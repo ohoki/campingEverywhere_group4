@@ -11,10 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.group.camping.board.command.AjaxBoardHit;
+import co.group.camping.board.command.BaordDelete;
+import co.group.camping.board.command.BoardEdit;
 import co.group.camping.board.command.BoardInsert;
 import co.group.camping.board.command.BoardInsertForm;
 import co.group.camping.board.command.BoardList;
+import co.group.camping.board.command.BoardQnaList;
+import co.group.camping.board.command.BoardReviewList;
+import co.group.camping.board.command.BoardSearch;
 import co.group.camping.board.command.BoardSelect;
+import co.group.camping.board.command.BoardUpdate;
 import co.group.camping.common.Command;
 import co.group.camping.main.command.MainCommand;
 import co.group.camping.member.command.AjaxCheckId;
@@ -51,10 +58,20 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberLogout.do", new MemberLogout());
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
+		
+		
 		map.put("/boardInsert.do", new BoardInsert());
 		map.put("/boardInsertForm.do", new BoardInsertForm());
+		map.put("/boardEdit.do",new BoardEdit());
+		map.put("/boardUpdate.do", new BoardUpdate());
+		map.put("/boardDelete.do", new BaordDelete());
 		map.put("/boardList.do", new BoardList());
 		map.put("/boardSelect.do", new BoardSelect());
+		map.put("/boardQnaList.do", new BoardQnaList());
+		map.put("/boardReviewList.do", new BoardReviewList());
+		map.put("/boardSearch.do", new BoardSearch());
+		map.put("/ajaxBoardHit.do", new AjaxBoardHit());
+		
 		map.put("/campingRecommend.do", new CampingRecommend());
 		map.put("/productList.do", new productList()); // 제품목록
 		map.put("/productInsertForm.do", new productInsertForm()); // 등록폼 열기
@@ -63,6 +80,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productEditForm.do", new productEditForm()); // 제품 수정 폼 호출
 		map.put("/productEdit.do", new productEdit()); // 제품 수정
 		map.put("/productDelete.do", new productDelete()); // 제품 삭제
+		
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -73,6 +91,7 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath(); // root 를 구함
 		String page = uri.substring(contextPath.length()); // 요청한 페이지 구함
 
+		
 		Command command = map.get(page); // 수행할 command를 가져온다
 		String viewPage = command.exec(request, response);
 
