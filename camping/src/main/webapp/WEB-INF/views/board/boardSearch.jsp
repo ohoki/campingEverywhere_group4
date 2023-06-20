@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -19,105 +18,10 @@ td, th {
 	border: 1px solid black;
 	padding: 5px 0;
 }
-body{
-    margin : 10px;
-    padding: 10px;
-    text-align: center;
-}
-.dropdown{
-    position: relative;
-    display: inline-block;
-}
-.button{
-    padding: 10px 40px;
-    font-size:15px;
-    background-color: blue;
-    color: wheat;
-}
-#drop-content{
-    position: absolute;
-    z-index: 1;
-}
-#drop-content a{
-    display:block;
-    font-size: 15px;
-    background-color: #dfdfdf;
-    color: black;
-    text-decoration: none;
-    padding: 10px 36px;
-    margin: 2px 0px 0px 0px;
-    
-   
-   * {
-	box-sizing: border-box;
-}
-
-body {
-	margin: 0;
-}
-header {
-	display: flex;
-  } 
-
-.img_logo {
-	margin-right: 15px;
-	max-width: 150px;    
-	margin-top: 20px;
-}
-
-.search_box {
-	width: 520px;
-	height: 50px;
-	border: 2px solid #03cf5d;
-	display: flex;
-	margin-top: 20px;
-}
-
-.search_box input {
-	width: 90%;
-	height: 46px;
-	padding-left: 12px;
-	padding-right: 12px;
-	border: none;
-	outline: none;
-	font-size: 18px;
-	
-}
-
-.search_box button {
-	width: 10%;
-	height: 46px;
-	margin: 0;
-	padding: 0;
-	border: none;
-	background: #03cf5d;
-}
-
-.search_box i {
-	color: white;
-	font-size: 22px;
-	text-align: center;
-}
-
-#keyboard {
-	color: lightgray;
-	font-size: 20px;
-	text-align: center;
-	width: 10%;
-	padding-top:12px;
-} 
-}
-
-
 </style>
 </head>
 <body>
 	<div align="center">
-		
-		<div>
-			<h1>공지사항</h1>
-		</div>
-		
 		<div>
 			<div class="container d-flex align-items-center justify-content-center">
 			<nav id="navbar" class="navbar">
@@ -128,8 +32,8 @@ header {
 				</ul>
 			</nav>
 		</div>
-			
-			
+		<div>
+			<h1>검색결과</h1>
 		</div>
 		<table>
 			<thead>
@@ -159,8 +63,8 @@ header {
 		</table>
 	</div>
 	<br>
-	 <div align="center">
-		<form method="post" name="serarch" action="boardSearch.do">
+	<div align="center">
+		<form method="post" name="search" id="search" action="boardSearch.do">
 					<select name="kate" id="kate">
 							<option value="title">제목</option>
 							<option value="subject">내용</option>
@@ -169,10 +73,10 @@ header {
 					<input type="text" placeholder="검색어 입력" name="search" id="search">
 					<button type="submit">검색</button>
 		</form>
-	</div> 
+	</div>
 	<div align="center">
-		<c:if test="${not empty id }">
-			<button type="button" onclick="location.href='boardInsertForm.do'">글작성</button>
+		<c:if test="${not empty id }"> 
+		<button type="button" onclick="location.href='boardInsertForm.do'">글작성</button>
 		</c:if> 
 	</div>
 	<div>
@@ -180,27 +84,12 @@ header {
 			<input type="hidden" id="boardId" name="boardId">
 		</form>
 	</div>
+</div>
 	<script type="text/javascript">
-	
-		
 		function boardChoice(id) {
-			let url = "ajaxBoardHit.do?boardId="+id;
-			fetch(url)
-			.then(response => response.text())
-			.then(text => htmlProcess(text));
-			
+			let frm = document.getElementById("frm");
 			frm.boardId.value = id;
 			frm.submit();
-		}
-		
-		function htmlProcess(hit) {
-			let frm = document.getElementById("frm");
-			if(hit=='complete'){
-				frm.boardId.value = id;
-				frm.submit();
-			}else if(hit =='fail'){
-				window.reload();
-			}
 		}
 	</script>
 </body>
