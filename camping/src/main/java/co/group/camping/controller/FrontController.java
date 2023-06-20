@@ -18,7 +18,6 @@ import co.group.camping.board.command.BoardInsert;
 import co.group.camping.board.command.BoardInsertForm;
 import co.group.camping.board.command.BoardList;
 import co.group.camping.board.command.BoardQnaList;
-import co.group.camping.board.command.BoardReviewList;
 import co.group.camping.board.command.BoardSearch;
 import co.group.camping.board.command.BoardSelect;
 import co.group.camping.board.command.BoardUpdate;
@@ -85,7 +84,6 @@ public class FrontController extends HttpServlet {
 		map.put("/boardList.do", new BoardList());
 		map.put("/boardSelect.do", new BoardSelect());
 		map.put("/boardQnaList.do", new BoardQnaList());
-		map.put("/boardReviewList.do", new BoardReviewList());
 		map.put("/boardSearch.do", new BoardSearch());
 		map.put("/ajaxBoardHit.do", new AjaxBoardHit());
 		map.put("/campingRecommend.do", new CampingRecommend());
