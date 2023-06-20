@@ -6,6 +6,19 @@
 <meta charset="utf-8">
 <title>키워드로 장소검색하고 목록으로 표출하기</title>
 <style>
+.title  {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: center;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 20px auto 0;
+	border-bottom: 1px solid #5a656e;
+	width: 80%;
+	padding-bottom: 10px;
+}
+
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;
@@ -20,8 +33,9 @@
 
 .map_wrap {
 	position: relative;
-	width: 100%;
+	width: 80%;
 	height: 700px;
+	margin: 20px auto 50px;
 }
 
 #menu_wrap {
@@ -198,6 +212,7 @@
 </script>
 </head>
 <body>
+	<h1 class="title">지역별 캠핑장 찾기</h1>
 	<div class="map_wrap" onsubmit="searchPlaces(); return false;">
 		<div id="map"
 			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>

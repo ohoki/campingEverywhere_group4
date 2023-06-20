@@ -7,6 +7,13 @@
 		SELECT *
 		FROM product
 	</select>
+	<select id="productIndividualList"
+		resultType="co.group.camping.product.service.ProductVO"
+		parameterType="co.group.camping.product.service.ProductVO">
+		SELECT *
+		FROM product WHERE product_kategorie =
+		#{productKategorie}
+	</select>
 	<select id="productSelect"
 		resultType="co.group.camping.product.service.ProductVO"
 		parameterType="co.group.camping.product.service.ProductVO">
@@ -14,11 +21,16 @@
 		FROM product
 		WHERE product_id = #{productId}
 	</select>
+	<select id="productSelectMd"
+		resultType="co.group.camping.product.service.ProductVO">
+		select * from product where recommend = 'MD'
+	</select>
 	<insert id="productInsert">
 		INSERT INTO product
 		VALUES(#{productId},#{productName}, #{productPrice},
 		#{productBrand},
-		#{productKategorie}, #{productImage}, #{productDate},#{productSales})
+		#{productKategorie}, #{productImage}, #{productDate},0,
+		#{imageFileName},#{productQuantity}, null, #{productDetail})
 	</insert>
 	<update id="productUpdate"
 		parameterType="co.group.camping.product.service.ProductVO">
@@ -28,7 +40,9 @@
 			<if test="productPrice != null">product_price = #{productPrice},</if>
 			<if test="productBrand != null">product_brand = #{productBrand},</if>
 			<if test="productDate != null">product_date = #{productDate},</if>
-			<if test="productKategorie != null">product_Kategorie = #{productKategorie}</if>
+			<if test="productKategorie != null">product_Kategorie = #{productKategorie},</if>
+			recommend = #{recommend},
+			<if test="productDetail != null">product_detail = #{productDetail}</if>
 		</set>
 		WHERE product_id = #{productId}
 	</update>

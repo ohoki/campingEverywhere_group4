@@ -24,12 +24,16 @@ public class MemberLogin implements Command {
 		vo = ms.memberLogin(vo);
 		if (vo != null) {
 			session.setAttribute("id", vo.getMemberId());
+			session.setAttribute("pw", vo.getMemberPw());
 			session.setAttribute("name", vo.getMemberName());
+			session.setAttribute("addr", vo.getMemberAddr());
+			session.setAttribute("tel", vo.getMemberTel());
 			session.setAttribute("auth", vo.getMemberAuth());
+			
 			return "main.do";
 		} else {
-			request.setAttribute("message", "아이디 또는 패스워드가 틀렸습니다.");
+			request.setAttribute("login", "fail");
 		}
-		return "member/memberMessage";
+		return "member/memberLogin";
 	}
 }

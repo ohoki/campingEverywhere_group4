@@ -52,11 +52,27 @@
 			<artifactId>tiles-extras</artifactId>
 			<version>3.0.8</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
-	    <groupId>com.fasterxml.jackson.core</groupId>
-	    <artifactId>jackson-databind</artifactId>
-	    <version>2.15.2</version>
-	</dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+    
+		<!-- https://mvnrepository.com/artifact/com.servlets/cos -->
+		<dependency>
+			<groupId>com.servlets</groupId>
+			<artifactId>cos</artifactId>
+			<version>05Nov2002</version>
+		</dependency>
+
 	</dependencies>
 
 	<!-- compile or build option definition(베포) -->

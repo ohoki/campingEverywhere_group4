@@ -14,9 +14,30 @@
 		INSERT INTO MEMBER
 		VALUES(#{memberId},#{memberPw},#{memberName},'N',#{memberAddr},#{memberTel})
 	</insert>
-	<update id="memberUpdate"></update>
-
-	<delete id="memberDelete"></delete>
+	<!-- 비밀번호 변경 -->
+	<update id="memberUpdate"
+		parameterType="co.group.camping.member.service.MemberVO">
+		UPDATE member
+		<set>
+			<if test="memberPw != null">MEMBER_PW = #{memberPw }</if>
+		</set>
+		WHERE member_id = #{memberId }
+	</update>
+	<update id="memberFullUpdate"
+		parameterType="co.group.camping.member.service.MemberVO">
+		UPDATE member
+		<set>
+			<if test="memberName != null">MEMBER_NAME = #{memberName },</if>
+			<if test="memberAddr != null">MEMBER_ADDR = #{memberAddr },</if>
+			<if test="memberTel != null">MEMBER_TEL = #{memberTel }</if>
+		</set>
+		WHERE member_id = #{memberId }
+	</update>
+	<delete id="memberDelete"
+		parameterType="co.group.camping.member.service.MemberVO">
+		DELETE from member
+		WHERE member_id = #{memberId }
+	</delete>
 
 	<select id="memberLogin"
 		resultType="co.group.camping.member.service.MemberVO">

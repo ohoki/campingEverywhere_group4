@@ -23,8 +23,14 @@ import co.group.camping.board.command.BoardSearch;
 import co.group.camping.board.command.BoardSelect;
 import co.group.camping.board.command.BoardUpdate;
 import co.group.camping.common.Command;
+import co.group.camping.delivery.command.DeliveryInsertFrom;
+import co.group.camping.delivery.command.DeliveryList;
+import co.group.camping.delivery.command.DeliveryResearch;
 import co.group.camping.main.command.MainCommand;
 import co.group.camping.member.command.AjaxCheckId;
+import co.group.camping.member.command.MemberDelete;
+import co.group.camping.member.command.MemberEdit;
+import co.group.camping.member.command.MemberEditForm;
 import co.group.camping.member.command.MemberInsert;
 import co.group.camping.member.command.MemberJoin;
 import co.group.camping.member.command.MemberList;
@@ -33,11 +39,17 @@ import co.group.camping.member.command.MemberLoginForm;
 import co.group.camping.product.command.productInsertForm;
 import co.group.camping.product.command.productList;
 import co.group.camping.product.command.productSelect;
+import co.group.camping.product.command.AjaxUpdateRecommend;
+import co.group.camping.product.command.ProductIndividualList;
 import co.group.camping.product.command.productDelete;
 import co.group.camping.product.command.productEdit;
 import co.group.camping.product.command.productEditForm;
 import co.group.camping.product.command.productInsert;
 import co.group.camping.member.command.MemberLogout;
+import co.group.camping.member.command.MemberPwEdit;
+import co.group.camping.member.command.MemberPwEditForm;
+import co.group.camping.member.command.MyPage;
+import co.group.camping.member.command.SearchPw;
 import co.group.camping.recommend.command.CampingRecommend;
 
 @WebServlet("*.do")
@@ -55,11 +67,16 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsert.do", new MemberInsert());
 		map.put("/memberJoin.do", new MemberJoin());
 		map.put("/memberLogin.do", new MemberLogin());
-		map.put("/memberLoginForm.do", new MemberLoginForm());
-		map.put("/memberLogout.do", new MemberLogout());
-		map.put("/ajaxCheckId.do", new AjaxCheckId());
-		
-		
+		map.put("/memberLoginForm.do", new MemberLoginForm()); // 로그인 폼
+		map.put("/memberLogout.do", new MemberLogout()); //로그아웃
+		map.put("/myPage.do", new MyPage());
+		map.put("/ajaxCheckId.do", new AjaxCheckId()); // 로그인 id 체크
+		map.put("/memberPwEdit.do", new MemberPwEdit()); // 비밀번호 수정
+		map.put("/memberPwEditForm.do", new MemberPwEditForm()); //비밀번호 수정 폼 호출
+		map.put("/memberEdit.do", new MemberEdit()); // 내 정보 수정
+		map.put("/memberEditForm.do", new MemberEditForm()); //내 정보 수정(이름, 주소, 전화번호) 폼 호출
+		map.put("/memberDelete.do", new MemberDelete()); // 회원 탈퇴
+		map.put("/searchPw.do", new SearchPw()); 
 		map.put("/boardInsert.do", new BoardInsert());
 		map.put("/boardInsertForm.do", new BoardInsertForm());
 		map.put("/boardEdit.do",new BoardEdit());
@@ -71,16 +88,19 @@ public class FrontController extends HttpServlet {
 		map.put("/boardReviewList.do", new BoardReviewList());
 		map.put("/boardSearch.do", new BoardSearch());
 		map.put("/ajaxBoardHit.do", new AjaxBoardHit());
-		
 		map.put("/campingRecommend.do", new CampingRecommend());
 		map.put("/productList.do", new productList()); // 제품목록
+		map.put("/productIndividualList.do", new ProductIndividualList()); // 제품목록
 		map.put("/productInsertForm.do", new productInsertForm()); // 등록폼 열기
 		map.put("/productInsert.do", new productInsert()); // 제품등록
 		map.put("/productSelect.do", new productSelect()); // 제품 상세보기
 		map.put("/productEditForm.do", new productEditForm()); // 제품 수정 폼 호출
 		map.put("/productEdit.do", new productEdit()); // 제품 수정
 		map.put("/productDelete.do", new productDelete()); // 제품 삭제
-		
+		map.put("/ajaxUpdateRecommend.do", new AjaxUpdateRecommend());
+		map.put("/deliveryList.do", new DeliveryList()); // 초기 리스트랑
+		map.put("/deliveryResearch.do", new DeliveryResearch());
+		map.put("/deliveryInsertFrom.do", new DeliveryInsertFrom()); 
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

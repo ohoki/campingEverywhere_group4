@@ -27,7 +27,7 @@ public class MemberInsert implements Command {
 		if (n != 0)
 			return "member/insertSeccess";
 		else
-			request.setAttribute("message", "회원가입이 실패했습니다. 다시가입하라");
+			request.setAttribute("message", "회원가입이 실패했습니다. 다시가입해주세요");
 		return "member/memberMessage";
 	}
 }
