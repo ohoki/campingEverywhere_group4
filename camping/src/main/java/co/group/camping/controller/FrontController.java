@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.group.camping.board.command.AjaxBoardHit;
-import co.group.camping.board.command.BaordDelete;
+import co.group.camping.board.command.BoardAll;
+import co.group.camping.board.command.BoardDelete;
 import co.group.camping.board.command.BoardEdit;
 import co.group.camping.board.command.BoardInsert;
 import co.group.camping.board.command.BoardInsertForm;
@@ -82,12 +83,13 @@ public class FrontController extends HttpServlet {
 		map.put("/memberEdit.do", new MemberEdit()); // 내 정보 수정
 		map.put("/memberEditForm.do", new MemberEditForm()); //내 정보 수정(이름, 주소, 전화번호) 폼 호출
 		map.put("/memberDelete.do", new MemberDelete()); // 회원 탈퇴
-		map.put("/searchPw.do", new SearchPw()); 
-		map.put("/boardInsert.do", new BoardInsert());
-		map.put("/boardInsertForm.do", new BoardInsertForm());
-		map.put("/boardEdit.do",new BoardEdit());
-		map.put("/boardUpdate.do", new BoardUpdate());
-		map.put("/boardDelete.do", new BaordDelete());
+		map.put("/searchPw.do", new SearchPw());
+		map.put("/boardAll.do", new BoardAll()); 
+		map.put("/boardInsert.do", new BoardInsert()); 
+		map.put("/boardInsertForm.do", new BoardInsertForm()); 
+		map.put("/boardEdit.do",new BoardEdit()); 
+		map.put("/boardUpdate.do", new BoardUpdate());	
+		map.put("/boardDelete.do", new BoardDelete());
 		map.put("/boardList.do", new BoardList());
 		map.put("/boardSelect.do", new BoardSelect());
 		map.put("/boardQnaList.do", new BoardQnaList());
