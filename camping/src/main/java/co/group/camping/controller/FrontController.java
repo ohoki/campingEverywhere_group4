@@ -40,6 +40,7 @@ import co.group.camping.product.command.productList;
 import co.group.camping.product.command.productSelect;
 import co.group.camping.product.command.AjaxUpdateRecommend;
 import co.group.camping.product.command.ProductIndividualList;
+import co.group.camping.product.command.SortProduct;
 import co.group.camping.product.command.productDelete;
 import co.group.camping.product.command.productEdit;
 import co.group.camping.product.command.productEditForm;
@@ -50,6 +51,12 @@ import co.group.camping.member.command.MemberPwEditForm;
 import co.group.camping.member.command.MyPage;
 import co.group.camping.member.command.SearchPw;
 import co.group.camping.recommend.command.CampingRecommend;
+import co.group.camping.review.command.ReviewDelete;
+import co.group.camping.review.command.ReviewInsert;
+import co.group.camping.review.command.ReviewInsertForm;
+import co.group.camping.review.command.ReviewSelect;
+import co.group.camping.review.command.ReviewUpdate;
+import co.group.camping.review.command.ReviewUpdateForm;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -95,10 +102,18 @@ public class FrontController extends HttpServlet {
 		map.put("/productEditForm.do", new productEditForm()); // 제품 수정 폼 호출
 		map.put("/productEdit.do", new productEdit()); // 제품 수정
 		map.put("/productDelete.do", new productDelete()); // 제품 삭제
+		map.put("/SortProduct.do", new SortProduct());
 		map.put("/ajaxUpdateRecommend.do", new AjaxUpdateRecommend());
 		map.put("/deliveryList.do", new DeliveryList()); // 초기 리스트랑
 		map.put("/deliveryResearch.do", new DeliveryResearch());
 		map.put("/deliveryInsertFrom.do", new DeliveryInsertFrom()); 
+		map.put("/reviewInsertForm.do", new ReviewInsertForm()); 
+		map.put("/reviewInsert.do", new ReviewInsert());
+		map.put("/reviewSelect.do", new ReviewSelect());
+		map.put("/reviewSelect.do", new ReviewSelect());
+		map.put("/reviewUpdateForm.do", new ReviewUpdateForm());
+		map.put("/reviewUpdate.do", new ReviewUpdate());
+		map.put("/reviewDelete.do", new ReviewDelete());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

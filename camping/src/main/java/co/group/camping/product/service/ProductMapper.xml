@@ -7,6 +7,18 @@
 		SELECT *
 		FROM product
 	</select>
+	<select id="sortProduct"
+		resultType="co.group.camping.product.service.ProductVO"
+		parameterType="co.group.camping.product.service.ProductVO">
+		SELECT *
+		FROM product
+		<trim prefix="ORDER BY">
+			<if test="sortStandard == 'productSales'"> product_sales </if>
+			<if test="sortStandard == 'productPriceLow'"> product_price </if>
+			<if test="sortStandard == 'productPriceHigh'"> product_price DESC </if>
+			<if test="sortStandard == 'productDate'"> product_date DESC</if>
+		</trim>
+	</select>
 	<select id="productIndividualList"
 		resultType="co.group.camping.product.service.ProductVO"
 		parameterType="co.group.camping.product.service.ProductVO">

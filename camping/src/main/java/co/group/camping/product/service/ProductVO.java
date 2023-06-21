@@ -22,4 +22,5 @@ public class ProductVO{
 	private int productQuantity;
 	private String recommend;
 	private String productDetail;
+	private String sortStandard;
 }

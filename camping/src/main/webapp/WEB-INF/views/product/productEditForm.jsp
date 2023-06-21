@@ -91,6 +91,8 @@
 						onclick="location.href='productList.do'"> &nbsp;<input
 						type="button" value="수정" class="w3-button w3-white w3-round-small" onclick="submitPost()">
 				</div>
+				<input type="hidden" name="recommend"
+						class="w3-input w3-border w3-white" value="${product.recommend}">
 			</form>
 		</div>
 	</div>
