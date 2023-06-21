@@ -33,6 +33,11 @@
 <link href="assets/vendor/glightbox/css/glightbox.min.css"
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/8af996bb56.js"></script>
+
+<style>
+
+</style>
+
 </head>
 
 <body>
@@ -46,7 +51,7 @@
 	<a href="#"
 		class="back-to-top d-flex align-items-center justify-content-center"><i
 		class="bi bi-arrow-up-short"></i></a>
-		
+
 	<script src="assets/js/main.js"></script>
 	<!-- 실시간 채팅 -->
 	<script>
@@ -87,6 +92,7 @@
 		ChannelIO('boot', {
 			"pluginKey" : "d9fddb33-7f28-4be2-b94f-1975ddee4419"
 		});
+		
 	</script>
 </body>
 

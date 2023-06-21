@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+a {
+	text-decoration: none;
+	color: white;
+}
+
 .product_select_haader {
 	display: flex;
 	justify-content: space-between;
@@ -24,7 +29,7 @@
 
 .prodcut_inf {
 	border: 1px solid #bbb;
-	padding: 5px;
+	padding: 20px 5px;
 	height: 386px;
 	width: 100%;
 	margin: 10px 0 50px;
@@ -79,7 +84,82 @@
 	border-color: #8aa1a1 !important;
 	margin: 3px 10px;
 }
+
+.main_header {
+	border: none;
+	background-color: #8aa1a1;
+	color: white;
+	padding: 3px;
+}
+
+.main_header ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 5px;
+	color: white;
+}
+
+.main_header ul li {
+	border: 3px solid #8aa1a1;
+	padding: 11px 10px;
+	margin: 0 15px;
+}
+
+.main_header ul li:hover {
+	border-bottom: 3px solid white;
+}
+
+.product_detail {
+	width: 100%;
+	height: 700px;
+	overflow: scroll;
+}
+
+.product_detail::-webkit-scrollbar {
+	display: none;
+}
+
+.main_footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 15px 5px;
+	margin: 20px 0 5px;
+	border-bottom: 1px solid #8aa1a1;
+}
+
+.main_footer h2 {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
+.main_footer button {
+	border: 1px solid #5a656e;
+	background-color: #5a656e;
+	padding: 0;
+	margin: 0;
+	width: 150px;
+	height: 28px;
+	color: white;
+}
+
+.review_table {
+	width: 100%;
+	border-bottom: 1px solid #bbb;
+	text-align: center;
+}
+
+.review_table td {
+	padding: 10px;
+}
 </style>
+<script src="https://kit.fontawesome.com/8af996bb56.js"></script>
 </head>
 <body>
 	<div style="margin: 50px auto">
@@ -88,7 +168,7 @@
 				<div class="product_select_haader">
 					<h3 style="color: black; text-align: left;">${product.productName}</h3>
 					<div>
-						<c:if test="${auth == 'A' && product.recommend == null }">
+						<c:if test="${auth == 'A'}">
 							<button type="button"
 								onclick="productEditForm('${product.productId}')">수정</button>
 							<button type="button"
@@ -129,11 +209,11 @@
 			</form>
 			<form id="frm1" action="productEditForm.do" method="post">
 				<input type="hidden" id="productId" name="productId"
-					value="'${proudct.productId}'">
+					value="'${product.productId}'">
 			</form>
 			<form id="frm2" action="productDelete.do" method="post">
 				<input type="hidden" id="productId" name="productId"
-					value="'${proudct.productId}'">
+					value="'${product.productId}'">
 			</form>
 			<form id="frm3" action="cartInsert.do" method="post">
 				<input type="hidden" id="productId" name="productId"
@@ -143,6 +223,33 @@
 				<input type="hidden" id="productId" name="productId"
 					value="'${product.productId}'">
 			</form>
+			<div class="main_header">
+				<ul>
+					<li><a href="#">상품 상세정보</a></li>
+					<li><a href="#">상품 후기</a></li>
+					<li><a href="#">문의하기</a></li>
+				</ul>
+			</div>
+			<div class="product_detail">${product.productDetail}</div>
+			<div>
+				<div class="main_footer">
+					<h2>상품후기</h2>
+					<button type="button" onclick="reviewInsert()">상품후기 글쓰기</button>
+				</div>
+				<table class="review_table">
+					<c:forEach items="${reviews}" var="r">
+						<tr>
+							<td width="13%"><c:forEach begin="1" end="${r.reviewRate}"
+									step="1">
+									<i class="fa-solid fa-star" style="color: #fad900;"></i>
+								</c:forEach></td>
+							<td style="text-align: left; cursor: pointer;" onclick="location.href='reviewSelect.do?reviewId=${r.reviewId}'">${r.reviewTitle}</td>
+							<td width="15%">${r.memberId}</td>
+							<td width="15%">${r.reviewDate}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -195,6 +302,7 @@
 				frm.submit();
 			}
 		}
+
 		function cartInsert(id){
 			if (confirm("장바구니에 추가 하시겠습니까?")){
 				let singIn = "${id}";
@@ -222,6 +330,16 @@
 				frm.submit();
 			}
 			
+		function reviewInsert() {
+			let id = "${id}";
+			let productId = "${product.productId}";
+			console
+			if(id != "") {
+				location.href="reviewInsertForm.do?productId=" + productId;
+			} else {
+				alert("로그인 후 이용가능 합니다.");
+				location.href="memberLoginForm.do";
+			}
 		}
 	</script>
 </body>

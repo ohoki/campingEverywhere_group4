@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>myInfo</title>
 <style type="text/css">
+
 #frm {
 	margin: 70px 0;
 }
@@ -97,10 +98,10 @@ p {
 </style>
 </head>
 <body>
-	<form id="frm" action="memberEdit.do" method="post">
+	<form id="frm" action="memberEdit.do" onsubmit="return formCheck()" method="post">
 		<div class="container">
 			<div class="insert">
-				<h2>회원가입</h2>
+				<h2>내정보 수정</h2>
 				<table>
 					<tr>
 						<td class="col1">이름<span class="num"> *</span></td>
@@ -119,8 +120,8 @@ p {
 					</tr>
 					<tr>
 						<td class="col1">전화번호<span class="num"> *</span></td>
-						<td class="col2"><input type="tel" id="memberTender"
-							name="memberTender" required="required" maxlength="13"
+						<td class="col2"><input type="tel" id="memberTel"
+							name="memberTel" required="required" maxlength="13"
 							value="${tel}" />
 					</tr>
 					<tr>
@@ -131,7 +132,6 @@ p {
 					</tr>
 				</table>
 			</div>
-
 			<div class="create">
 				<input type="hidden" name="memberId" value="${id}"> <input
 					class="but2" type="button" value="홈으로"  onclick="location.href='main.do'"> <input class="but2"
@@ -139,5 +139,24 @@ p {
 			</div>
 		</div>
 	</form>
+	<script type="text/javascript">>
+	function formCheck() {
+		let frm = document.getElementById("frm");
+		if (frm.memberName.value != null){
+			alert("개인정보 수정 완료 ! \n 로그아웃 후 메인화면으로 돌아갑니다")
+			return true;
+		}else
+			alert("개인정보 변경 실패 !")
+	}
+	
+	window.onload = function() {
+		if("${edit}" == "seccess") {
+			alert("회원정보가 변경되었습니다. n\ 로그아웃 후 메인화면으로 돌아갑니다.");
+			
+		} 
+	}
+	
+	</script>
+
 </body>
 </html>

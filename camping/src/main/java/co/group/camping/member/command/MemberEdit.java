@@ -22,10 +22,13 @@ public class MemberEdit implements Command {
 		
 		int n = ms.memberFullUpdate(member);
 		if (n != 0) {
+			
+			request.setAttribute("edit", "seccess");
+			//로그아웃
 			HttpSession session = request.getSession();
 			session.invalidate();
-			request.setAttribute("message", " 정보 수정 완료, 다시 로그인 해주세요.");
-			return "member/memberMessage";
+			//메인 홈으로 돌아가기
+			return "main.do";
 		} else {
 			request.setAttribute("message", " 정보 수정 실패");
 			return "member/memberMessage";

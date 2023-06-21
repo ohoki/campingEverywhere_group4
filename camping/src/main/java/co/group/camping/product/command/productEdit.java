@@ -22,7 +22,8 @@ public class productEdit implements Command {
 		product.setProductPrice(Integer.valueOf(request.getParameter("productPrice")));
 		product.setProductKategorie(request.getParameter("productKategorie"));
 		product.setProductDate(Date.valueOf(request.getParameter("productDate")));
-		
+		product.setProductDetail(request.getParameter("productDetail"));
+		product.setRecommend(request.getParameter("recommend"));
 		
 		int n = ps.productUpdate(product);
 		if (n != 0) {

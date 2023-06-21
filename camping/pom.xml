@@ -52,7 +52,6 @@
 			<artifactId>tiles-extras</artifactId>
 			<version>3.0.8</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -66,12 +65,14 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version>
 		</dependency>
+    
 		<!-- https://mvnrepository.com/artifact/com.servlets/cos -->
 		<dependency>
 			<groupId>com.servlets</groupId>
 			<artifactId>cos</artifactId>
 			<version>05Nov2002</version>
 		</dependency>
+
 	</dependencies>
 
 	<!-- compile or build option definition(베포) -->

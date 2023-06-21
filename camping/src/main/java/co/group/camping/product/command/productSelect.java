@@ -13,6 +13,9 @@ import co.group.camping.common.Command;
 import co.group.camping.product.service.ProductService;
 import co.group.camping.product.service.ProductServiceImpl;
 import co.group.camping.product.service.ProductVO;
+import co.group.camping.review.service.ReviewService;
+import co.group.camping.review.service.ReviewServiceImpl;
+import co.group.camping.review.service.ReviewVO;
 
 public class productSelect implements Command {
 
@@ -31,6 +34,14 @@ public class productSelect implements Command {
 		
 		request.setAttribute("product", product);
 		request.setAttribute("cart", cart);
+		
+		ReviewService rs = new ReviewServiceImpl();
+		ReviewVO vo = new ReviewVO();
+		vo.setProductId(request.getParameter("productId"));
+		List<ReviewVO> list = rs.reviewSelectList(vo);
+		
+		request.setAttribute("reviews", list);
+		
 		return "product/productSelect";
 	}
 }

@@ -156,8 +156,8 @@ p {
 			</div>
 
 			<div class="create">
-				<input class="but2" type="reset" value="가입취소"> <input
-					class="but3" type="submit" value="회원가입">
+				<input class="but2" type="reset" value="가입취소" onclick="location.href='main.do'"> &nbsp;&nbsp;
+				<input class="but3" type="submit" value="회원가입">
 			</div>
 		</div>
 	</form>

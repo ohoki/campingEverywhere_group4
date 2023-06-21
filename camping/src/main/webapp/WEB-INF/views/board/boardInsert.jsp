@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,21 +17,37 @@
 				<div>
 					<table border="1">
 						<tr>
-							<th width="150">작성자</th>
-							<td width="150"><input type="text" id="memberId"
-								name="memberId" value=""></td>
+							<th width="100">작성자</th>
+								<td width="100"><input type="text" id="memberId"
+									name="memberId" value="">
+								</td>
+							<th width="100">카테고리</th>
+							
+							<td width="100">
+								<select id="boardKate" name="boardKate" required="required">
+									<c:if test="${auth eq 'A'}"> 
+									<option value="공지사항">공지사항</option>
+									</c:if>
+									<option value="구매후기">구매후기</option>
+									<option value="문의사항">문의하기</option>
+								</select>
+							</td>
+							
 							<th width="150">작성일자</th>
-							<td width="150"><input type="date" id="boardWdate"
-								name="boardWdate" required="required"></td>
+								<td width="150"><input type="date" id="boardWdate"
+									name="boardWdate" required="required">
+								</td>
 						<tr>
 							<th>제목</th>
-							<td colspan="3"><input type="text" id="boardTitle"
-								name="boardTitle" size="100"></td>
+								<td colspan="3"><input type="text" id="boardTitle"
+								name="boardTitle" size="100">
+								</td>
 						</tr>
 						<tr>
 							<th>내용</th>
-							<td colspan="3"><textarea rows="10" cols="100"
-									id="boardSubject" name="boardSubject"></textarea></td>
+								<td colspan="3"><textarea rows="10" cols="100"
+									id="boardSubject" name="boardSubject"></textarea>
+								</td>
 						</tr>
 					</table>
 				</div>

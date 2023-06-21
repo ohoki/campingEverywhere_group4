@@ -53,6 +53,22 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 						href="javascript:delivery()">주문/배송조회</a></li>
 					<li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
 					<li>
+										<!-- 다크모드 토글 -->
+					<li>
+						<div class="wrap">
+							<div class="darkmode">
+								<div class="inner">
+									<input type="radio" name="toggle" id="toggle-radio-light"
+										checked><label for="toggle-radio-light"
+										class="tolight"><i class="fas fa-sun tolight"></i></label> <input
+										type="radio" name="toggle" id="toggle-radio-dark"><label
+										for="toggle-radio-dark" class="todark"><i
+										class="fas fa-moon todark"></i></label>
+									<div class="darkmode-bg"></div>
+								</div>
+							</div>
+						</div>
+					</li>
 				</ul>
 				<i class="bi bi-list mobile-nav-toggle"></i>
 			</nav>
@@ -104,6 +120,7 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				location.href = 'myPage.do';
 			}
 		}
+    
 		function cart(){
 			let singIn = "${id}";
 			if (singIn == "") {
@@ -113,6 +130,32 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				location.href = 'cart.do';
 			}
 		}
+		
+		/* 다크모드 스크립트 */
+		
+		 document.addEventListener('DOMContentLoaded', function(){
+           //다크모드 토글
+           if(document.querySelector('.darkmode')){
+               if(localStorage.getItem("darkmode") == 'on'){
+                   //다크모드 켜기
+                   document.body.dataset.darkmode='on';
+                   document.querySelector('#toggle-radio-dark').checked = true;
+               }
+               //다크모드 이벤트 핸들러
+               document.querySelector('.darkmode').addEventListener("click", e=>{
+                   if(e.target.classList.contains('todark')){
+                       document.body.dataset.darkmode='on';
+                       localStorage.setItem("darkmode", "on");
+                   }else if(e.target.classList.contains('tolight')){
+                       document.body.dataset.darkmode='off';
+                       localStorage.setItem("darkmode", "off");
+                   }
+               },false);
+           }else{
+               localStorage.removeItem("darkmode");
+           }
+
+       })
 	</script>
 </body>
 </html>
