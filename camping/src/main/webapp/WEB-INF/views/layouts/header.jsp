@@ -15,44 +15,6 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 	box-shadow: 0 0 0px 1000px transparent inset;
 	transition: background-color 5000s ease-in-out 0s;
 }
-
-		(function() {
-			var w = window;
-			if (w.ChannelIO) {
-				return w.console.error("ChannelIO script included twice.");
-			}
-			var ch = function() {
-				ch.c(arguments);
-			};
-			ch.q = [];
-			ch.c = function(args) {
-				ch.q.push(args);
-			};
-			w.ChannelIO = ch;
-			function l() {
-				if (w.ChannelIOInitialized) {
-					return;
-				}
-				w.ChannelIOInitialized = true;
-				var s = document.createElement("script");
-				s.type = "text/javascript";
-				s.async = true;
-				s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
-				var x = document.getElementsByTagName("script")[0];
-				if (x.parentNode) {
-					x.parentNode.insertBefore(s, x);
-				}
-			}
-			if (document.readyState === "complete") {
-				l();
-			} else {
-				w.addEventListener("DOMContentLoaded", l);
-				w.addEventListener("load", l);
-			}
-		})();
-		ChannelIO('boot', {
-			"pluginKey" : "d9fddb33-7f28-4be2-b94f-1975ddee4419"
-		});
 </style>
 </head>
 <body>
@@ -63,9 +25,9 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 
 			<div class="logo">
 				<a href="main.do"><img src="assets/img/favicon.png" alt="로고"></a>
-				<form action="#" method="post" name="search">
-					<input type="text" placeholder="검색" name="search">
-					<button>
+				<form id="frmsearch" action="productSearch.do" method="post">
+					<input type="text" placeholder="검색" id="search" name="search">
+					<button type="submit">
 						<i class="fa-solid fa-magnifying-glass" style="color: #9c9c9c;"></i>
 					</button>
 				</form>
@@ -158,6 +120,16 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				location.href = 'myPage.do';
 			}
 		}
+    
+		function cart(){
+			let singIn = "${id}";
+			if (singIn == "") {
+				alert("장바구니는 로그인 후 사용하실 수 있습니다.")
+				location.href = 'memberLoginForm.do';
+			} else {
+				location.href = 'cart.do';
+			}
+		}
 		
 		/* 다크모드 스크립트 */
 		
@@ -184,9 +156,6 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
            }
 
        })
-		
-		
-		
 	</script>
 </body>
 </html>

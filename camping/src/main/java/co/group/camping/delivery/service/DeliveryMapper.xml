@@ -36,9 +36,16 @@
 		FROM FROM delivery d join product p ON(d.product_id =
 		p.product_id)
 		join member m ON(d.member_id = m.member_id)
-		WHERE delivery_id = #{deliveryId}
+		WHERE
+		delivery_id = #{deliveryId}
 	</select>
-	<insert id="deliveryInsert">
+	<insert id="deliveryInsert"
+		parameterType="co.group.camping.delivery.service.DeliveryVO">
+		INSERT INTO DELIVERY VALUES((SELECT NVL(MAX(DELIVERY_ID), 0) + 1 FROM
+		DELIVERY),
+		SYSDATE,'N',#{productId},#{memberId})
+	</insert>
+	<insert id="allPurchase">
 	</insert>
 	<update id="deliveryUpdate">
 	</update>

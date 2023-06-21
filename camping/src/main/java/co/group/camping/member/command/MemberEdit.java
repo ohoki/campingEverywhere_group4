@@ -19,7 +19,7 @@ public class MemberEdit implements Command {
 		member.setMemberName(request.getParameter("memberName"));
 		member.setMemberAddr(request.getParameter("memberAddr"));
 		member.setMemberTel(request.getParameter("memberTel"));
-
+		
 		int n = ms.memberFullUpdate(member);
 		if (n != 0) {
 			

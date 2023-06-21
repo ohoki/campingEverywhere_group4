@@ -12,6 +12,8 @@ public interface DeliveryService {
 
 	int deliveryInsert(DeliveryVO vo);
 
+	int allPurchase(List<Object> list);
+
 	int deliveryUpdate(DeliveryVO vo);
 
 	int deliveryDelete(DeliveryVO vo);

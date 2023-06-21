@@ -57,4 +57,22 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.productInsert(vo);
 	}
+
+	@Override
+	public List<ProductVO> productSearch(String search) {
+		// TODO Auto-generated method stub
+		return map.productSearch(search);
+	}
+
+	@Override
+	public int productQuantity(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productQuantity(vo);
+	}
+
+	@Override
+	public int productSales(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productSales(vo);
+	}
 }

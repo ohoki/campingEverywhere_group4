@@ -11,11 +11,17 @@ public interface ProductMapper {
 	
 	List<ProductVO> productSelectMd();
 	
+	List<ProductVO> productSearch(String search);
+	
 	ProductVO productSelect(ProductVO vo);
-
+	
 	int productInsert(ProductVO vo);
-
+	
 	int productUpdate(ProductVO vo);
 
+	int productQuantity(ProductVO vo);
+	
+	int productSales(ProductVO vo);
+	
 	int productDelete(ProductVO vo);
 }

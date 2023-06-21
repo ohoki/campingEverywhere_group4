@@ -37,6 +37,11 @@
 		resultType="co.group.camping.product.service.ProductVO">
 		select * from product where recommend = 'MD'
 	</select>
+	<select id="productSearch">
+		SELECT *
+		FROM product
+		WHERE product_name LIKE '%' ||  #{search} || '%'
+	</select>
 	<insert id="productInsert">
 		INSERT INTO product
 		VALUES(#{productId},#{productName}, #{productPrice},
@@ -57,6 +62,18 @@
 			<if test="productDetail != null">product_detail = #{productDetail}</if>
 		</set>
 		WHERE product_id = #{productId}
+	</update>
+	<update id="productQuantity"
+	parameterType="co.group.camping.product.service.ProductVO">
+		UPDATE product 
+		set product_quantity = (product_quantity-1)
+		WHERE product_id = #{productId}
+	</update>
+	<update id="productSales"
+	parameterType="co.group.camping.product.service.ProductVO">
+		UPDATE product
+		SET product_sales = (product_sales+1)
+		WHERE product_id = #{productId} 
 	</update>
 	<delete id="productDelete"
 		parameterType="co.group.camping.product.service.ProductVO">

@@ -20,9 +20,14 @@ import co.group.camping.board.command.BoardList;
 import co.group.camping.board.command.BoardQnaList;
 import co.group.camping.board.command.BoardSearch;
 import co.group.camping.board.command.BoardSelect;
+import co.group.camping.cart.command.CartDelete;
+import co.group.camping.cart.command.CartInsert;
+import co.group.camping.cart.command.CartList;
+import co.group.camping.cart.command.CartUpdate;
 import co.group.camping.board.command.BoardUpdate;
 import co.group.camping.common.Command;
-import co.group.camping.delivery.command.DeliveryInsertFrom;
+import co.group.camping.delivery.command.AllPurchase;
+import co.group.camping.delivery.command.DeliveryInsert;
 import co.group.camping.delivery.command.DeliveryList;
 import co.group.camping.delivery.command.DeliveryResearch;
 import co.group.camping.main.command.MainCommand;
@@ -37,6 +42,8 @@ import co.group.camping.member.command.MemberLogin;
 import co.group.camping.member.command.MemberLoginForm;
 import co.group.camping.product.command.productInsertForm;
 import co.group.camping.product.command.productList;
+import co.group.camping.product.command.productPurchaseForm;
+import co.group.camping.product.command.productSearch;
 import co.group.camping.product.command.productSelect;
 import co.group.camping.product.command.AjaxUpdateRecommend;
 import co.group.camping.product.command.ProductIndividualList;
@@ -95,6 +102,7 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxBoardHit.do", new AjaxBoardHit());
 		map.put("/campingRecommend.do", new CampingRecommend());
 		map.put("/productList.do", new productList()); // 제품목록
+		map.put("/productSearch.do", new productSearch());
 		map.put("/productIndividualList.do", new ProductIndividualList()); // 제품목록
 		map.put("/productInsertForm.do", new productInsertForm()); // 등록폼 열기
 		map.put("/productInsert.do", new productInsert()); // 제품등록
@@ -102,6 +110,13 @@ public class FrontController extends HttpServlet {
 		map.put("/productEditForm.do", new productEditForm()); // 제품 수정 폼 호출
 		map.put("/productEdit.do", new productEdit()); // 제품 수정
 		map.put("/productDelete.do", new productDelete()); // 제품 삭제
+		map.put("/productPurchaseForm.do", new productPurchaseForm()); // 구매 폼 호출 
+		map.put("/deliveryInsert.do", new DeliveryInsert()); 
+		map.put("/allPurchase.do", new AllPurchase());
+		map.put("/cart.do", new CartList());
+		map.put("/cartDelete.do", new CartDelete());
+		map.put("/cartInsert.do", new CartInsert());
+		map.put("/cartUpdate.do", new CartUpdate());
 		map.put("/SortProduct.do", new SortProduct());
 		map.put("/ajaxUpdateRecommend.do", new AjaxUpdateRecommend());
 		map.put("/deliveryList.do", new DeliveryList()); // 초기 리스트랑
