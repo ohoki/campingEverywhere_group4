@@ -10,7 +10,6 @@ import co.group.camping.board.service.BoardService;
 import co.group.camping.board.service.BoardServiceImpl;
 import co.group.camping.board.service.BoardVO;
 import co.group.camping.common.Command;
-import co.group.camping.controller.Paging;
 
 public class BoardQnaList implements Command {
 
@@ -18,28 +17,8 @@ public class BoardQnaList implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		BoardService bs = new BoardServiceImpl();
 		List<BoardVO> boards = new ArrayList<>();
+		boards = bs.boardSelectQna();
 		
-		//페이징처리
-		Paging paging = new Paging();
-		paging.setPageUnit(10);
-		//현재 페이지번호
-		String page = request.getParameter("page");
-		int p = 1;
-		if (page != null)
-			p = Integer.parseInt(page);
-		paging.setPage(p);
-		//전체 출력
-		int total =bs.listPage();
-		paging.setTotalRecord(total);
-		
-		BoardVO vo = new BoardVO();
-		vo.setFirst(paging.getFirst());
-		vo.setLast(paging.getLast());
-		
-		boards = bs.boardSelectQna(vo);
-		
-		
-		request.setAttribute("paging", paging);
 		request.setAttribute("boards", boards);
 		return "board/boardQnaList";
 	}

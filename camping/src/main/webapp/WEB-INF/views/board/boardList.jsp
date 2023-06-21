@@ -98,10 +98,6 @@ select {
 	height: 28px;
 	color: white;
 }
-
-#pagination{
-	padding-left: 45%;
-}
 </style>
 </head>
 <body>
@@ -110,7 +106,7 @@ select {
 		<div class="board_header">
 			<h1 class="title">고객센터</h1>
 			<ul>
-				<li><a href='boardAll.do'>전체 게시글</a></li>
+				<li><a href='#'>전체 게시글</a></li>
 				<li><a href='boardList.do'>공지사항</a></li>
 				<li><a href='boardQnaList.do'>문의하기</a></li>
 			</ul>
@@ -128,11 +124,8 @@ select {
 				</tr>
 			</thead>
 			<tbody>
-				
 				<c:forEach items="${boards}" var="b">
-					<tr onmouseover = 'this.style.background="#F5F5F5";'
-						onmouseleave = 'this.style.background="#ffffff";'
-						onclick=boardChoice(${b.boardId});>
+					<tr onclick=boardChoice(${b.boardId});>
 						<td style="width: 6%;">${b.boardId}</td>
 						<td style="width: 14%;">${b.boardKate}</td>
 						<td style="width: 45%; text-align: left;">${b.boardTitle}</td>
@@ -157,29 +150,6 @@ select {
 				<button type="submit">검색</button>
 			</form>
 		</div>
-		
-		<!-- 페이징 -->
-		<div >
-			<ul id ="pagination" class="pagination">
-				<c:if test="${paging.startPage>1}">
-					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.startPage-1})">이전</a>
-				</c:if>
-				<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
-					var="i">
-					<c:if test="${i != paging.page}">
-						<li class="page-item"><a class="page-link" href="javascript:gopage(${i})">${i}</a>
-					</c:if>
-					<c:if test="${i == paging.page}">
-						<li class="page-item active"><a class="page-link" href="#">${i}</a>
-					</c:if>
-				</c:forEach>
-				<c:if test="${paging.endPage<paging.totalPageCount}">
-					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.endPage+1})">다음</a>
-				</c:if>
-			</ul>
-		</div>
-		
-		
 		<div>
 			<form id="frm" action="boardSelect.do" method="post">
 				<input type="hidden" id="boardId" name="boardId">
@@ -187,9 +157,7 @@ select {
 		</div>
 	</div>
 	<script type="text/javascript">
-	function gopage(p){
-		location.href="boardList.do?page="+p
-	}
+	
 		
 		function boardChoice(id) {
 			let url = "ajaxBoardHit.do?boardId="+id;

@@ -6,85 +6,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.title {
-	font-weight: 500;
-	line-height: 1.2;
-	font-size: 1.3em;
-	font-family: sans-serif;
-	color: #5a656e;
-	margin: 0;
-}
-
-.board_bottom button {
-	border: 1px solid #5a656e;
-	background-color: #5a656e;
-	padding: 0;
-	margin-bottom: 20px;
-	width: 70px;
-	height: 28px;
-	color: white;
-}
-
-.view {
-	color: #5a656e;
-	font-size: 150%;
-}
-
-table {
-	width: 60%;
-	margin: 0 auto;
-}
-
-table th{
-	width: 10%;
-	border: 2px solid #bbb;
-}
-
-table td{
-	width: 25%;
-	text-align: right;
-	padding: 0 1.2%;
-	border: 2px solid #bbb;
-	
-}
+<style >
+		
 </style>
 </head>
 <body>
-	<div class="title">
-		<h1 align="center">게시글 보기</h1>
-	</div>
-
-	<div class="view" align="center">
-		<table>
-
-			<tbody>
-				<tr>
-					<th>제목</th>
-					<td >${board.boardTitle}</td>
-					<th>조회수</th>
-					<td>${board.boardHit}</td>
+	<div align="center">
+		<div></div>
+		<div>
+			<h1>게시글 상세보기</h1>
+		</div>
+		<div>
+			<table border="1">
+				<tr align="center">
+					<th width="60">글 번호</th>
+					<td width="50">${board.boardId}</td>
+					<th width="100">작성자</th>
+					<td width="100">${board.memberId}</td>
+					<th width="100">카테고리</th>
+					<td width="100">${board.boardKate}</td>
+					<th width="100">작성일자</th>
+					<td width="150">${board.boardWdate}</td>
+					<th width="100">조회수</th>
+					<td width="70">${board.boardHit}</td>
 				</tr>
 				<tr>
-					<th>작성자</th>
-					<td>${board.memberId}</td>
-					<th>작성일자</th>
-					<td>${board.boardWdate}</td>
+					<th>제목</th>
+					<td colspan="7">${board.boardTitle}</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td style="height:230px; text-align: left;"  colspan="3">${board.boardSubject}</td>
+					<td colspan="7"><textarea rows="10" cols="108">${board.boardTitle}</textarea>
+					</td>
 				</tr>
-			</tbody>
-		</table>
-	</div>
-	<br>
-	<div class="board_bottom" align="center">
-		<c:if test="${name eq name}">
-			<button type="button" onclick="callFunction('E')">수정</button>&nbsp;&nbsp;
-				<button type="button" onclick="callFunction('D')">삭제</button>&nbsp;&nbsp;
-			 </c:if>
-		<button type="button" onclick="location.href='boardAll.do'">목록</button>
+			</table>
+			
+		</div>
+		<br>
+		<div>
+			<%-- <c:if test="${name eq board.memberId}"> --%>
+				<button type="button" onclick="callFunction('E')">수정하기</button>&nbsp;&nbsp;
+				<button type="button" onclick="callFunction('D')">삭제하기</button>&nbsp;&nbsp;
+			<%-- </c:if> --%>
+			<button type="button" onclick="location.href='boardList.do'">목록</button>
+		</div>
 		<div>
 			<form id="frm" method="post" action="">
 				<input type="hidden" id="boardId" name="boardId"
@@ -93,11 +58,6 @@ table td{
 		</div>
 	</div>
 	<script type="text/javascript">
-	function gopage(p){
-		search.page.value=p
-		search.submit()
-	}
-	
 		function callFunction(str) {
 			let frm = document.getElementById("frm");
 			if (str == "E") {
