@@ -21,4 +21,8 @@ public class BoardVO {
 	private String kate; //카테고리
 	private String search; //검색내용
 	
+	
+	//페이징
+	private int first;
+	private int last;
 }
