@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
@@ -100,20 +101,29 @@ select {
 
 #pagination{
 	padding-left: 45%;
+	
+	
+}
+
+#pagination d{
+	
+	
+	
 }
 </style>
 </head>
 <body>
 	<div class="main_box">
-			<div class="board_header">
-				<h1 class="title">검색결과</h1>
-				<ul>
-					<li><a href='boardAll.do'>전체 게시글</a></li>
-					<li><a href='boardList.do'>공지사항</a></li>
-					<li><a href='boardQnaList.do'>문의하기</a></li>
-				</ul>
-			</div>
-			
+
+		<div class="board_header">
+			<h1 class="title">고객센터</h1>
+			<ul>
+				<li><a href='boardAll.do'>전체 게시글</a></li>
+				<li><a href='boardList.do'>공지사항</a></li>
+				<li><a href='boardQnaList.do'>문의하기</a></li>
+			</ul>
+		</div>
+
 		<table>
 			<thead>
 				<tr>
@@ -140,22 +150,23 @@ select {
 				</c:forEach>
 			</tbody>
 		</table>
-		
+
 		<div class="board_bottom">
 			<c:if test="${not empty id }">
 				<button type="button" onclick="location.href='boardInsertForm.do'">글작성</button>
 			</c:if>
 			<form method="post" name="serarch" action="boardSearch.do">
 				<select name="kate" id="kate">
-					<option value="title"  <c:if test= "${param.kate=='title' }">selected </c:if>>제목</option>
-					<option value="subject" <c:if test= "${param.kate=='subject' }">selected </c:if> >내용</option>
-					<option value="writer" <c:if test= "${param.kate=='writer' }">selected </c:if>>작성자</option>
-				</select> <input type="text" placeholder="검색어 입력" name="search" id="search" value=${param.search }>
+					<option value="title">제목</option>
+					<option value="subject">내용</option>
+					<option value="writer">작성자</option>
+				</select> <input type="text" placeholder="검색어 입력" name="search" id="search">
 				<button type="submit">검색</button>
+				<input type="hidden" name="page" value="1">
 			</form>
 		</div>
-	
-		<nav aria-label="Page navigation example" >
+		<!-- 페이징 -->
+		<nav aria-label="Page navigation example">
 			<ul id ="pagination" class="pagination">
 				<c:if test="${paging.startPage>1}">
 					<li class="page-item"><a class="page-link" href="javascript:gopage(${paging.startPage-1})">이전</a>
@@ -174,25 +185,36 @@ select {
 				</c:if>
 			</ul>
 		</nav>
-		
 		<div>
 			<form id="frm" action="boardSelect.do" method="post">
 				<input type="hidden" id="boardId" name="boardId">
 			</form>
 		</div>
 	</div>
+	
 	<script type="text/javascript">
-	/* function gopage(p){
-		location.href="boardSearch.do?page="+p
-	} */
-	 function gopage(p){
-		search.page.value=p
-		search.submit()
-	} 
+	function gopage(p){
+		location.href="boardAll.do?page="+p
+	}
+		
 		function boardChoice(id) {
-			let frm = document.getElementById("frm");
+			let url = "ajaxBoardHit.do?boardId="+id;
+			fetch(url)
+			.then(response => response.text())
+			.then(text => htmlProcess(text));
+			
 			frm.boardId.value = id;
 			frm.submit();
+		}
+		
+		function htmlProcess(hit) {
+			let frm = document.getElementById("frm");
+			if(hit=='complete'){
+				frm.boardId.value = id;
+				frm.submit();
+			}else if(hit =='fail'){
+				window.reload();
+			}
 		}
 	</script>
 </body>

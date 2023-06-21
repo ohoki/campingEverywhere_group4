@@ -12,7 +12,7 @@ import co.group.camping.board.service.BoardVO;
 import co.group.camping.common.Command;
 import co.group.camping.controller.Paging;
 
-public class BoardQnaList implements Command {
+public class BoardAll implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
@@ -36,12 +36,11 @@ public class BoardQnaList implements Command {
 		vo.setFirst(paging.getFirst());
 		vo.setLast(paging.getLast());
 		
-		boards = bs.boardSelectQna(vo);
+		boards = bs.boardAll(vo);
 		
-		
-		request.setAttribute("paging", paging);
 		request.setAttribute("boards", boards);
-		return "board/boardQnaList";
+		request.setAttribute("paging", paging);
+		return "board/boardAll";
 	}
 
 }
