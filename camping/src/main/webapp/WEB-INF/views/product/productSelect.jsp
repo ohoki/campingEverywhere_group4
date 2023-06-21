@@ -106,10 +106,54 @@ a {
 
 .product_detail {
 	width: 100%;
-	height: 1000px;
+	height: 700px;
 	overflow: scroll;
 }
+
+.product_detail::-webkit-scrollbar {
+	display: none;
+}
+
+.main_footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 15px 5px;
+	margin: 20px 0 5px;
+	border-bottom: 1px solid #8aa1a1;
+}
+
+.main_footer h2 {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
+.main_footer button {
+	border: 1px solid #5a656e;
+	background-color: #5a656e;
+	padding: 0;
+	margin: 0;
+	width: 150px;
+	height: 28px;
+	color: white;
+}
+
+.review_table {
+	width: 100%;
+	border-bottom: 1px solid #bbb;
+	text-align: center;
+}
+
+.review_table td {
+	padding: 10px;
+}
 </style>
+<script src="https://kit.fontawesome.com/8af996bb56.js"></script>
 </head>
 <body>
 	<div style="margin: 50px auto">
@@ -118,7 +162,7 @@ a {
 				<div class="product_select_haader">
 					<h3 style="color: black; text-align: left;">${product.productName}</h3>
 					<div>
-						<c:if test="${auth == 'A' && product.recommend == null }">
+						<c:if test="${auth == 'A'}">
 							<button type="button"
 								onclick="productEditForm('${product.productId}')">수정</button>
 							<button type="button"
@@ -174,6 +218,25 @@ a {
 				</ul>
 			</div>
 			<div class="product_detail">${product.productDetail}</div>
+			<div>
+				<div class="main_footer">
+					<h2>상품후기</h2>
+					<button type="button" onclick="reviewInsert()">상품후기 글쓰기</button>
+				</div>
+				<table class="review_table">
+					<c:forEach items="${reviews}" var="r">
+						<tr>
+							<td width="13%"><c:forEach begin="1" end="${r.reviewRate}"
+									step="1">
+									<i class="fa-solid fa-star" style="color: #fad900;"></i>
+								</c:forEach></td>
+							<td style="text-align: left; cursor: pointer;" onclick="location.href='reviewSelect.do?reviewId=${r.reviewId}'">${r.reviewTitle}</td>
+							<td width="15%">${r.memberId}</td>
+							<td width="15%">${r.reviewDate}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -224,6 +287,18 @@ a {
 				let frm = document.getElementById("frm2");
 				frm.productId.value = id;
 				frm.submit();
+			}
+		}
+		
+		function reviewInsert() {
+			let id = "${id}";
+			let productId = "${product.productId}";
+			console
+			if(id != "") {
+				location.href="reviewInsertForm.do?productId=" + productId;
+			} else {
+				alert("로그인 후 이용가능 합니다.");
+				location.href="memberLoginForm.do";
 			}
 		}
 	</script>

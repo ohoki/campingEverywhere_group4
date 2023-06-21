@@ -97,15 +97,17 @@ ul, li {
 			</c:if>
 		</div>
 		<div class="header_box">
-			<span>상품 <strong>${products.size()}</strong> 개
-			</span> <select>
-				<option>추천순</option>
-				<option>판매인기순</option>
-				<option>낮은가격순</option>
-				<option>높은가격순</option>
-				<option>등록일순</option>
-				<option>상품평순</option>
+			<span>상품 <strong>${products.size()}</strong> 개</span> 
+			
+			
+			<c:if test="${kate == '전체상품'}">
+				<select onchange="sortProduct()" id="sortStandard">
+				<option value="productSales">판매인기순</option>
+				<option value="productPriceLow">낮은가격순</option>
+				<option value="productPriceHigh">높은가격순</option>
+				<option value="productDate">등록일순</option>
 			</select>
+			</c:if>
 		</div>
 		<div class="main_box">
 			<ul class="main_list">
@@ -124,6 +126,11 @@ ul, li {
 			let frm = document.getElementById("frm");
 			frm.productId.value = id;
 			frm.submit();
+		}
+		
+		function sortProduct() {
+			let sortStandard = document.getElementById("sortStandard").value;
+			location.href = "SortProduct.do?value=${kate}&&sortStandard=" + sortStandard;	
 		}
 	</script>
 </body>

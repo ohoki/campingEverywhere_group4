@@ -4,7 +4,9 @@ import java.util.List;
 
 public interface ProductMapper {
 	List<ProductVO> productSelectList();
-
+	
+	List<ProductVO> sortProduct(ProductVO vo);
+	
 	List<ProductVO> productIndividualList(ProductVO vo);
 	
 	List<ProductVO> productSelectMd();

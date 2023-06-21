@@ -26,7 +26,7 @@ public class MainCommand implements Command {
 		Collections.sort(products1, new ProductComparator().reversed());
 		request.setAttribute("products1", products1);
 		// 판매량 졍렬 (내림차순)
-		Collections.sort(products2, new ProductComparatorSales().reversed());
+		Collections.sort(products2, (p1,p2)->p2.getProductSales() - p1.getProductSales());
 		request.setAttribute("products2", products2);
 		request.setAttribute("products3", products3);
 		return "main/main";
