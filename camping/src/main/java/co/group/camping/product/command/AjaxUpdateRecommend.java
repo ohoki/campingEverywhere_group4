@@ -25,7 +25,7 @@ public class AjaxUpdateRecommend implements Command {
 			vo.setRecommend("MD");
 		}
 		int result = ps.productUpdate(vo);
-		System.out.println(result);
+		
 		if (result == 1) {
 			str += "complete";
 		} else {

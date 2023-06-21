@@ -16,8 +16,8 @@
 				<property name="driver"
 					value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url"
-					value="jdbc:oracle:thin:@localhost:1521:xe" />
-				<property name="username" value="c##user" />
+					value="jdbc:oracle:thin:@192.168.0.35:1521:xe" />
+				<property name="username" value="camping" />
 				<property name="password" value="1234" />
 			</dataSource>
 		</environment>

@@ -46,4 +46,10 @@ public class DeliveryServiceImpl implements DeliveryService {
 		return map.deliveryDelete(vo);
 	}
 
+	@Override
+	public int allPurchase(List<Object> list) {
+		// TODO Auto-generated method stub
+		return map.allPurchase(list);
+	}
+
 }

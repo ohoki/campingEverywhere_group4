@@ -1,9 +1,7 @@
 package co.group.camping.member.service;
 
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
-
 import co.group.camping.common.DataSource;
 
 public class MemberServiceImpl implements MemberService {

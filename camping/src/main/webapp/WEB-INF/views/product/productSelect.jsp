@@ -63,6 +63,12 @@
 	width: 100px;
 }
 
+.prodcut_cart_num {
+	margin: 10px;
+	display: inline-block;
+	width: 50px;
+}
+
 .prodcut_inf_menu button {
 	width: 100%;
 	height: 35px;
@@ -78,7 +84,7 @@
 <body>
 	<div style="margin: 50px auto">
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
-			<form action="" method="post">
+			<form action="#" method="post">
 				<div class="product_select_haader">
 					<h3 style="color: black; text-align: left;">${product.productName}</h3>
 					<div>
@@ -107,10 +113,9 @@
 						<div>
 							<span class="prodcut_inf_menu_kate">상품재고</span> <span>${product.productQuantity}개</span>
 						</div>
+						<button type="button" onclick="cartInsert('${product.productId}')">장바구니</button>
 						<button type="button"
-							onclick="productEditForm('${product.productId}')">장바구니</button>
-						<button type="button"
-							onclick="productDelete('${product.productId}')">구매하기</button>
+							onclick="productPurchaseForm('${product.productId}')">구매하기</button>
 						<c:if test="${auth == 'A' && product.recommend == null }">
 							<button type="button" onclick="productRecommend(1)">MD추천
 								등록</button>
@@ -129,6 +134,14 @@
 			<form id="frm2" action="productDelete.do" method="post">
 				<input type="hidden" id="productId" name="productId"
 					value="'${proudct.productId}'">
+			</form>
+			<form id="frm3" action="cartInsert.do" method="post">
+				<input type="hidden" id="productId" name="productId"
+					value="'${product.productId}'">
+			</form>
+			<form id="frm4" action="productPurchaseForm.do" method="post">
+				<input type="hidden" id="productId" name="productId"
+					value="'${product.productId}'">
 			</form>
 		</div>
 	</div>
@@ -181,6 +194,34 @@
 				frm.productId.value = id;
 				frm.submit();
 			}
+		}
+		function cartInsert(id){
+			if (confirm("장바구니에 추가 하시겠습니까?")){
+				let singIn = "${id}";
+				if (singIn == "") {
+					alert("장바구니는 로그인 후 사용하실 수 있습니다.")
+					location.href = 'memberLoginForm.do';
+				} else{
+				let frm = document.getElementById("frm3")
+				frm.productId.value = id
+				frm.submit();
+				}
+			}
+		}
+		function cartDelete(id){
+			
+		}
+		function productPurchaseForm(id){
+			let singIn = "${id}";
+			if (singIn == "") {
+				alert("장바구니는 로그인 후 사용하실 수 있습니다.")
+				location.href = 'memberLoginForm.do';
+			} else {
+				let frm = document.getElementById("frm4")
+				frm.productId.value = id
+				frm.submit();
+			}
+			
 		}
 	</script>
 </body>

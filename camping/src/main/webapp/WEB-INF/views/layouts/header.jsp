@@ -25,9 +25,9 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 
 			<div class="logo">
 				<a href="main.do"><img src="assets/img/favicon.png" alt="로고"></a>
-				<form action="#" method="post" name="search">
-					<input type="text" placeholder="검색" name="search">
-					<button>
+				<form id="frmsearch" action="productSearch.do" method="post">
+					<input type="text" placeholder="검색" id="search" name="search">
+					<button type="submit">
 						<i class="fa-solid fa-magnifying-glass" style="color: #9c9c9c;"></i>
 					</button>
 				</form>
@@ -102,6 +102,15 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				location.href = 'memberLoginForm.do';
 			} else {
 				location.href = 'myPage.do';
+			}
+		}
+		function cart(){
+			let singIn = "${id}";
+			if (singIn == "") {
+				alert("장바구니는 로그인 후 사용하실 수 있습니다.")
+				location.href = 'memberLoginForm.do';
+			} else {
+				location.href = 'cart.do';
 			}
 		}
 	</script>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.group.camping.cart.service.CartMapper">
+	<select id="cartList" resultType="map">
+		SELECT cart_id, cart_num,
+		c.member_id, c.product_id, m.member_name, p.product_price
+		,p.product_name, (c.cart_num*p.product_price) as total, p.product_image
+		FROM cart c join
+		member m ON(c.member_id = m.member_id) join product p ON(c.product_id
+		= p.product_id)
+		WHERE c.member_id = #{memberId}
+		ORDER BY cart_id
+	</select>
+	<select id="cartSelect">
+	</select>
+	<insert id="cartInsert"
+		parameterType="co.group.camping.cart.service.CartVO">
+		INSERT INTO CART VALUES((SELECT NVL(MAX(CART_ID), 0) + 1
+		FROM CART),1,#{memberId},#{productId})
+	</insert>
+	<update id="cartUpdate">
+		
+	</update>
+	<delete id="cartDelete"
+	parameterType="co.group.camping.cart.service.CartVO">
+		DELETE FROM cart
+		WHERE cart_id = #{cartId}
+	</delete>
+</mapper>
