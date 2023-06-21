@@ -8,6 +8,7 @@
 </head>
 <body>
 	<div align="center">
+	<br>
 		<h1>${message}</h1>
 	</div>
 </body>

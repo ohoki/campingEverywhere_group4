@@ -92,6 +92,11 @@ input[type=submit] {
 	margin: 10px 0px;
 	cursor: pointer;
 }
+
+body[data-darkmode=on] .input-box>input {
+	color: #F7F7F7;
+}
+
 </style>
 <title>로그인 페이지</title>
 </head>
@@ -128,9 +133,10 @@ input[type=submit] {
 		
 		window.onload = function() {
 			if("${login}" == "fail") {
-				alert("아이디 또는 패스워드가 틀렸습니다. 다시 입력해주세요.");
+				alert("아이디 또는 패스워드가 틀렸습니다. \n 다시 입력해주세요.");
 			} 
 		}
+
 	</script>
 </body>
 </html>

@@ -82,6 +82,10 @@ tr:nth-child(even) {
 tr:hover {
 	background-color: #ddd;
 }
+
+body[data-darkmode=on] h3 {
+	color: #F7F7F7;
+}
 </style>
 </head>
 <body>

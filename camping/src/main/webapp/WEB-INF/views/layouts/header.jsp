@@ -15,6 +15,44 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 	box-shadow: 0 0 0px 1000px transparent inset;
 	transition: background-color 5000s ease-in-out 0s;
 }
+
+		(function() {
+			var w = window;
+			if (w.ChannelIO) {
+				return w.console.error("ChannelIO script included twice.");
+			}
+			var ch = function() {
+				ch.c(arguments);
+			};
+			ch.q = [];
+			ch.c = function(args) {
+				ch.q.push(args);
+			};
+			w.ChannelIO = ch;
+			function l() {
+				if (w.ChannelIOInitialized) {
+					return;
+				}
+				w.ChannelIOInitialized = true;
+				var s = document.createElement("script");
+				s.type = "text/javascript";
+				s.async = true;
+				s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+				var x = document.getElementsByTagName("script")[0];
+				if (x.parentNode) {
+					x.parentNode.insertBefore(s, x);
+				}
+			}
+			if (document.readyState === "complete") {
+				l();
+			} else {
+				w.addEventListener("DOMContentLoaded", l);
+				w.addEventListener("load", l);
+			}
+		})();
+		ChannelIO('boot', {
+			"pluginKey" : "d9fddb33-7f28-4be2-b94f-1975ddee4419"
+		});
 </style>
 </head>
 <body>
@@ -53,6 +91,22 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 						href="javascript:delivery()">주문/배송조회</a></li>
 					<li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
 					<li>
+										<!-- 다크모드 토글 -->
+					<li>
+						<div class="wrap">
+							<div class="darkmode">
+								<div class="inner">
+									<input type="radio" name="toggle" id="toggle-radio-light"
+										checked><label for="toggle-radio-light"
+										class="tolight"><i class="fas fa-sun tolight"></i></label> <input
+										type="radio" name="toggle" id="toggle-radio-dark"><label
+										for="toggle-radio-dark" class="todark"><i
+										class="fas fa-moon todark"></i></label>
+									<div class="darkmode-bg"></div>
+								</div>
+							</div>
+						</div>
+					</li>
 				</ul>
 				<i class="bi bi-list mobile-nav-toggle"></i>
 			</nav>
@@ -104,6 +158,35 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				location.href = 'myPage.do';
 			}
 		}
+		
+		/* 다크모드 스크립트 */
+		
+		 document.addEventListener('DOMContentLoaded', function(){
+           //다크모드 토글
+           if(document.querySelector('.darkmode')){
+               if(localStorage.getItem("darkmode") == 'on'){
+                   //다크모드 켜기
+                   document.body.dataset.darkmode='on';
+                   document.querySelector('#toggle-radio-dark').checked = true;
+               }
+               //다크모드 이벤트 핸들러
+               document.querySelector('.darkmode').addEventListener("click", e=>{
+                   if(e.target.classList.contains('todark')){
+                       document.body.dataset.darkmode='on';
+                       localStorage.setItem("darkmode", "on");
+                   }else if(e.target.classList.contains('tolight')){
+                       document.body.dataset.darkmode='off';
+                       localStorage.setItem("darkmode", "off");
+                   }
+               },false);
+           }else{
+               localStorage.removeItem("darkmode");
+           }
+
+       })
+		
+		
+		
 	</script>
 </body>
 </html>
