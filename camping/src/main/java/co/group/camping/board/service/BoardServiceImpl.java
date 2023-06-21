@@ -11,8 +11,8 @@ public class BoardServiceImpl implements BoardService {
 	BoardMapper map = sqlSession.getMapper(BoardMapper.class);
 
 	@Override
-	public List<BoardVO> boardSelectList(BoardVO vo) {
-		return map.boardSelectList(vo);
+	public List<BoardVO> boardSelectList() {
+		return map.boardSelectList();
 	}
 	@Override
 	public BoardVO boardSelect(BoardVO vo) {
@@ -35,8 +35,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> boardSelectQna(BoardVO vo) {
-		return map.boardSelectQna(vo);
+	public List<BoardVO> boardSelectQna() {
+		return map.boardSelectQna();
 	}
 
 	@Override
@@ -53,14 +53,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> boardSearch(BoardVO vo) {
 		return map.boardSearch(vo);
-	}
-	@Override
-	public List<BoardVO> boardAll(BoardVO vo) {
-		return map.boardAll(vo);
-	}
-	@Override
-	public int listPage() {
-		return map.listPage();
 	}
 
 

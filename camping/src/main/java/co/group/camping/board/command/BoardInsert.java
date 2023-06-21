@@ -1,5 +1,6 @@
 package co.group.camping.board.command;
 
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ public class BoardInsert implements Command {
 		vo.setBoardKate(request.getParameter("boardKate"));
 		vo.setBoardTitle(request.getParameter("boardTitle"));
 		vo.setBoardSubject(request.getParameter("boardSubject"));
+		vo.setBoardWdate(Date.valueOf(request.getParameter("boardWdate")));
 		
 		int result = bs.boardInsert(vo);
 		System.out.println(result);

@@ -8,7 +8,7 @@ import co.group.camping.board.service.BoardServiceImpl;
 import co.group.camping.board.service.BoardVO;
 import co.group.camping.common.Command;
 
-public class BoardDelete implements Command {
+public class BaordDelete implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
