@@ -14,7 +14,6 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> boardSelectList() {
 		return map.boardSelectList();
 	}
-
 	@Override
 	public BoardVO boardSelect(BoardVO vo) {
 		return map.boardSelect(vo);
@@ -34,4 +33,29 @@ public class BoardServiceImpl implements BoardService {
 	public int boardDelete(BoardVO vo) {
 		return map.boardDelete(vo);
 	}
+
+	@Override
+	public List<BoardVO> boardSelectQna() {
+		return map.boardSelectQna();
+	}
+
+	@Override
+	public List<BoardVO> boardSelectReview() {
+		return map.boardSelectReview();
+	}
+
+	@Override
+	public int boardHit(BoardVO vo) {
+		
+		return map.boardHit(vo);
+	}
+
+	@Override
+	public List<BoardVO> boardSearch(BoardVO vo) {
+		return map.boardSearch(vo);
+	}
+
+
+
+	
 }

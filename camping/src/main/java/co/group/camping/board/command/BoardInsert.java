@@ -18,10 +18,11 @@ public class BoardInsert implements Command {
 		BoardVO vo = new BoardVO();
 
 		vo.setMemberId(request.getParameter("memberId"));
+		vo.setBoardKate(request.getParameter("boardKate"));
 		vo.setBoardTitle(request.getParameter("boardTitle"));
 		vo.setBoardSubject(request.getParameter("boardSubject"));
 		vo.setBoardWdate(Date.valueOf(request.getParameter("boardWdate")));
-
+		
 		int result = bs.boardInsert(vo);
 		System.out.println(result);
 		if (result != 0) {

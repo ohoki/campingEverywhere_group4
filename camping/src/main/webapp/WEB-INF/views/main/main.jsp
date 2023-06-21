@@ -17,6 +17,15 @@ a:hover {
 	color: #FF873D;
 }
 
+.portfolio-wrap {
+	height: 320px;
+}
+
+.img-fluid {
+	max-height: 100%;
+	height: 100%;
+	width: 100%;
+}
 </style>
 </head>
 <body>

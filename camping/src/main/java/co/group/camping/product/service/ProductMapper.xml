@@ -30,7 +30,7 @@
 		VALUES(#{productId},#{productName}, #{productPrice},
 		#{productBrand},
 		#{productKategorie}, #{productImage}, #{productDate},0,
-		#{imageFileName},#{productQuantity}, null)
+		#{imageFileName},#{productQuantity}, null, #{productDetail})
 	</insert>
 	<update id="productUpdate"
 		parameterType="co.group.camping.product.service.ProductVO">
@@ -41,7 +41,8 @@
 			<if test="productBrand != null">product_brand = #{productBrand},</if>
 			<if test="productDate != null">product_date = #{productDate},</if>
 			<if test="productKategorie != null">product_Kategorie = #{productKategorie},</if>
-			recommend = #{recommend}
+			recommend = #{recommend},
+			<if test="productDetail != null">product_detail = #{productDetail}</if>
 		</set>
 		WHERE product_id = #{productId}
 	</update>

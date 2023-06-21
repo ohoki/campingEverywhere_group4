@@ -14,10 +14,14 @@ public class BoardSelect implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		BoardService bs = new BoardServiceImpl();
 		BoardVO vo = new BoardVO();
+		
 		vo.setBoardId(Integer.valueOf(request.getParameter("boardId")));
+		
 		vo = bs.boardSelect(vo);
 		request.setAttribute("board", vo);
-
+		
 		return "board/boardSelect";
 	}
+	
+	
 }

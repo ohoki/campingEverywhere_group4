@@ -39,6 +39,7 @@ public class productInsert implements Command {
 			vo.setProductKategorie(multi.getParameter("productKategorie"));
 			vo.setProductDate(Date.valueOf(multi.getParameter("productDate")));
 			vo.setProductQuantity(Integer.valueOf(multi.getParameter("productQuantity")));
+			vo.setProductDetail(multi.getParameter("productDetail"));
 
 			if (ofile != null) {
 				vo.setProductImage(ofile);				

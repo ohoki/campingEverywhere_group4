@@ -4,6 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- java vo 와 db column명 매핑, 그외 여러가지 설정 -->
+	
+	
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 		<setting name="jdbcTypeForNull" value="NULL" />

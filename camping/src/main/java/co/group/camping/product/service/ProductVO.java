@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class ProductVO {
+public class ProductVO{
 	private String productId;
 	private String productName;
 	private int productPrice;
@@ -21,4 +21,5 @@ public class ProductVO {
 	private String imageFileName;
 	private int productQuantity;
 	private String recommend;
+	private String productDetail;
 }
