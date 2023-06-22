@@ -117,11 +117,16 @@ body[data-darkmode=on] .input-box>input {
 					required="required" placeholder="비밀번호"> <label
 					for="memberPw">비밀번호</label>
 			</div>
+			
+				<input type="checkbox" id="idCheck" name="idCheck"
+					style="position: relative; left: 0;" />
+				<label for="idCheck"><span></span></label>ID 저장
+			
 			<div id="forgot" onclick="searchPw()">비밀번호 찾기</div>
 			<input type="submit" value="로그인">
-
 		</form>
 	</div>
+	<script src="${contextPath}/resources/js/js.cookie.js"></script>
 	<script type="text/javascript">
 		function searchPw() {
 			let name = prompt("이름을 입력해주세요.", "이름");
@@ -134,22 +139,18 @@ body[data-darkmode=on] .input-box>input {
 	} 
 	
   	function htmlProcess(data){
-		if(data == 'none'){
-			alert("해당하는 회원을 찾을 수 없습니다.");
-		}else{
-			alert(data.memberId + "님의 비밀번호는 "+ data.memberPw +"입니다.");
-		}
+      if(data == 'none'){
+        alert("해당하는 회원을 찾을 수 없습니다.");
+      }else{
+        alert(data.memberId + "님의 비밀번호는 "+ data.memberPw +"입니다.");
+      }
 	}
-		
-		
-		
-		
+    
 		window.onload = function() {
-			if("${login}" == "fail") {
+			if ("${login}" == "fail") {
 				alert("아이디 또는 패스워드가 틀렸습니다. \n 다시 입력해주세요.");
-			} 
+			}
 		}
-
 	</script>
 </body>
 </html>

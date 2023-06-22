@@ -119,19 +119,22 @@ p {
 					<tr>
 						<td class="col1">이름<span class="num"> *</span></td>
 						<td class="col2"><input type="text" id="memberName"
-							name="memberName" maxlength="10" required="required" placeholder="이름"></td>
+							name="memberName" maxlength="10" required="required"
+							placeholder="이름"></td>
 					</tr>
 					<tr>
 						<td class="col1">아이디<span class="num"> *</span></td>
 						<td class="col2"><input type="email" id="memberId"
-							name="memberId" maxlength="30" required="required" placeholder="e-mail 형식">
+							name="memberId" maxlength="30" required="required"
+							placeholder="e-mail 형식">
 							<button class='but1' type="button" id="checkId" value="No"
 								onclick="idCheck()">중복확인</button></td>
 					</tr>
 					<tr>
 						<td class="col1">비밀번호<span class="num"> *</span></td>
 						<td class="col2"><input type="password" id="memberPw"
-							name="memberPw" required="required" maxlength="16" placeholder="비밀번호">
+							name="memberPw" required="required" maxlength="16"
+							placeholder="비밀번호">
 							<p>
 								※비밀번호는 <span class="num">문자, 숫자, 특수문자의 조합 10 ~ 16자리</span>로 입력이
 								가능합니다.
@@ -139,25 +142,33 @@ p {
 					</tr>
 					<tr>
 						<td class="col1">비밀번호 확인<span class="num"> *</span></td>
-						<td class="col2"><input type="password"  id="pwCheck" name="pwCheck"
-							required="required" maxlength="16" placeholder="비밀번호 확인"></td>
+						<td class="col2"><input type="password" id="pwCheck"
+							name="pwCheck" required="required" maxlength="16"
+							placeholder="비밀번호 확인"></td>
 					</tr>
 					<tr>
 						<td class="col1">전화번호<span class="num"> *</span></td>
 						<td class="col2"><input type="tel" id="memberTel"
-							name="memberTel" required="required" maxlength="13" placeholder="전화번호"/>
+							name="memberTel" required="required" maxlength="13"
+							placeholder="전화번호" />
 					</tr>
 					<tr>
 						<td class="col1">주소<span class="num"> *</span></td>
-						<td class="col2"><input type="text" id="memberAddr"
-							name="memberAddr" required="required" maxlength="65" class="addr" placeholder="주소"/>
+						<td class="col2"><input type="text" id="sample6_postcode"
+							placeholder="우편번호"> <input type="button"
+							onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+							<input type="text" id="sample6_address" name="sample6_address" placeholder="주소"><br>
+							<input type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소">
+							<input type="text" id="sample6_extraAddress" name="sample6_extraAddress" placeholder="참고항목">
+							<input type="hidden" id="memberAddr" name="memberAddr">
 					</tr>
 				</table>
 			</div>
 
 			<div class="create">
-				<input class="but2" type="reset" value="가입취소" onclick="location.href='main.do'"> &nbsp;&nbsp;
-				<input class="but3" type="submit" value="회원가입">
+				<input class="but2" type="reset" value="가입취소"
+					onclick="location.href='main.do'"> &nbsp;&nbsp; <input
+					class="but3" type="submit" value="회원가입">
 			</div>
 		</div>
 	</form>
@@ -167,6 +178,8 @@ p {
 		let frm = document.getElementById("frm");
 		let sizePw = frm.memberPw.value.toString().length;
 		console.log(sizePw);
+		document.getElementById("memberAddr").value = document.getElementById("sample6_address").value + " " +
+	  	document.getElementById("sample6_detailAddress").value;
 		if(10<= sizePw && sizePw <= 16 ) {
 			if(frm.memberPw.value != frm.pwCheck.value){
 				alert("패스워드가 일치 하지 않습니다.");
@@ -185,7 +198,7 @@ p {
 		return true;
 	} 
 	
- 	function idCheck() {
+ 	function idCheck(){
 		let id = document.getElementById("memberId").value;
 		let url = "ajaxCheckId.do?id="+id;
 		fetch(url)  //ajax 호출
@@ -203,6 +216,43 @@ p {
 			document.getElementById("memberId").focus();
 		}
 	}
+  	function sample6_execDaumPostcode(){
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = ''; 
+                var extraAddr = ''; 
+
+                if (data.userSelectedType === 'R') { 
+                    addr = data.roadAddress;
+                } else { 
+                    addr = data.jibunAddress;
+                }
+
+                if(data.userSelectedType === 'R'){
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("memberAddr").value = addr;
+            }
+        }).open();
+    }
+  	
 </script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

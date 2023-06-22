@@ -205,12 +205,6 @@ tr:hover {
 		</div>
 	</div>
 	<script>
-		document.getElementById('startDay').value = new Date().toISOString()
-				.substring(0, 10);
-		;
-		document.getElementById('endDay').value = new Date().toISOString()
-				.substring(0, 10);
-		;
 		function dateChange(day) {
 			if (day == 0) {
 				document.getElementById('startDay').value = new Date()
@@ -232,6 +226,12 @@ tr:hover {
 			frm.deliveryId.value = id;
 			frm.submit();
 		}
+		document.getElementById('startDay').value = new Date().toISOString()
+				.substring(0, 10);
+		;
+		document.getElementById('endDay').value = new Date().addDays(1).toISOString()
+				.substring(0, 10);
+		;
 	</script>
 </body>
 </html>
