@@ -123,7 +123,6 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxUpdateRecommend.do", new AjaxUpdateRecommend());
 		map.put("/deliveryList.do", new DeliveryList()); // 초기 리스트랑
 		map.put("/deliveryResearch.do", new DeliveryResearch());
-		map.put("/deliveryInsertFrom.do", new DeliveryInsertFrom()); 
 		map.put("/reviewInsertForm.do", new ReviewInsertForm()); 
 		map.put("/reviewInsert.do", new ReviewInsert());
 		map.put("/reviewSelect.do", new ReviewSelect());

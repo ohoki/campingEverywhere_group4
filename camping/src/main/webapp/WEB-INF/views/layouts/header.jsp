@@ -53,7 +53,6 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 						href="javascript:delivery()">주문/배송조회</a></li>
 					<li><a class="small nav-link scrollto" href="boardList.do">고객센터</a></li>
 					<li>
-										<!-- 다크모드 토글 -->
 					<li>
 						<div class="wrap">
 							<div class="darkmode">
@@ -108,7 +107,7 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				alert("주문배송 페이지는 로그인 후 사용하실 수 있습니다.")
 				location.href = 'memberLoginForm.do';
 			} else {
-				location.href = 'deliveryList.do';
+				location.href = 'deliveryResearch.do';
 			}
 		}
 		function myPage() {
@@ -130,7 +129,14 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 				location.href = 'cart.do';
 			}
 		}
-		
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage: 'ko,en',
+				includedLanguages: 'ko,zh-CN,zh-TW,ja,vi,th,tl,km,my,mn,ru,en,fr,ar',
+				layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+				autoDisplay: false
+			}, 'google_translate_element');
+		}
 		/* 다크모드 스크립트 */
 		
 		 document.addEventListener('DOMContentLoaded', function(){
@@ -157,5 +163,6 @@ input:autofill, input:autofill:hover, input:autofill:focus, input:autofill:activ
 
        })
 	</script>
+	<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

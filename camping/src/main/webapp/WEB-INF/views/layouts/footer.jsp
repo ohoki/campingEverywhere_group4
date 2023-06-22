@@ -95,6 +95,7 @@
 			</p>
 			<P>대구광역시 중구 중앙대로 403 (남일동 135-1, 5층)</P>
 			<p>대표 : 최영호</p>
+		<div id="google_translate_element" class="hd_lang"></div>
 		</div>
 	</section>
 	<footer id="footer">
@@ -103,5 +104,16 @@
 				resesrved</div>
 		</div>
 	</footer>
+	<script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'ko,en',
+			includedLanguages: 'ko,zh-CN,ja,en',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false
+		}, 'google_translate_element');
+	}
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

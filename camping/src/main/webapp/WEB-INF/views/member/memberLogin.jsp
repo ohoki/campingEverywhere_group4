@@ -96,7 +96,71 @@ input[type=submit] {
 body[data-darkmode=on] .input-box>input {
 	color: #F7F7F7;
 }
-
+<
+script
+ 
+type
+="
+text
+/
+javascript
+"
+ 
+src
+="
+https
+:
+//
+static
+.nid
+.naver
+.com
+/
+js
+/
+naverLogin_implicit-1
+.0
+.3
+.js
+"
+ 
+charset
+="
+utf-8
+"
+>
+</
+script
+>
+<
+script
+ 
+type
+="
+text
+/
+javascript
+"
+ 
+src
+="
+http
+:
+//
+code
+.jquery
+.com
+/
+jquery-1
+.11
+.3
+.min
+.js
+"
+>
+</
+script
+>
 </style>
 <title>로그인 페이지</title>
 </head>
@@ -118,24 +182,48 @@ body[data-darkmode=on] .input-box>input {
 					required="required" placeholder="비밀번호"> <label
 					for="memberPw">비밀번호</label>
 			</div>
+			
+				<input type="checkbox" id="idCheck" name="idCheck"
+					style="position: relative; left: 0;" />
+				<label for="idCheck"><span></span></label>ID 저장
+			
 			<div id="forgot" onclick="searchPw()">비밀번호 찾기</div>
 			<input type="submit" value="로그인">
-
 		</form>
 	</div>
+	<script src="${contextPath}/resources/js/js.cookie.js"></script>
 	<script type="text/javascript">
 		function searchPw() {
 			let name = prompt("이름을 입력해주세요.", "이름");
 			let memberId = prompt("아이디를 입력해주세요.", "아이디");
-			
-			location.href = "searchPw.do?name=" + name + "&memberId=" + memberId;
+
+			location.href = "searchPw.do?name=" + name + "&memberId="
+					+ memberId;
 		}
-		
+
 		window.onload = function() {
-			if("${login}" == "fail") {
+			if ("${login}" == "fail") {
 				alert("아이디 또는 패스워드가 틀렸습니다. \n 다시 입력해주세요.");
-			} 
+			}
 		}
+		$("#memberId").val(Cookies.get('key'));      
+	    if($("#memberId").val() != ""){
+	        $("#idCheck").attr("checked", true);
+	    }
+	    
+	$("#idCheck").change(function(){
+	    if($("#idCheck").is(":checked")){
+	        Cookies.set('key', $("#memberId").val(), { expires: 7 });
+	    }else{
+	          Cookies.remove('key');
+	    }
+	});
+	     
+	$("#memberId").keyup(function(){
+	    if($("#memberId").is(":checked")){
+	        Cookies.set('key', $("#memberId").val(), { expires: 7 });
+	    }
+	});
 
 	</script>
 </body>

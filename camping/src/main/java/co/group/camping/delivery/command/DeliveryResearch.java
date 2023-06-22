@@ -24,8 +24,10 @@ public class DeliveryResearch implements Command {
 		DeliveryVO vo = new DeliveryVO();
 		String ses = (String) session.getAttribute("id");
 		vo.setMemberId(ses);
+		if(request.getParameter("startDay") != null) {
 		vo.setStartDate(Date.valueOf(request.getParameter("startDay")));
 		vo.setEndDate(Date.valueOf(request.getParameter("endDay")));
+		}
 		del = ds.deliveryResearch(vo);
 		request.setAttribute("del", del);
 
