@@ -130,7 +130,7 @@ tr:hover {
 					<tr>
 						<th width="200">날짜/주문번호</th>
 						<th width="200">상품명/옵션</th>
-						<th width="200">상품금액/수량</th>
+						<th width="200">상품금액</th>
 						<th width="200">주문상태</th>
 						<th width="200">확인/리뷰</th>
 					</tr>

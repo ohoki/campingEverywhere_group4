@@ -115,9 +115,11 @@ th {
 
 	<script type="text/javascript">
 		function cartDelete(id) {
+			if (confirm("삭제하시겠습니까?")){
 			let frm = document.getElementById("frm");
 			frm.cartId.value = id;
 			frm.submit();
+			}
 		}
 
 		function purchaseAllItems() {

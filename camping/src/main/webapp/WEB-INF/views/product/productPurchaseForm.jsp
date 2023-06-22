@@ -114,7 +114,7 @@ th {
 			</div>
 			<div>
 				<label class="form-label" for="address">주소</label> <input
-					class="form-input" type="text" id="addr" name="address">
+					class="form-input" type="text" id="addr" name="address" value="${addr}">
 			</div>
 			<div>
 				<label class="form-label" for="phone">전화번호</label> <input
