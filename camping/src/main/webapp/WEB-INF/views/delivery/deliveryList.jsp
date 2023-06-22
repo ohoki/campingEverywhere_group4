@@ -10,10 +10,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 20px 0;
+}
+
 body {
 	font-family: Arial, sans-serif;
 }
-
 
 .container {
 	width: 80%;
@@ -26,6 +35,14 @@ h3 {
 }
 
 form {
+	margin-bottom: 20px;
+}
+
+.search button{
+	margin-bottom: 20px;
+}
+
+.search input {
 	margin-bottom: 20px;
 }
 
@@ -49,6 +66,10 @@ button[type="submit"] {
 	margin-top: 10px;
 	padding: 10px 20px;
 	cursor: pointer;
+}
+
+#review_btn {
+	width: 140px;
 }
 
 button:hover {
@@ -83,9 +104,9 @@ tr:hover {
 	<div class="container">
 		<div align="center">
 			<div>
-				<h3>주문 배송 조회</h3>
+				<h3 class="title">주문 배송 조회</h3>
 			</div>
-			<div>
+			<div class="search">
 				<form id="frm" action="deliveryResearch.do" method="post">
 					<button type="button" onclick="dateChange(0)">오늘</button>
 					<button type="button" onclick="dateChange(-7)">7일</button>
@@ -93,7 +114,6 @@ tr:hover {
 					<button type="button" onclick="dateChange(-30)">1개월</button>
 					<button type="button" onclick="dateChange(-90)">3개월</button>
 					<button type="button" onclick="dateChange(-365)">1년</button>
-					&nbsp;
 					<div id="#">
 						<input type="date" id="startDay" name="startDay" /> ~ <input
 							type="date" id="endDay" name="endDay" />
@@ -103,8 +123,6 @@ tr:hover {
 					</div>
 				</form>
 			</div>
-
-			<br> <br>
 		</div>
 		<div align="center">
 			<table border="1">
@@ -170,9 +188,7 @@ tr:hover {
 										<c:when test="${d.DELIVERY_CHECK eq 'Y'}">배송완료</c:when>
 										<c:otherwise>FALSE</c:otherwise>
 									</c:choose></td>
-								<!--<button type="button" onclick="location.href=#"></button> 
-						버튼 클릭스 리뷰작성으로 가기  -->
-								<td><button type="button" onclick=""></button></td>
+								<td><button type="button" onclick="location.href='productSelect.do?productId=${d.PRODUCT_ID}'" id="review_btn">리뷰 쓰러가기</button></td>
 							</tr>
 						</c:forEach>
 					</c:if>

@@ -4,10 +4,13 @@
 	<select id="cartList" resultType="map">
 		SELECT cart_id, cart_num,
 		c.member_id, c.product_id, m.member_name, p.product_price
-		,p.product_name, (c.cart_num*p.product_price) as total, p.product_image
+		,p.product_name, (c.cart_num*p.product_price) as total,
+		p.product_image, p.image_file_name
 		FROM cart c join
-		member m ON(c.member_id = m.member_id) join product p ON(c.product_id
-		= p.product_id)
+		member m
+		ON(c.member_id = m.member_id) join product p ON(c.product_id
+		=
+		p.product_id)
 		WHERE c.member_id = #{memberId}
 		ORDER BY cart_id
 	</select>
@@ -19,10 +22,10 @@
 		FROM CART),1,#{memberId},#{productId})
 	</insert>
 	<update id="cartUpdate">
-		
+
 	</update>
 	<delete id="cartDelete"
-	parameterType="co.group.camping.cart.service.CartVO">
+		parameterType="co.group.camping.cart.service.CartVO">
 		DELETE FROM cart
 		WHERE cart_id = #{cartId}
 	</delete>

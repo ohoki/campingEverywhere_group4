@@ -41,7 +41,6 @@
 									<c:if test="${auth eq 'A'}"> 
 									<option value="공지사항">공지사항</option>
 									</c:if>
-									<option value="구매후기">구매후기</option>
 									<option value="문의사항">문의하기</option>
 								</select>
 							</td>

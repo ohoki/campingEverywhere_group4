@@ -36,9 +36,9 @@ public class productSelect implements Command {
 		request.setAttribute("cart", cart);
 		
 		ReviewService rs = new ReviewServiceImpl();
-		ReviewVO vo = new ReviewVO();
-		vo.setProductId(request.getParameter("productId"));
-		List<ReviewVO> list = rs.reviewSelectList(vo);
+		ReviewVO rvo = new ReviewVO();
+		rvo.setProductId(request.getParameter("productId"));
+		List<ReviewVO> list = rs.reviewSelectList(rvo);
 		
 		request.setAttribute("reviews", list);
 		

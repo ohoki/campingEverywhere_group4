@@ -7,6 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
 .review_haader {
 	display: flex;
 	justify-content: space-between;
@@ -95,13 +105,12 @@ label input {
 		<div style="margin: auto; width: 60%;">
 			<form action="" method="post" id="frm">
 				<div class="review_haader">
-					<h3 style="color: black; text-align: center;">리뷰 상세보기</h3>
+					<h3 class="title">리뷰 상세보기</h3>
 					<div>
 						<c:if test="${id == review.memberId}">
 							<button type="button"
 								onclick="location.href='reviewUpdateForm.do?reviewId=${review.reviewId}'">수정</button>
-							<button type="button"
-								onclick="reviewDelete()">삭제</button>
+							<button type="button" onclick="reviewDelete()">삭제</button>
 						</c:if>
 					</div>
 				</div>
@@ -112,7 +121,7 @@ label input {
 					<div class="review_inf">
 						<div>
 							<label for="memberId"> 작성자 <input type="text"
-								value="${id}" readonly="readonly" name="memberId">
+								value="${review.memberId}" readonly="readonly" name="memberId">
 							</label> <label for="reviewRate">평점 : <c:forEach begin="1"
 									end="${review.reviewRate}" step="1">
 									<i class="fa-solid fa-star" style="color: #fad900;"></i>
@@ -126,8 +135,9 @@ label input {
 					</div>
 				</div>
 				<div align="center" class="menu_btn">
-					<input
-						type="button" value="뒤로가기" onclick="location.href='productSelect.do?productId=${review.productId}'">
+					<input type="button" value="뒤로가기"
+						onclick="location.href='productSelect.do?productId=${review.productId}'">
+					<input type="button" value="홈으로" onclick="location.href='main.do'">
 				</div>
 				<div>
 					<input type="hidden" name="productId" value="${productId}">

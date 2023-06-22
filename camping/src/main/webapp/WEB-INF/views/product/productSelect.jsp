@@ -12,6 +12,16 @@ a {
 	color: white;
 }
 
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
 .product_select_haader {
 	display: flex;
 	justify-content: space-between;
@@ -166,7 +176,7 @@ a {
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
 			<form action="#" method="post">
 				<div class="product_select_haader">
-					<h3 style="color: black; text-align: left;">${product.productName}</h3>
+					<h3 class="title">${product.productName}</h3>
 					<div>
 						<c:if test="${auth == 'A'}">
 							<button type="button"
@@ -225,14 +235,14 @@ a {
 			</form>
 			<div class="main_header">
 				<ul>
-					<li><a href="#">상품 상세정보</a></li>
-					<li><a href="#">상품 후기</a></li>
-					<li><a href="#">문의하기</a></li>
+					<li><a href="#productDetail">상품 상세정보</a></li>
+					<li><a href="#reveiwTable">상품 후기</a></li>
+					<li><a href="boardAll.do">문의하기</a></li>
 				</ul>
 			</div>
-			<div class="product_detail">${product.productDetail}</div>
+			<div class="product_detail" id="productDetail">${product.productDetail}</div>
 			<div>
-				<div class="main_footer">
+				<div class="main_footer" id="reveiwTable">
 					<h2>상품후기</h2>
 					<button type="button" onclick="reviewInsert()">상품후기 글쓰기</button>
 				</div>
@@ -243,7 +253,8 @@ a {
 									step="1">
 									<i class="fa-solid fa-star" style="color: #fad900;"></i>
 								</c:forEach></td>
-							<td style="text-align: left; cursor: pointer;" onclick="location.href='reviewSelect.do?reviewId=${r.reviewId}'">${r.reviewTitle}</td>
+							<td style="text-align: left; cursor: pointer;"
+								onclick="location.href='reviewSelect.do?reviewId=${r.reviewId}'">${r.reviewTitle}</td>
 							<td width="15%">${r.memberId}</td>
 							<td width="15%">${r.reviewDate}</td>
 						</tr>
@@ -316,9 +327,7 @@ a {
 				}
 			}
 		}
-		function cartDelete(id){
-			
-		}
+		
 		function productPurchaseForm(id){
 			let singIn = "${id}";
 			if (singIn == "") {
@@ -329,6 +338,7 @@ a {
 				frm.productId.value = id
 				frm.submit();
 			}
+		}
 			
 		function reviewInsert() {
 			let id = "${id}";

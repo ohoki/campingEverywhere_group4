@@ -8,6 +8,16 @@
 <title>상품 등록</title>
 
 <style type="text/css">
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
 .prodcut_inf {
 	border: 1px solid #bbb;
 	padding: 5px;
@@ -57,7 +67,7 @@
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
 			<form action="productInsert.do" method="post" enctype="multipart/form-data" id="frm">
 				<div class="w3-center w3-text-white w3-round">
-					<h3 style="color: black; text-align: center;">상품 등록</h3>
+					<h3 class="title">상품 등록</h3>
 				</div>
 				<div class="w3-margin-bottom w3-border prodcut_inf">
 					<input type="file" name="pfile" class="w3-input w3-border w3-white">

@@ -48,7 +48,7 @@ input:placeholder-shown+label {
 	top: 15px;
 }
 
-input:focus+label, label {
+.input-box input:focus+label, .input-box label {
 	color: #8aa1a1;
 	font-size: 10pt;
 	pointer-events: none;
@@ -96,7 +96,6 @@ input[type=submit] {
 body[data-darkmode=on] .input-box>input {
 	color: #F7F7F7;
 }
-
 </style>
 <title>로그인 페이지</title>
 </head>
@@ -127,9 +126,23 @@ body[data-darkmode=on] .input-box>input {
 		function searchPw() {
 			let name = prompt("이름을 입력해주세요.", "이름");
 			let memberId = prompt("아이디를 입력해주세요.", "아이디");
+			let url = "searchPw.do?name=" + name + "&&memberId=" + memberId;
 			
-			location.href = "searchPw.do?name=" + name + "&memberId=" + memberId;
+			fetch(url)
+			.then(response => response.json())
+			.then(text => htmlProcess(text));
+	} 
+	
+  	function htmlProcess(data){
+		if(data == 'none'){
+			alert("해당하는 회원을 찾을 수 없습니다.");
+		}else{
+			alert(data.memberId + "님의 비밀번호는 "+ data.memberPw +"입니다.");
 		}
+	}
+		
+		
+		
 		
 		window.onload = function() {
 			if("${login}" == "fail") {

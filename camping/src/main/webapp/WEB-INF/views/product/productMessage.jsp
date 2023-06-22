@@ -14,11 +14,21 @@
 	border: 2px solid #8aa1a1;
 }
 
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: center;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 50px;
+}
+
 </style>
 </head>
 <body>
-	<div align="center">
-		<h1>${message}</h1>
+	<div align="center" style="margin: 50px;">
+		<h1 class="title">${message}</h1>
 		<br>
 		<br>
 		<input class="but" type="button" value="목록"

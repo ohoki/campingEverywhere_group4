@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>리뷰 등록</title>
 <style type="text/css">
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
 .review_form {
 	border: 1px solid #bbb;
 	padding: 5px;
@@ -73,7 +83,7 @@ textarea {
 			<form action="reviewInsert.do" method="post"
 				enctype="multipart/form-data" id="frm">
 				<div class="w3-center w3-text-white w3-round">
-					<h3 style="color: black; text-align: center;">리뷰 등록</h3>
+					<h3 class="title">리뷰 등록</h3>
 				</div>
 				<div class="w3-margin-bottom w3-border review_form">
 					<input type="file" name="pfile" id="pfile">

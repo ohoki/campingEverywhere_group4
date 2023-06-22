@@ -59,8 +59,8 @@ a:hover {
 										<a href="assets/img/products/${p.imageFileName}"
 											data-gallery="portfolioGallery" class="portfolio-lightbox"
 											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
-											href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
-											class="bx bx-link"></i></a>
+											href="productSelect.do?productId=${p.productId}"
+											title="상품 페이지로"><i class="bx bx-link"></i></a>
 									</div>
 								</div>
 							</div>
@@ -80,8 +80,8 @@ a:hover {
 										<a href="assets/img/products/${p.imageFileName}"
 											data-gallery="portfolioGallery" class="portfolio-lightbox"
 											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
-											href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
-											class="bx bx-link"></i></a>
+											href="productSelect.do?productId=${p.productId}"
+											title="상품 페이지로"><i class="bx bx-link"></i></a>
 									</div>
 								</div>
 							</div>
@@ -101,31 +101,32 @@ a:hover {
 										<a href="assets/img/products/${p.imageFileName}"
 											data-gallery="portfolioGallery" class="portfolio-lightbox"
 											title="${p.productName}"><i class="bx bx-plus"></i></a> <a
-											href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
-											class="bx bx-link"></i></a>
+											href="productSelect.do?productId=${p.productId}"
+											title="상품 페이지로"><i class="bx bx-link"></i></a>
 									</div>
 								</div>
 							</div>
 						</c:forEach>
 
 						<h2 id="review">구매 후기</h2>
-						<div class="col-lg-4 col-md-6 portfolio-item filter-new">
-							<div class="portfolio-wrap">
-								<img src="assets/img/portfolio/portfolio-1.jpg"
-									class="img-fluid" alt="">
-								<div class="portfolio-info">
-									<h4>짱구</h4>
-									<p>가격</p>
-								</div>
-								<div class="portfolio-links">
-									<a href="assets/img/portfolio/portfolio-1.jpg"
-										data-gallery="portfolioGallery" class="portfolio-lightbox"
-										title="짱구"><i class="bx bx-plus"></i></a> <a
-										href="productSelect.do?productId=${p.productId}" title="상품 페이지로"><i
-										class="bx bx-link"></i></a>
+						<c:forEach items="${reviews}" begin="0" end="2" step="1" var="r">
+							<div class="col-lg-4 col-md-6 portfolio-item">
+								<div class="portfolio-wrap">
+									<img src="assets/img/review/${r.imageFileName}"
+										class="img-fluid" alt="">
+									<div class="portfolio-info">
+										<h4>${r.reviewTitle}</h4>
+									</div>
+									<div class="portfolio-links">
+										<a href="assets/img/review/${r.imageFileName}"
+											data-gallery="portfolioGallery" class="portfolio-lightbox"
+											title="${r.reviewTitle}"><i class="bx bx-plus"></i></a> <a
+											href="reviewSelect.do?reviewId=${r.reviewId}"
+											title="리뷰 보기"><i class="bx bx-link"></i></a>
+									</div>
 								</div>
 							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</section>

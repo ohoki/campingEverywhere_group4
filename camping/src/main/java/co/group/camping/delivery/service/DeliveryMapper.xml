@@ -11,7 +11,7 @@
 		d join product p
 		ON(d.product_id = p.product_id)
 		WHERE d.member_id =
-		#{memberId}
+		#{memberId} ORDER BY delivery_date DESC
 	</select>
 	<select id="deliveryResearch" resultType="map"
 		parameterType="co.group.camping.delivery.service.DeliveryVO">
@@ -24,7 +24,7 @@
 		join member m ON(d.member_id = m.member_id)
 		WHERE
 		DELIVERY_DATE BETWEEN
-		#{startDate} AND #{endDate} AND d.member_id =
+		#{startDate} AND #{endDate}+1 AND d.member_id =
 		#{memberId}
 	</select>
 	<select id="deliverySelect" resultType="map"

@@ -12,6 +12,9 @@ import co.group.camping.product.service.ProductComparator;
 import co.group.camping.product.service.ProductService;
 import co.group.camping.product.service.ProductServiceImpl;
 import co.group.camping.product.service.ProductVO;
+import co.group.camping.review.service.ReviewService;
+import co.group.camping.review.service.ReviewServiceImpl;
+import co.group.camping.review.service.ReviewVO;
 
 public class MainCommand implements Command {
 
@@ -21,6 +24,9 @@ public class MainCommand implements Command {
 		@SuppressWarnings("unchecked")
 		ArrayList<ProductVO> products2 = (ArrayList<ProductVO>)products1.clone();
 		List<ProductVO> products3 = ps.productSelectMd();
+		
+		ReviewService rs = new ReviewServiceImpl();
+		List<ReviewVO> reviews = rs.reviewList();
 			
 		// 신상품 정렬 (내림차순)
 		Collections.sort(products1, new ProductComparator().reversed());
@@ -29,6 +35,7 @@ public class MainCommand implements Command {
 		Collections.sort(products2, (p1,p2)->p2.getProductSales() - p1.getProductSales());
 		request.setAttribute("products2", products2);
 		request.setAttribute("products3", products3);
+		request.setAttribute("reviews", reviews);
 		return "main/main";
 	}
 }
