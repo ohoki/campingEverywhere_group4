@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0;
+}
+
 .prodcut_inf {
 	border: 1px solid #bbb;
 	padding: 5px;
@@ -55,7 +65,7 @@
 		<div class="w3-margin-top w3-main" style="margin: auto; width: 60%;">
 			<form action="productEdit.do" method="post" id="frm">
 				<div class="w3-center w3-text-white w3-round">
-					<h3 style="color: black; text-align: center;">상품 수정</h3>
+					<h3 class="title">상품 수정</h3>
 				</div>
 				<div class="w3-margin-bottom w3-border prodcut_inf">
 					<div>
@@ -89,10 +99,11 @@
 					<input type="button" value="취소"
 						class="w3-button w3-white w3-round-small"
 						onclick="location.href='productList.do'"> &nbsp;<input
-						type="button" value="수정" class="w3-button w3-white w3-round-small" onclick="submitPost()">
+						type="button" value="수정" class="w3-button w3-white w3-round-small"
+						onclick="submitPost()">
 				</div>
 				<input type="hidden" name="recommend"
-						class="w3-input w3-border w3-white" value="${product.recommend}">
+					class="w3-input w3-border w3-white" value="${product.recommend}">
 			</form>
 		</div>
 	</div>

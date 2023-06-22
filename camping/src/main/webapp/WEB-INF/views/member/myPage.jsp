@@ -19,11 +19,33 @@ body {
 	width: 80%;
 }
 
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 20px 0;
+}
+
 .my_header {
 	display: flex;
 	justify-content: space-between;
-	padding: 0 50px;
-	margin: 60px 0;
+	padding-right: 50px;
+	margin: 60px 0 30px;
+}
+
+.header_btn {
+	display: flex;
+}
+
+.header_btn button{
+	margin-left: 30px;
+}
+
+table {
+	margin-bottom: 70px;
 }
 
 h3 {
@@ -91,13 +113,21 @@ body[data-darkmode=on] h3 {
 <body>
 	<div class="container">
 		<div class="my_header">
-			<h2>마이 페이지</h2>
-			<button type="button" onclick="location.href='memberEditForm.do'">정보
-				수정</button>
+			<h2 class="title">마이 페이지</h2>
+			<div class="header_btn">
+				<button type="button" onclick="location.href='memberEditForm.do'">정보
+					수정</button>
+				<div>
+					<button type="button" onclick="memberDelete()">회원 탈퇴</button>
+					<form action="memberDelete.do" method="post" id="frm">
+						<input type="hidden" name="memberId" value="${id }">
+					</form>
+				</div>
+			</div>
 		</div>
 		<div>
 			<!-- 단순 예시 수정 필요 -->
-			<h3>최근 주문 정보</h3>
+			<h3 class="title">최근 주문 정보</h3>
 			<div align="center">
 				<table border="1">
 					<thead>
@@ -148,31 +178,6 @@ body[data-darkmode=on] h3 {
 						</tr>
 					</tbody>
 				</table>
-			</div>
-			<div>
-				<h3>장바구니</h3>
-				<div align="center">
-					<table border="1">
-						<thead>
-							<tr>
-								<th width="200">날짜/주문번호</th>
-								<th width="200">상품명/옵션</th>
-								<th width="200">상품금액/수량</th>
-								<th width="200">주문상태</th>
-								<th width="200">확인/리뷰</th>
-							</tr>
-						</thead>
-						<tbody>
-
-						</tbody>
-					</table>
-				</div>
-				<div align="right" style="padding: 20px 50px;">
-					<button type="button" onclick="memberDelete()">회원 탈퇴</button>
-					<form action="memberDelete.do" method="post" id="frm">
-						<input type="hidden" name="memberId" value="${id }">
-					</form>
-				</div>
 			</div>
 		</div>
 	</div>

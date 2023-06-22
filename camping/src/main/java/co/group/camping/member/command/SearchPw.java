@@ -13,15 +13,18 @@ public class SearchPw implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		MemberService ms = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
+		String str = "ajax:";
 		
 		vo.setMemberId(request.getParameter("memberId"));
 		vo = ms.memberSelect(vo);
 
 		if (vo != null && vo.getMemberName().equals(request.getParameter("name"))) {
-			request.setAttribute("message", vo.getMemberId() + "님의 비밀번호는 " + vo.getMemberPw() + " 입니다.");
+			str += "{\"memberPw\":\""+vo.getMemberPw()+"\",\"memberId\":\""+vo.getMemberId()+"\"}"; 
+			
+			request.setAttribute("member", vo);
 		}else {
-			request.setAttribute("message", "입력한 정보와 일치하는 회원이 없습니다.");
+			str += "none";
 		}
-		return "member/memberMessage";
+		return str;
 	}
 }

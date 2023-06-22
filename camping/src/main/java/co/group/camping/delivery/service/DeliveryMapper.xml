@@ -11,7 +11,7 @@
 		d join product p
 		ON(d.product_id = p.product_id)
 		WHERE d.member_id =
-		#{memberId}
+		#{memberId} ORDER BY delivery_date DESC
 	</select>
 	<select id="deliveryResearch" resultType="map"
 		parameterType="co.group.camping.delivery.service.DeliveryVO">

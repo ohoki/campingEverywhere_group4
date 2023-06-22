@@ -7,14 +7,20 @@
 <title>Insert title here</title>
 </head>
 <style type="text/css">
+.editForm {
+	width: 60%;
+	margin: 0 auto;
+}
 .title {
 	font-weight: 500;
 	line-height: 1.2;
 	font-size: 1.3em;
 	font-family: sans-serif;
 	color: #5a656e;
-	margin: 0;
+	margin: 10px 0;
+	text-align: left;
 }
+
 .board_bottom input {
 	border: 1px solid #5a656e;
 	background-color: #5a656e;
@@ -24,9 +30,37 @@
 	height: 28px;
 	color: white;
 }
+
+table {
+	width: 100%;
+}
+
+th {
+	width: 10%;
+}
+
+td {
+	padding: 5px 0;
+}
+
+textarea {
+	resize: none;
+	border: 1px solid #bbb;
+}
+
+#boardTitle {
+	margin: 10px 0;
+	padding: 5px 0;
+	border: 1px solid #bbb;
+}
+
+.board_bottom {
+	margin-bottom: 40px;
+	text-align: center;
+}
 </style>
 <body>
-	<div align="center">
+	<div class="editForm">
 		<div><h1 class="title">게시글 수정</h1></div>
 		<div>
 			<form id="frm" action="boardUpdate.do" method="post">
@@ -41,7 +75,6 @@
 								<td width="100">
 									<select id="boardKate" name="boardKate" required="required">
 										<option value="공지사항">공지사항</option>
-										<option value="구매후기">구매후기</option>
 										<option value="문의사항">문의사항</option>
 									</select>
 								</td>
@@ -53,13 +86,13 @@
 						<tr>
 							<th>제목</th>
 							<td colspan="3">
-								<input type="text" id="boardTitle" name="boardTitle" size="98" value="${board.boardTitle}">
+								<input type="text" id="boardTitle" name="boardTitle" value="${board.boardTitle}" style="width: 100%;">
 							</td>
 						</tr>
 						<tr>
 							<th>내용</th>
 							<td colspan="3">
-								<textarea rows="10" cols="100" id="boardSubject" name="boardSubject">${board.boardSubject}</textarea>
+								<textarea rows="10" cols="100" id="boardSubject" name="boardSubject" style="width: 100%;">${board.boardSubject}</textarea>
 							</td>
 						</tr>
 					</table>

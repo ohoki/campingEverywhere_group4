@@ -7,6 +7,17 @@
 <meta charset="UTF-8">
 <title>주문 상세 내역</title>
 <style>
+.title {
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 1.3em;
+	text-align: left;
+	font-family: sans-serif;
+	color: #5a656e;
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid #bbb;
+}
+
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -17,10 +28,16 @@ h2 {
 	margin-bottom: 10px;
 }
 
+.form_box {
+	width: 60%;
+	margin: 40px auto;
+}
+
 table {
 	width: 100%;
 	border-collapse: collapse;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 th, td {
@@ -30,7 +47,6 @@ th, td {
 
 th {
 	background-color: #f2f2f2;
-	text-align: left;
 }
 
 .image {
@@ -62,8 +78,8 @@ th {
 </style>
 </head>
 <body>
-	<div align="center">
-		<h2>주문 상세 내역</h2>
+	<div class="form_box">
+		<h2 class="title">주문 상세 내역</h2>
 		<form action="deliveryInsert.do" method="post">
 			<table>
 				<thead>
@@ -79,13 +95,13 @@ th {
 						<td><img alt="상품1" class="image"
 							src="assets/img/products/${product.imageFileName}">
 							${product.productName}</td>
-						<td>남은 수량 : ${product.productQuantity}</td>
-						<td>${product.productPrice}</td>
-						<td>임시</td>
+						<td>1개</td>
+						<td><strong>${product.productPrice}</strong> 원</td>
+						<td><strong>${product.productPrice}</strong> 원</td>
 					</tr>
 				</tbody>
 			</table>
-			<h2>주문 정보 입력</h2>
+			<h2 class="title">주문 정보 입력</h2>
 			<div>
 				<label class="form-label" for="name">이름</label> <input
 					class="form-input" type="text" id="name" name="name"
@@ -98,26 +114,20 @@ th {
 			</div>
 			<div>
 				<label class="form-label" for="address">주소</label> <input
-					class="form-input" type="text" id="addr" name="address" readonly>
+					class="form-input" type="text" id="addr" name="address">
 			</div>
 			<div>
 				<label class="form-label" for="phone">전화번호</label> <input
 					class="form-input" type="tel" id="phone" name="phone"
 					placeholder="전화번호를 입력해주세요.">
 			</div>
-			<div>
+			<div style="text-align: right;">
 				<input type="hidden" id="productId" name="productId"
 					value="${product.productId}">
 				<button class="submit-button" type="submit">주문하기</button>
 			</div>
 		</form>
-		<div>
-			
-		</div>
+		<div></div>
 	</div>
-
-	<script>
-  
-</script>
 </body>
 </html>

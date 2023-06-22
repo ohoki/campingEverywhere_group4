@@ -2,11 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.group.camping.review.service.ReviewMapper">
 	<select id="reviewList"
-		resultType="co.group.camping.product.service.ProductVO"
-		parameterType="co.group.camping.product.service.ProductVO">
+		resultType="co.group.camping.review.service.ReviewVO">
 		SELECT *
-		FROM product WHERE product_kategorie =
-		#{productKategorie}
+		FROM review
 	</select>
 	<select id="reviewSelectList"
 		resultType="co.group.camping.review.service.ReviewVO"

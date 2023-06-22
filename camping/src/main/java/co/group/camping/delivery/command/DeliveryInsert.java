@@ -24,14 +24,14 @@ public class DeliveryInsert implements Command {
 		DeliveryVO vo = new DeliveryVO();
 		vo.setMemberId((String) session.getAttribute("id"));
 		vo.setProductId(request.getParameter("productId"));
-		System.out.println(vo.getProductId());
+		
 		ds.deliveryInsert(vo);
 		List<Object> del = ds.deliverySelectList(vo);
 
 		ProductService ps = new ProductServiceImpl();
 		ProductVO product = new ProductVO();
 		product.setProductId(request.getParameter("productId"));
-		System.out.println(product.getProductId());
+		
 		ps.productQuantity(product);
 		ps.productSales(product);
 		request.setAttribute("del", del);

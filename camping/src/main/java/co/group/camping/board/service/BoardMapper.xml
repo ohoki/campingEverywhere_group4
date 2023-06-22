@@ -22,7 +22,7 @@
 
             SELECT * FROM board
             WHERE board_kate= '공지사항'
-            ORDER BY board_wdate DESC
+            ORDER BY board_id DESC
             
  )  a   )WHERE rn BETWEEN #{first}  and #{last} 
 	</select>
