@@ -117,11 +117,6 @@ body[data-darkmode=on] .input-box>input {
 					required="required" placeholder="비밀번호"> <label
 					for="memberPw">비밀번호</label>
 			</div>
-			
-				<input type="checkbox" id="idCheck" name="idCheck"
-					style="position: relative; left: 0;" />
-				<label for="idCheck"><span></span></label>ID 저장
-			
 			<div id="forgot" onclick="searchPw()">비밀번호 찾기</div>
 			<input type="submit" value="로그인">
 		</form>

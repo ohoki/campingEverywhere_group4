@@ -37,7 +37,6 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<br>
 		<p>회원가입 성공 ! !</p>
 		<br> <input class="but2" type="button" onclick="location.href='main.do'"
 			id="home" name="home" value="홈으로"> 

@@ -107,6 +107,10 @@ p {
 	color: red;
 	font-size: 0.7em;
 }
+
+#sample6_address{
+	margin: 10px 0;
+}
 </style>
 </head>
 <body>
@@ -157,10 +161,13 @@ p {
 						<td class="col2"><input type="text" id="sample6_postcode"
 							placeholder="우편번호"> <input type="button"
 							onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" id="sample6_address" name="sample6_address" placeholder="주소"><br>
-							<input type="text" id="sample6_detailAddress" name="sample6_detailAddress" placeholder="상세주소">
-							<input type="text" id="sample6_extraAddress" name="sample6_extraAddress" placeholder="참고항목">
-							<input type="hidden" id="memberAddr" name="memberAddr">
+							<input type="text" id="sample6_address" name="sample6_address"
+							placeholder="주소" size="80"> <input type="hidden"
+							id="sample6_extraAddress" name="sample6_extraAddress"
+							placeholder="주소" size="80"> <br> <input type="text"
+							id="sample6_detailAddress" name="sample6_detailAddress"
+							placeholder="상세주소" size="80"> <input type="hidden" id="memberAddr"
+							name="memberAddr">
 					</tr>
 				</table>
 			</div>
@@ -245,7 +252,7 @@ p {
                 }
 
                 document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById("sample6_address").value = addr +  document.getElementById("sample6_extraAddress").value;
                 document.getElementById("sample6_detailAddress").focus();
                 document.getElementById("memberAddr").value = addr;
             }
@@ -253,6 +260,7 @@ p {
     }
   	
 </script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>
