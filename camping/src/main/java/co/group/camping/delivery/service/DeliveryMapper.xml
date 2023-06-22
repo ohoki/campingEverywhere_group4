@@ -22,12 +22,13 @@
 		FROM delivery d join product p ON(d.product_id =
 		p.product_id)
 		join member m ON(d.member_id = m.member_id)
-		WHERE 1=1 
+		WHERE d.member_id = #{memberId} 
 		<if test="startDate != null">
 		AND  DELIVERY_DATE BETWEEN
 		#{startDate} AND #{endDate} AND d.member_id =
 		#{memberId}
 		</if> 
+		ORDER BY delivery_date DESC 
 	</select>
 	<select id="deliverySelect" resultType="map"
 		parameterType="co.group.camping.delivery.service.DeliveryVO">

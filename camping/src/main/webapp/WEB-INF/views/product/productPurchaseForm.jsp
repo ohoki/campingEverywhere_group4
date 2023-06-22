@@ -105,11 +105,11 @@ th {
 			<div>
 				<label class="form-label" for="name">이름</label> <input
 					class="form-input" type="text" id="name" name="name"
-					placeholder="이름을 입력해주세요." required>
+					placeholder="이름을 입력해주세요." required value="${name}">
 			</div>
 			<div>
 				<label class="form-label" for="email">이메일</label> <input
-					class="form-input" type="email" id="email" name="email"
+					class="form-input" type="email" id="email" name="email" value="${id}"
 					placeholder="이메일을 입력해주세요." required>
 			</div>
 			<div>
@@ -118,7 +118,7 @@ th {
 			</div>
 			<div>
 				<label class="form-label" for="phone">전화번호</label> <input
-					class="form-input" type="tel" id="phone" name="phone"
+					class="form-input" type="tel" id="phone" name="phone" value="${tel}"
 					placeholder="전화번호를 입력해주세요.">
 			</div>
 			<div style="text-align: right;">
